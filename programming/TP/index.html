@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="data:;base64,=">
+<title>Tiny Proxy online help</title>
+<link href="tp.css" rel="stylesheet" type="text/css">
+<link href="tp-narrow.css" rel="stylesheet" type="text/css">
+<link href="ico.css" rel="stylesheet" type="text/css">
+<script src="ico.js"></script>
+<script src="tp.js"></script>
+</head>
+<body>
+<div id="h"><a href="..">Achernar's programming page</a></div>
+<div id="top"><a href="#"><svg viewBox="0 0 400 600"><path d="M 186 7 214 7 397 195 397 227 309 227 309 422 91 422 91 227 3 227 3 195 z M 200 45 58 191 129 191 129 386 271 386 271 191 342 191 z M 91 462 309 462 309 598 91 598 z M 129 498 129 562 271 562 271 498 z"/></svg></a></div>
+<div style="display:none;">
+<svg id="ico" class="drct" viewBox="0 0 128 128">
+<g transform="translate(64,64)">
+<line class="Ih" x1="28" y1="0" x2="54" y2="0" stroke-width="20" stroke-linecap="round"/>
+<line class="IL4" transform="rotate(48)" x1="28" y1="0" x2="54" y2="0" stroke-width="20" stroke-linecap="round"/>
+<line class="IL9" transform="rotate(96)" x1="28" y1="0" x2="54" y2="0" stroke-width="20" stroke-linecap="round"/>
+<line class="IU4" transform="rotate(-48)" x1="28" y1="0" x2="54" y2="0" stroke-width="20" stroke-linecap="round"/>
+<line class="IU9" transform="rotate(-96)" x1="28" y1="0" x2="54" y2="0" stroke-width="20" stroke-linecap="round"/>
+</g>
+<rect class="Ir" x="4" y="54" width="40" height="20"/>
+<circle class="Ic" fill="none" stroke-width="12" line-width="12" cx="64" cy="64" r="23"/>
+<circle class="Icf" line-width="12" cx="64" cy="64" r="23"/>
+<circle class="Iw" line-width="12" cx="21" cy="21" r="19"/>
+<circle class="IwI" line-width="12" cx="21" cy="107" r="19"/>
+</svg></div>
+<div class="lastU">Last update: 2020/09/13</div>
+<h1 name="extension" Tname="The extension"><a name="extension" href="#extension"></a>Tiny Proxy help</h1>
+
+Tiny Proxy ("TP") is an extension originally designed to have the smallest memory footprint as possible. Considering that the extension itself doesn't handle proxying in the browser, and only provides an interface to modify its settings, it should not add bloat. TP transmits the proxy configuration chosen by the user &ndash; it writes a PAC script which in turn is handled entirely by your browser.
+
+<p>Tiny Proxy is available in the <a href="https://chrome.google.com/webstore/detail/lfkcejmhdobcohddodlbhmecbplciobn" target="_blank">Chrome web store</a>.</p>
+
+By default, TP is not enabled in your browser incognito mode.<br>
+If you want to use it also in this mode, right-click TP's icon<span class="icon"><svg class="sstm" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>in chrome toolbar. Click "Manage extensions". It should open a new tab with TP extension settings. Scroll down and enable "Allow in incognito".<br>
+If you ever desire you can revert the option as easily.<p>
+
+<h3 name="browser_warning"><a name="browser_warning" href="#browser_warning"></a>Browser warning</h3>
+Several times, days after the installation, your browser will display this security message at startup. It's perfectly normal. If you want to continue to use Tiny Proxy click "Keep changes".
+<p><img class="img" src="control.gif"></p>
+<br>
+<input type="checkbox" id="toctg" checked>
+<div id="toc"><label for="toctg" class="tit" title="click to (un)float"><b>Table of contents</b><a id="tog">Hide</a></label>
+<ul><li><a href="#extension">The extension</a><ul><li><a href="#browser_warning">Browser warning</a></li></ul></li><li><a href="#interface">Interface</a></li><li><a href="#basic">Basic settings</a><ul><li><a href="#basic_proxy">Proxy server</a></li><li><a href="#basic_bypass">Bypass list</a></li><li><a href="#default_proxies">The default proxies</a></li><li><a href="#basic_def_option">Default options</a></li></ul></li><li><a href="#icons">The icons</a></li><li><a href="#other">Settings - overview</a><ul><li><a href="#naming">Naming convention</a></li><li><a href="#proxy_settings">User proxies</a><ul><li><a href="#p_server">Server proxy</a></li><li><a href="#p_switch">Switch proxy</a></li><li><a href="#p_pool">Pool proxy</a></li>
+<li><a href2="#p_alias" href="#p_pac">PAC & Alias</a></li>
+<li><a href="#p_bypass">Bypass list</a></li><li><a href="#sel_proxy">Selecting a proxy</a></li><li><a href="#used">Used by</a></li><li><a href="#errCol">Errors &amp; colors</a></li></ul></li><li><a href="#system_proxy">The System proxy</a></li><li><a href="#options">Options panel</a></li></ul></li><li><a href="#popup">The popup window</a><ul><li><a href="#tmp_rule">Temporary rules</a></li></ul></li><li><a href="#Exp_imp">Exporting and importing</a><ul><li><a href="#Imp_raw">Importing raw data</a></li></ul></li><li><a href="#notes">Notes</a></li></ul></div>
+
+<h2 name="interface"><a name="interface" href="#interface"></a>Interface</h2>
+The settings page is accessible from the contextual menu of Tiny Proxy's icon<span class="icon"><svg class="sstm" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>. Right-click TP's icon in chrome toolbar, and click "Options". From there you can add/remove/modify proxies, and configure the extension.
+<p>To use a proxy defined in your settings, left-click TP's icon to open the popup window.
+<br>
+
+<h2 name="basic"><a name="basic" href="#basic"></a>Basic settings</h2>
+<h3 name="basic_proxy"><a name="basic_proxy" href="#basic_proxy"></a>Proxy server</h3>
+To start using TP you have to define a proxy server.<br>
+This can be done either by adding a new "server" proxy, or a "PAC" proxy.
+<ul>
+<li>The "server" proxy is the basic server configuration interface as found in most programs that handle proxy settings (OS, browsers, ...).
+<li>A "PAC" proxy contains the javascript code used by the browser to handle your proxy settings. Currently TP only handles PAC source code, it doesn't allow links to load script from your disk or from a remote server.
+</ul>
+By default, when a new proxy is added, it doesn't appear in the popup window. To make it visible click the checkbox next to its name in the proxies list on the left side of the settings page.<br>
+<p><img class="img" src="popup-chk.png"></p>
+
+<br>
+<h3 name="basic_bypass"><a name="basic_bypass" href="#basic_bypass"></a>Bypass list</h3>
+The bypass list is used to prevent local addresses from being processed by a proxy.<br>
+It can be modified from the top menu. Note that this list is local to TP. It only affects proxies/settings defined in TP.
+
+<p>You can fine-tune the list in each proxy profile. But the modified list will only be used if that particular proxy is used as the "root" proxy (the one that appears selected in the popup window).
+<p><img class="img" src="bypass-or.png"></p>
+
+<h3 name="default_proxies"><a name="default_proxies" href="#default_proxies"></a>The default proxies</h3>
+TP popup window displays 2 specials proxies.<br>
+<ul>
+<li>[ System ] : TP instructs the browser to use your Operating System's proxy.<br>
+As an extension TP has no way to know anything about your OS settings. It has no control over the bypass list used by that system.
+<li>[ Direct ] : This tells the browser to ignore OS proxy settings, and connect directly to web servers.
+</ul>
+
+<h3 name="basic_def_option"><a name="basic_def_option" href="#basic_def_option"></a>Default options</h3>
+TP default setting tells your browser that it can decide which extension can set a proxy when TP is "idle" (when the current proxy is "[&nbsp;System&nbsp;]" without temporary rules).
+
+<br><br>
+
+<h2 name="icons"><a name="icons" href="#icons"></a>The icons</h2>
+If at any moment Tiny Proxy icon looks like this<span class="icon"><svg class="notProx" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>, it means that another extension with higher priority over chrome's proxy settings has set a proxy.
+<p>
+If Tiny Proxy is enabled in incognito mode, you can encounter an intermediate state of priority conflict.<br>
+If present, these red dots<span class="icon"><svg class="dotN" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span><span class="icon"><svg class="dotI" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>mean that Tiny Proxy has only partial control. The upper dot indicates no control on standard tabs, and the lower dot, on incognito tabs.
+<p>
+Other icons are indicative of the type of proxy currently selected.</p>
+<span class="icon"><svg class="sstm" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>system<br>
+<span class="icon"><svg class="drct" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>direct<br>
+<span class="icon"><svg class="srvr" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>server<br>
+<span class="icon"><svg class="swt" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>switch<br>
+<span class="icon"><svg class="pool" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>pool<br>
+<span class="icon"><svg class="pac" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>pac script<br>
+<span class="icon"><svg class="tmpSv" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>a temporary filter is set (in combination with any of the icons above)<br>
+<span class="icon"><svg class="sstmOP" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>TP is set to [system] but another extension with lower priority has set a proxy
+<p>
+Only if the option is enabled (not by default):<br>
+<span class="icon"><svg class="sstmNS" viewBox="0 0 128 128"><use xlink:href="#ico"></use></svg></span>A temporary proxy has been set with [&nbsp;System&nbsp;] as current proxy, but TP has no "System proxy" defined.<br>
+<p>
+See below for more information on using "<a href="#system_proxy">System proxy</a>".
+<br><br>
+<h2 name="other"><a name="other" href="#other"></a>Settings - overview</h2>
+
+<h3 name="naming"><a name="naming" href="#naming"></a>Naming convention</h3>
+Two proxies of the same type can't use the same name. Identical names can be used as long as it is for different types of proxies. It doesn't add much confusion, since, throughout the interface, proxies are sorted by type and/or prefixed with the symbol associated with their type.
+
+<h3 name="proxy_settings"><a name="proxy_settings" href="#proxy_settings"></a>User proxies</h3>
+
+Tiny Proxy offers 5 types of user defined proxies.
+<ul>
+<li>The "<a href="#p_server">server</a>" proxy is the basic profile used by all other types of proxy profiles.
+<li>A "<a href="#p_switch">switch<a>" consists of a list of rules to fine-tune the websites to use with or without a proxy.
+<li>A "<a href="#p_pool">pool</a>" is used to assemble a group of "server" proxies and let the browser pick the first valid. It can be used for unreliable servers as long as at least one in the set is usable at this time. 
+<li>A "<a href="#p_pac">PAC</a>" proxy contains the javascript code used by the browser to handle your proxy settings. Currently only the javascript source code can be stored, no remote script locations.
+<li>The "<a href="#p_alias">alias</a>" proxy can be used to point to any type of proxy, even another alias. TP ensures that no loop is generated. Alias proxies can be changed on the fly from the popup window without the need to edit a proxy configuration.
+</ul>
+
+<br>
+<div class="indent">
+<h4 name="p_server"><a name="p_server" href="#p_server"></a>Server proxy</h4>
+Available proxy protocols are HTTP, HTTPS, socks4 and socks5.<br>
+As usual, you can assign a different proxy to http:// https// and ftp:// sites.
+<p><img class="img" src="server2.gif"></p>
+You can paste complex syntax into the "server" input field. TP will separate protocol, server and port if it recognizes the syntax. It currently supports: <i>meth://addr:port | meth addr:port | addr port | addr:port | addr [+-]port | addr:port meth</i> .
+<p>Starting with version 0.5, a new scheme has been added: "[ auto ]" will create a server that behind the scene is a "pool" proxy with the 4 schemes. Preferably this option is only for testing a server. I don't recommend using it in an everyday situation. It can, more than often, create a "time-out" period of more than a minute before actually connecting for the first time (and that, whenever a modification is done to the current proxy tree). This is the reason why this option is only available in the "all" line.</p>
+<p><b>Note:</b> Tiny Proxy doesn't handle proxy server authentication yet. It's probably only a matter of testing. You're free to volunteer.
+<br><br>
+
+<p><b><a name="duplicates" href="#duplicates" class="nolnk">Duplicates</a></b></p>
+
+<p>Tiny Proxy warns you if you enter a server IP/name already used in another server proxy.
+<p><img class="img" src="server-dup2.gif"></p>
+In this image you can see 3 different matches.<br>
+The red icon indicates complete match, and the yellow icon, incomplete match (on the hostname only). Clicking the icon shows the list of matching servers.<br>
+Lines #1 and #2 show the same kind of complete match (name + port)<br>
+Line #3 shows a complete match, but only on the name (this line has no port)<br>
+Line #4 shows an incomplete match on the name. Matched servers have a different port.<br>
+Lines #1 and #2 also show incomplete matches alongside complete matches.  <span class="new">(in versions >=0.5)</span><br>
+<br>
+<h4 name="p_switch"><a name="p_switch" href="#p_switch"></a>Switch proxy</h4>
+With the switch proxy you can build a list of rules to fine-tune the websites to use with or without a proxy.<br>
+Available condition types are:
+<ul>
+<li>host wildcard
+<li>host RegExp
+<li>IP (or mask) &ndash; tests are done on sites with literal IP. Hostnames are not resolved to match the IP/mask of the filter.
+<li>Include &ndash; this includes rules from another switch
+<li>URL wildcard &ndash; for security reason, reserved for http:// sites only
+<li>URL RegExp &ndash; for security reason, reserved for http:// sites only
+</ul> 
+<p><img class="img" src="switch.gif"></p>
+Switches included by the "Include" condition are stripped of their "everything else" rule.</p>
+Rules can be reordered one row at a time using the up/down arrows&nbsp;<img class="img" src="arrows.gif">. They can also be dragged to another position. A condition can be disabled by selecting the checkbox, or deleted by clicking the red X mark&nbsp;<img class="img" src="del.gif">. The&nbsp;arrow&nbsp;<img class="img" src="lnk.gif"> is used to access the proxy profile used in a rule.<p>
+Instead of selecting a proxy from the dropdown list, you can drag it from the global list on the left side of the screen, and drop it on the chosen field. <span class="new">(new in version 0.6)</span><br>
+
+<h4 name="p_pool"><a name="p_pool" href="#p_pool"></a>Pool proxy</h4>
+A pool proxy is a set of "server" proxies.<br>
+It can be used when you have unreliable servers and still want/need to use them. When a url needs to be proxied through this king of proxy, the browser will try to use them, starting with the first one. The process of finding the first working server can be long if failing ones are timing out. But once one works it sticks to it as long as it can.<br>
+The process is restarted if anything is changed in your active proxy: changing an alias, adding/removing a temporary rule, editing an element of the proxy tree (if you are using switches or other pools).
+
+<p><img class="img" src="pool.gif"></p>
+
+Servers can be reordered one row at a time using the up/down arrows&nbsp;<img class="img" src="arrows.gif">. They can also be dragged to another position. A server can be disabled by selecting the checkbox, or deleted by clicking the red X mark&nbsp;<img class="img" src="del.gif">. The&nbsp;arrow&nbsp;<img class="img" src="lnk.gif"> is used to access the server profile.<p>
+Instead of selecting a proxy from the dropdown list, you can drag it from the global list on the left side of the screen, and drop it on the chosen field or on the "add server" button. <span class="new">(new in version 0.6 and 0.6.3)</span><br>
+<br>
+<b>Important note:</b>
+a "pool" proxy will fail if the first reactive server accepts connections but sends empty responses to the browser (a faulty server or one with invalid credentials). Then, the servers following it in the list won't be tested. You'll have to identify the faulty server and disable it to fix the behavior. A future version of Tiny Proxy might come with a way to detect such servers. But until then...
+<br>
+
+<h4 Nname="p_pac"><a name="p_pac" href="#p_pac"></a>PAC proxy</h4>
+If you want more details about the structure of a PAC script, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file" target="_blank">this documentation</a> (mozilla).<p>
+Syntax errors here, or other types of errors, won't cause problems in the rest of your proxy config. <span class="new">(new in version 0.6)</span><br><br>
+
+<h4 Nname="p_alias"><a name="p_alias" href="#p_alias"></a>Alias proxy</h4>
+An alias proxy can point to any other proxy profile. It has the advantage of allowing the modification of the target in one place, instead of changing it wherever the target is used (mainly switches).<br>
+When in use by the current proxy, they appear in the popup window and can be changed from there.<p>
+Instead of selecting a proxy from the dropdown list, you can drag it from the global list on the left side of the screen, and drop it on the chosen field. <span class="new">(new in version 0.6)</span>
+
+<h4 name="p_bypass"><a name="p_bypass" href="#p_bypass"></a>Bypass list</h4>
+Each proxy profile has an associated bypass list. This list is only used when this particular proxy is the root proxy (the one selected in the popup window). It is ignored if the proxy is used for a temporary rule, in a switch, a pool...<p>
+
+By default, the bypass list is the default list, editable from the top menu.<br>
+You can either leave it unchanged, append new lines, or replace the default list with the content of the new list (which can be empty).<p>
+
+The alias proxy has a special default option, "Use option of aliased proxy". Which means that, if it is the root proxy, it will use the bypass option of the aliased proxy (alias proxies can be chained).
+
+<p>In summary, only one bypass list is used. The one associated with the root proxy. (If [ System ] or [ Direct ] is used with a temporary proxy, the bypass list used is TP's default one).
+
+<p class="fl noM"><img class="img" src="bypass.gif"></p><p class="fl noM"><img class="img" src="by-ch1.gif"></p><p class="fl noM"><img class="img" src="by-ch2.gif"></p>
+
+<h4 name="sel_proxy"><a name="sel_proxy" href="#sel_proxy"></a>Selecting a proxy</h4>
+<p class="fl"><img class="img" src="select.gif"></p>
+Wherever you need to select a proxy you will see this list.<br>
+The green line is the current value (if there is one set)<br>
+The red lines are invalid values, disabled to prevent proxy loops.
+
+<p>Proxies are grouped by type and prefixed with the symbol of that type. The same symbol is used in the popup window.
+
+<p>[ Direct ] tells the browser to send the requests directly to the web server<br>
+[ System / Direct ] the proxy to be used is Tiny Proxy's "System proxy". If none is defined, it falls back to "direct".
+
+<h4 name="used" tname="Used by"><a name="used" href="#used"></a>"Used by"</h4>
+Each proxy configuration page has a section named "Used by". It displays a list of all other proxies using this one. You can follow the links to these proxies editing form.<br>
+A proxy currently used by at least one other proxy, can't be deleted.
+
+<br><br>
+<h4 name="errCol" tname="Errors &amp; colors"><a name="errCol" href="#errCol"></a>Proxies - errors and colors &nbsp; <span class="new">(new in version 0.6)</span></h4>
+User's settings can be color-coded to indicate errors. (See <a href="#options">options panel</a>; option enabled by default)
+<p>
+<p class="fl noM num num2"><img class="img" src="serverErr.gif"><span>#1</span></p>
+<p class="fl noM num "><img class="img" src="poolErr.gif"><span>#2</span></p>
+<p class="fl noM num "><img class="img" src="aliasErr.gif"><span>#3</span></p>
+<p class="fl noM num "><img class="img" src="aliasErr2.gif"><span>#4</span></p>
+<p class="fl noM num num2"><img class="img" src="switchErr.gif"><span>#5</span></p>
+<p class="clr">
+Fields colored in <span class="err">red</span> indicate a syntax error, an invalid, or an empty value. <span class="errSub">Purple</span> has to be investigated, but is not always fatal.<p>
+In all examples above, <span class="err">red</span> will prevent TP from creating a valid proxy with these values. They will be ignored when it creates a script and transmits it to chrome.<p>
+#1, when parts of the "all" line are invalid, will cause failure in a switch (prior to <span class="new">version 0.6.1</span> it was redirecting to "direct") and will be ignored elsewhere. The other scheme lines will just be ignored in case of error, just like if they were empty.<p> 
+#2 A red proxy is ignored, while a purple one is valid, and used. Purple in this case indicates that invalid values have been filled into the schemes fields, which isn't problematic (only) here (they aren't used in pools anyway).<p>
+#3 indicates an invalid proxy name. Rules using it will be ignored.<br>
+#4 means that the proxy profile aliased contains invalid values that will cause failure for this alias. It will probably redirect to "direct" or be ignored.<p>
+#5 like for aliases, purple indicates errors in sub-proxy. Rules can be ignored due to this.<br>(Proxy used in line 2 is invalid because it must be a switch.)<p>
+
+</div>
+<br class="clr">
+<h3 name="system_proxy"><a name="system_proxy" href="#system_proxy"></a>The System proxy</h3>
+
+The "System proxy" is a special proxy. It is used to mimic your system proxy &ndash; either the proxy settings defined by your operating system, by your browser, or by any program installed to handle this.
+
+<p>Due to limitations of the proxy system implemented for extensions, an extension can't access your system's proxy settings. If you want to use these settings in TP, you need to fill in the "System proxy" (from the top menu).<br>
+Note that selecting [&nbsp;System&nbsp;] in the popup window will use the real system proxy. But once TP adds any proxying (eg. temporary rules) it has to use its own definition (or fall back to [ Direct ] if none is set).
+
+<p>The "System proxy" can be defined as a server, a switch, a PAC script, or disabled. Disabling doesn't clear the settings. They can still be used if you decide to enable it again.
+
+<p>For most of you, your system has no proxy defined. TP has this special proxy to help you in case you need it.
+<br><br>
+
+<h3 name="options" tname="Options panel"><a name="options" href="#options"></a>The options panel</h3>
+<ul>
+<li>Proxy to load at startup &ndash; <i>the proxy profile to load when the browser is started, or when the extension is enabled</i>
+<li>allow per site temporary proxying &ndash; <i>allows the user to set temporary proxy rules. This displays a button ("show add panel") in the popup window.</i>
+<li>always display "per site" panel &ndash; <i>permanently show the "add" panel (instead of the button activating it);</i>
+<li>display "per site" on tabs without website &ndash; <i>also activate temporary proxying interface when the popup is opened on tabs without website (browser's private page, new tab page, local file, ...).</i>
+<li>list aliases used by temporary filters &ndash; <i>by default the "alias" proxies currently in use are listed in the popup window. Except for the aliases used only in temporary rules.</i>
+<li>When a proxy is invalid, default to "direct" &ndash; <i>when an invalid proxy (settings empty or incomplete) is selected from the popup window, TP has to decide which default proxy to select. [&nbsp;System&nbsp;] or [&nbsp;Direct&nbsp;]. See <a href="#popup">popup window</a>, screenshot #4.</i>
+<li>Enable icon color for undefined "System proxy" &ndash; <i>If a temporary proxy has been set with [&nbsp;System&nbsp;] as current proxy, but TP has no "System proxy" defined, then display the [&nbsp;System&nbsp;] icon with a different color. <a href="#icons">see icons</a></i>
+<li>When "[ System ]" proxy is selected &ndash; <i>select whether TP tries to keep full control of your browser proxy settings when no proxy is used, preventing other proxy extensions from working (depending on priorities among extensions)</i>
+<li>Show settings errors (colored outline) &ndash; <i>whether TP should display a colored border around <a href="#errCol">faulty input fields</a></i>
+</ul>
+The modification of an option takes effect immediately.
+<br><br>
+
+<h2 name="popup"><a name="popup" href="#popup"></a>The popup window</h2>
+
+By default, newly created proxies don't appear in the popup window. You can choose which proxies you want to see in the list by checking the checkbox next to their name in the proxy list on the settings page.
+
+<p class="clr"></p>
+
+<p class="fl noM num"><img class="img" src="popup-sys.gif"><span>#1</span></p>
+<p class="fl noM num"><img class="img" src="popup-sw-a.gif"><span>#2</span></p>
+<p class="num"><img class="img" src="popup-tmp.gif"><span>#3</span></p>
+<p class="clr">The popup window is the interface between the user and Tiny Proxy. The user can select a proxy from the list displayed, and the browser will automatically switch to that proxy. If somehow the proxy profile is invalid (or incomplete), TP falls back to [&nbsp;System&nbsp;] or [&nbsp;Direct&nbsp;] (screenshot #4).
+<p>Screenshot #2 shows an alias used by the proxy in use, and #3 another alias used by a temporary rule.<br>
+#3 shows a list of temporary rules.
+<a name="tmp_rule"></a>
+<p>#4 also shows the "add" panel. This is the interface used for adding temporary rules.<br>
+<p class="num"><img class="img" src="popup-add-tmp.gif"><span>#4</span></p>
+<div class="indent">
+<h3 name="tmp_rule"><a name="tmp_rule" href="#tmp_rule"></a>Temporary rules</h3>
+If the current tab is a website, its domain name is displayed. You can choose the part you want to base your rule on by clicking it. This fills the input field where you can still modify it. If a page contains a frame, the right-click context menu on that frame shows a command to add its hostname to the list in the popup window.
+<p>If the input field is empty, the list of available proxies (next to "Use:") displays only "switch" proxies. When the input field contains a hostname, the list is filled with all types of proxies except "switch".<br>
+Currently, the only available type of condition for a temporary rule is a host wildcard. Except for a switch proxy which contains its own conditions.
+
+<p>A temporary rule can be placed before or after the bypass list verification. Note that <a href="#p_bypass">bypass lists</a> associated with proxies used in temporary rules, are ignored.
+
+<p>The bypass list used while a temporary rule is set, is the one associated with the profile currently selected in the popup menu. or the default one when [ System ] or [ Direct ] is the choice. 
+
+</div>
+<br>
+
+<h2 name="Exp_imp"><a name="Exp_imp" href="#Exp_imp"></a>Exporting and importing</h2>
+<div class="indent">
+<h3>Full export</h3>
+You can save your data and settings by going to the "Export / Import" panel on the <a href="#interface">settings page</a>.
+</div>
+<br>
+
+<div class="indent">
+<h3>Partial export <span class="new">New in version 0.6.3</span></h3>
+<p>If you want to export or share a small set of your proxies, drag them from the list on the left to the drop zone. The area will expand, and display 3 lists.</p>
+You add proxies by dropping them in the first zone. You can remove them individually using the X icon&nbsp;<img class="img" src="del.gif"> . Once a proxy is added, its structure is analyzed and all proxies it depends on (eg. switch and pool) are added (to the 3rd list). Moreover servers (":" prefix) are also added to the second list (as well as in the 3rd) when an alias (if it points to a server, as "youtube" in picture #2), a pool, or a server is added in the drop zone.<p>
+The behavior allows you to export a proxy structure without - if you cross the checkbox - giving out your actual servers. This, while still being able to export some servers (present in the second list).
+
+<p class="num"><img class="img" src="export_select.gif"><span>#1</span></p> 
+<p class="num"><img class="img" src="export_select_e.gif"><span>#2</span></p>
+<br>
+
+<h3>Import from file</h3>
+You can select which element(s) to restore. Proxies, options, "system proxy", bypass list, can be restored separately.<br>
+This is the method used to import data exported using the 2 methods above.
+<br>
+
+<h3 name="Imp_raw" tname="Importing raw data"><a name="Imp_raw" href="#Imp_raw"></a>Importing raw servers listing <span class="new">New in version 0.5</span></h3>
+Tiny Proxy can import servers' listing from raw data pasted from webpages.<br>
+For pages without a scheme specified in each proxy line, TP can select a default value to apply during the import process. It can also override schemes in case you deemed them incorrect &ndash; which is more common than you think.<p>
+In these circumstances, if you want to foolproof any possible scheme, you can select:
+<ul>
+<li>"all schemes"; TP creates 4 proxy servers, each with a different scheme (SOCKS5, SOCKS4, HTTPS, HTTP)</li>
+<li>"[ auto ]" will create a server that behind the scene is a "pool" proxy with the 4 schemes.<br>
+This option is only for testing a server. I don't recommend using it in an everyday situation. It can, more than often, create a "time-out" period of more than a minute before actually connecting for the first time (and that, whenever a modification is done to the current proxy tree).</li>
+<li>"all + auto"; TP creates 5 proxy servers by combining the 2 options above.</li>
+</ul>
+
+Duplicates (of already defined servers, or from within the import list itself) will be marked and ignored. 
+
+<p><br>
+</div>
+<h2 name="notes"><a name="notes" href="#notes"></a>Notes</h2>
+<p>Tiny Proxy doesn't handle proxy server authentication. It's probably only a matter of testing. You're free to volunteer.
+<p>All settings must be saved to take effect.<br>
+The only exceptions are for the settings of the "options" panel, and the "in popup" checkboxes, whose modifications are immediate.
+<p>The export file format is only compatible with Tiny Proxy. TP understands only its own export files. If you need another format, point me to a description of that other format.
+<p>Feel free to report bugs or ask for improvements. Use <a href="https://chrome.google.com/webstore/detail/lfkcejmhdobcohddodlbhmecbplciobn/support" target="blank">the extension page</a> to post comments.
+</a>
+
+<footer class="credits">"Tiny Proxy" (c) 2019, 2020 by <a href="http://users.skynet.be/alternity/programming/" class="nolink" target="_blank">Achernar</a></footer>
+</body>
+<script>
+"use strict";
+//20191207 -+  
+//buildTOC();
+sel();
+</script>
+</html>

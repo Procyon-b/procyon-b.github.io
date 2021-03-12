@@ -1,0 +1,91 @@
+.icon svg {
+  --h: none;
+  --L4: none;
+  --L9: none;
+  --U4: none;
+  --U9: none;
+  --r: none;
+  --c: none;
+  --cf: none;
+  --w: none;
+  --wI: none;
+}
+.icon svg.sstm, .icon svg.drct, .icon svg.sstmOP {
+  --h: blue;
+  --r: blue;
+  --c: blue;
+  --L4: blue;
+  --U4: blue;
+}
+.icon svg.drct, .icon svg.srvr {
+  --L4: darkgray;
+  --U4: darkgray;
+}
+.icon svg.srvr, .icon svg.pool {
+  --h: #cc4400;
+  --r: #cc4400;
+  --c: #cc4400;
+}
+.icon svg.swt {
+  --h: #cc4400;
+  --r: #cc4400;
+  --c: #cc4400;
+  --L4: #cc4400;
+  --U4: #cc4400;
+  --L9: darkgray;
+  --U9: darkgray;
+}
+.icon svg.pool {
+  --L4: blue;
+  --U4: blue;
+}
+.icon svg.pac {
+  --h: blue;
+  --r: #cc4400;
+  --c: #cc4400;
+  --U4: blue;
+}
+.icon svg.tmpSv {
+  --h: darkgray;
+  --r: darkgray;
+  --c: darkgray;
+  --L4: darkgray;
+  --U4: darkgray;
+  --L9: #ff9933;
+  --U9: #ff9933;
+}
+.icon svg.sstmOP {
+  --w: blue;
+}
+.icon svg.sstmNS {
+  --h: #c61aff;
+  --r: #c61aff;
+  --c: #c61aff;
+  --L4: #c61aff;
+  --U4: #c61aff;
+  --U9: #ff9933;
+}
+.icon svg.notProx, .icon svg.dotN, .icon svg.dotI  {
+  --r: #cc4400;
+  --c: #cc4400;
+  --cf: red;
+}
+.icon svg.dotN {
+  --w: red;
+}
+.icon svg.dotI {
+  --wI: red;
+}
+
+.Ih {stroke:var(--h);}
+.IL4 {stroke:var(--L4);}
+.IL9 {stroke:var(--L9);}
+.IU4 {stroke:var(--U4);}
+.IU9 {stroke:var(--U9);}
+.Ir{fill:var(--r);}
+.Ic {stroke:var(--c);}
+.Icf {fill:var(--cf);}
+.Iw {fill:var(--w);}
+.IwI {fill:var(--wI);}
+
+.icon svg {vertical-align: 2px;}

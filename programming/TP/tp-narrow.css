@@ -1,0 +1,14 @@
+@media screen and (max-width: 1080px) and (min-width: 700px) {
+  #toctg:checked + #toc:not(:hover) {
+    max-height: 6em;
+    transition: max-height 0.3s;
+  }
+  #toctg:checked + #toc:hover {
+    transition: max-height 0.2s;
+  }
+}
+@media screen and (max-width: 700px) {
+  #toc {
+    position: initial !important;
+  }
+}

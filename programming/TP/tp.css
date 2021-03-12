@@ -1,0 +1,224 @@
+#h {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  background-color: lightblue;
+  margin: 0;
+  padding: 0.3em 0 0.6em 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#h::before {
+  content: "";
+  margin: 1rem;
+}
+#h a, a.nolnk {
+  text-decoration: none;
+  color: initial;
+}
+
+
+h1 {
+  font-weight: 600;
+}
+h2, h3 {
+  font-weight: 600;
+  clear: both;
+}
+h4, .clr {
+  clear: both;
+}
+
+h2 {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: .3em;
+}
+body {
+  font-family: Segoe UI,Tahoma,Helvetica,Arial,sans-serif;
+  font-size: 95%;
+  max-width: 55em;
+  margin: 6em 2em 2em 2em;
+}
+.icon {
+  border:1px solid darkgray;
+  border-radius: 4px;
+  display: inline-block;
+  width:1em;
+  height: 1em;
+  overflow: hidden;
+  font-size: 1.2rem;
+  margin: 3px 5px -1px;
+  vertical-align: bottom;
+}
+
+.img {
+  border: 2px solid lightblue;
+  vertical-align: bottom;
+}
+p > .img:first-child {
+  margin-left: 0.5em;
+}
+p.num {
+  position: relative;
+}
+p.num > span {
+  vertical-align: top;
+  background: lightblue;
+  border-radius: 0 0.6em 0.6em 0;
+  padding-right: 0.4em;
+}
+p.num2 > span {
+  right: 0;
+  border-radius: 0.6em 0 0 0.6em;
+  padding-right: 0.2em;
+  padding-left: 0.4em;
+  position: absolute;
+}
+
+.fr {
+  float: right;
+  margin-top: 0;
+  margin-left: 2em;
+}
+.fl {
+  float: left;
+  margin-top: 0;
+  margin-right: 2em;
+}
+.noM {
+  margin-right: 0.5em;
+}
+
+.indent {
+  margin-left: 1.6em;
+}
+
+.indent > h4, .indent > h3 {
+  margin-left: -0.6em;
+}
+
+#top {
+  position: fixed;
+  background-color: lightgray;
+  border-radius: 1em;
+  padding: 0 0.2em;
+  bottom: 0.5em;
+  right: 0.5em;
+  font-size: 4em;
+  height: 1em;
+  overflow: hidden;
+  z-index: 2;
+}
+#top a {
+  color: #555555;
+  line-height: 0.93em;
+  text-decoration: none;
+  vertical-align: 0.4em;
+  margin: 0 0.04em;
+}
+#top svg {
+  height: 0.77em;
+  fill: currentColor;
+}
+
+#toctg, #toc #tog {
+  display: none;
+}
+#toctg:checked + #toc {
+  font-size: 90%;
+  position: fixed;
+  background: white;
+  border: 2px solid black;
+  top: 1em;
+  right: 1em;
+  padding: 0 1em 0 0.5em;
+  max-height: calc( 100% - 8.5em);
+  overflow: auto;
+  z-index: 2;
+}
+#toctg:checked + #toc #tog {
+  display: block;
+  float: right;
+  font-size: 75%;
+  cursor: pointer;
+}
+#toc > .tit {
+  cursor: pointer;
+}
+
+#toctg:checked + #toc ul {
+  padding-left: 1.5em;
+}
+#toc ul {
+  padding-left: 2em;
+}
+
+#toc li a {
+  text-decoration: none;
+  color: #0366d6;
+}
+#toc li a.cur {
+  color: red;
+}
+
+a[name][href] {
+  outline: none;
+}
+a[name][href]::before {
+  content: "#";
+  float: left;
+  margin-left: -0.8em;
+  width: 0.8em;
+  color: #cccccc;
+  opacity: 0;
+  cursor: pointer;
+}
+*:hover > a[name][href]::before {
+  opacity: 1;
+}
+
+.credits {
+  border-top: solid 1px #cc4400;
+  margin: 6rem 0 2rem 0;
+  font-size: 0.85rem;
+  width: 100%;
+  left: 0;
+}
+.credits::before {
+  content: "";
+  margin: 0.5rem;
+}
+.lastU {
+  float:right;
+  color: lightgray;
+  font-size: 0.8em;
+}
+
+.err {
+  ooutline: 2px solid #ff6666;
+  border: 2px solid #ff6666;
+}
+.errSub {
+  ooutline: 2px solid #990099;
+  border: 2px solid #990099;
+}
+
+span.new {
+  font-size: 80%;
+  font-weight: bold;
+  color: #cc4400;
+}
+h3 span.new {
+  font-size: 68%;
+  margin-left: 1em;
+}
+
+/* fix search sites cached page */
+body>div[style="position:relative;"], body>div.cacheContent {
+  position: initial !important;
+}
