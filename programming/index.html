@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Achernar's programming page</title>
+<link rel="icon" href="data:;base64,=">
+<link href="index.css" rel="stylesheet" type="text/css">
+<style>
+:not(.toc) > h3 {
+  border-top: 1px solid red;
+  max-width: 60rem;
+}
+
+.multiL {
+  --hidH: 3em;
+  --hidH2: 3.8em;
+  --disp: block;
+  position: relative;
+}
+.multiL:not(.showL) {
+  --disp: none;
+}
+
+.multiL label.tag {
+  display: var(--disp);
+  background: lightblue;
+  color: black;
+  border-radius: 5px;
+  margin-left: -2.5em;
+  text-align: right;
+  padding: 0.2em 0.4em;
+  font-size: 0.7em;
+  position: absolute;
+}
+
+.multiL input._ALL:checked ~ label.tag,
+.multiL input._ALL:checked ~ * label.tag {
+  display: block;
+}
+
+.multiL h3 span[lang]:not([lang="en"]),
+ .multiL .multiT span[lang]:not([lang="en"]) {
+  display: none;
+}
+.multiL input.FR:checked ~ h3 span[lang="fr"] {
+  display: initial;
+}
+.multiL input.FR:checked ~ h3 span[lang]:not([lang="fr"]) {
+  display: none;
+  ooutline: 1px solid red;
+}
+
+.multiL input.FR:checked ~ * .multiT span[lang="fr"],
+.multiL input.DE:checked ~ * .multiT span[lang="de"] {
+  display: initial;
+}
+.multiL input.FR:checked ~ * .multiT[langs~=fr] span[lang]:not([lang="fr"]),
+.multiL input.DE:checked ~ * .multiT[langs~=de] span[lang]:not([lang="de"]) {
+  display: none;
+}
+
+.multiL input.lang {
+  display: none;
+}
+.multiL label {
+  display: inline-block;
+  cursor: pointer; 
+}
+
+.multiL input._ALL:checked ~ .selL label._ALL,
+.multiL input.EN:checked ~ .selL label.EN,
+.multiL input.FR:checked ~ .selL label.FR,
+.multiL input.PT:checked ~ .selL label.PT,
+.selL label._Only {
+  background: white;
+  color: black;
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+}
+
+.inToc .selL.notranslate {
+  vertical-align: 3px;
+  height: 1px;
+  font-size: 0.7rem;
+  display: inline-block;
+}
+.inToc .selL label {
+  font-weight: bold;
+  border-bottom-width: 1px;
+  border-radius: 5px;
+  border-color: #3691b0 !important;
+  margin: initial;
+}
+
+.multiL input._NoL:checked ~ .selL label._NoL1::after {
+  content: "For a translation in your language, feel free to propose one. Any help is welcome.";
+  outline: 1px solid gray;
+  position: absolute;
+  bottom: -4em;
+  left: 1em;
+  background: white;
+  color: black;
+  padding: 1em;
+  font-size: 1.2em;
+  font-weight: normal;
+  border: 2px solid lightblue;
+  box-shadow: 6px 10px 10px #444444;
+  z-index: 9;
+}
+
+.multiL input.EN:checked ~ * > div[lang]:not([lang="en"]),
+.multiL input.FR:checked ~ * > div[lang]:not([lang="fr"]) {
+  --hidden: none;
+  display: var(--disp);
+  max-height: var(--hidH);
+  overflow: hidden;
+  color: gray;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+.multiL div[lang] img {
+  display: var(--hidden);
+}
+
+.multiL input.FR:checked ~ * > div[lang]:not([lang="fr"])::before,
+.multiL input.EN:checked ~ * > div[lang]:not([lang="en"])::before {
+  display: block;
+  height: var(--hidH2);
+  width: 100%;
+  content: "";
+  background: linear-gradient(transparent, white);
+  position: absolute;
+}
+
+.multiL ul.selL {
+  display: block;
+  position: relative;
+  font-size: 0.8em;
+  list-style: none;
+  max-width: 50em;
+  margin: 0 0 0 1em;
+  padding: 0 5em 0 2em;
+  border-bottom: 1px solid #3691b0;
+  border-image: linear-gradient(to right, #3691b0, rgba(0, 0, 0, 0) ) 100% 1;
+}
+
+ul.selL li {
+  display: inline;
+}
+ul.selL li label, .selL label {
+  background: lightblue;
+  color: #246175;
+  border: solid;
+  font-weight: bold;
+  border-width: 1px 1px 0 1px;
+  border-radius: 5px 5px 0 0;
+  border-color: #3691b0;
+  padding: 0 0.4em 0.2em;
+  margin-right: 0.1em;
+}
+ul.selL li label._NoL {
+  background: lightgray;
+}
+
+ul.selL li.__ALL {
+  font-size: 0.8em;
+}
+ul.selL li.__ALL > label {
+  vertical-align: bottom;
+  font-weight: inherit;
+}
+
+img.thumb {
+  max-width: 200px;
+}
+img.thumb:hover {
+  max-width: initial;
+}
+
+
+.warn > b:first-child {
+  color: #cc4400;
+}
+.warn {
+  border-left: 2px solid lightblue;
+  padding: 0.5em;
+}
+
+</style>
+</head>
+<body>
+<h1>Achernar's programming page</h1>
+<div class="multiL inToc">
+<input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
+<input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
+<input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-02-22</i>
+
+<h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
+<label for="en_ToC" class="EN">en</label>
+<label for="fr_ToC" class="FR">fr</label>
+</span>
+</h2>
+<div class="lst toc">
+<a name="ext"> </a>
+<h3 class="multiT" langs="en fr"><span lang="en">Chrome extensions</span><span lang="fr">Extensions pour Chrome</span></h3>
+<ul class="mnu">
+<li><a href="#AliasB">Alias bookmarks <span class="LU">(2018-08-29) (2020-05-05) (beta 2020-04)</span></a></li>
+<li><a href="#ExtLog">Extension log <span class="LU">(2019-06-03) (beta 2020-01)</span></a></li>
+<li><a href="#TinyPrx">Tiny Proxy <span class="LU">(2020-03-03)</span></a></li>
+</ul>
+<a name="bkjs"> </a>
+<h3>Javascript bookmarklets</h3>
+<ul class="mnu">
+<li class="upd"><a href="#VI">View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></a></li>
+<li><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
+</ul>
+<a name="js"> </a>
+<h3>Javascript userscripts</h3>
+<ul class="mnu">
+<li><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2020-06-26)</span></a></li>
+<li><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
+<li class="multiT upd" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-02-22)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2020-09-24)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2020-11-10)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
+<li class="upd multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2020-12-03)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2020-08-03)</span></a></li>
+</ul>
+<a name="css"> </a>
+<h3>CSS userstyle (Non-programming)</h3>
+<ul class="mnu">
+<li class="upd"><a href="#gmx_toolbar">Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></a></li>
+<li><a href="#google_fixMenu">Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></a></li>
+<li class="multiT upd" langs="en fr"><a href="#google_ico"><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2021-01-20)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#googleImage_size"><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2020-11-15)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#hm"><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2019-06-21)</span></a></li>
+<li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2020-07-06)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
+<li class="multiT" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
+</ul>
+<a name="fix"> </a>
+<h3 class="multiT" langs="en fr"><span lang="en">Fixing sites</span><span lang="fr">Réparer des sites</span></h3>
+<ul class="mnu">
+<li><a href="#imdbFix">IMDb - reduce bloatware <span class="LU">(2019-11-24)</span></a></li>
+<li><a href="#LeM_WB">"Le Figaro" archivé sur "Wayback Machine" <span class="LU">(2020-04-04) (2020-05-30)</span></a></li>
+</ul>
+
+<br>
+<a name="oth"> </a>
+<h3 class="multiT" langs="en fr"><span lang="en">Participation in projects of other programmers</span><span lang="fr">Participation à des projets d'autres programmeurs</span> <span class="LU">(2020-05-12)</span></h3>
+<div class="snfo">This section is mostly to promote other projects.<br>
+My participation is anecdotal. At the very least it proves that I care enough to propose bug fixes.
+</div><p>
+<ul class="mnu">
+<li class=""><a href="#oth_acm">Awesome cookie manager (chrome extension)</a></li>
+<li class=""><a href="#oth_dacse">Don't add custom search engines (chrome extension)</a></li>
+<li class=""><a href="#oth_GIsizer">Google image sizer (extension | userscript)</a></li>
+<li class=""><a href="#oth_mGISga">Make Google Image great again (userscript | chrome extension)</a></li>
+<li class=""><a href="#oth_TF">TabFern (chrome extension)</a></li>
+</ul>
+
+<h5><a href="#enable.js.to.get.real.email" id="em" title="Enable javascript to get the real address">Contact</a><span id="em2" class="LU"></span></h5>
+
+</div>
+</div>
+
+<a id="top" href="#"><svg viewBox="0 0 400 600"><path d="M 186 7 214 7 397 195 397 227 309 227 309 422 91 422 91 227 3 227 3 195 z M 200 45 58 191 129 191 129 386 271 386 271 191 342 191 z M 91 462 309 462 309 598 91 598 z M 129 498 129 562 271 562 271 498 z"/></svg></a>
+
+<br>
+<br>
+
+<h2>Chrome extensions</h2>
+Here is a list of my extensions for google chrome.
+
+<div class="lst">
+
+<div class="multiL showL">
+<input id="_all_AliasB" name="AliasB" class="lang _ALL" type="radio" value="*">
+<input id="en_AliasB" name="AliasB" class="lang EN" type="radio" value="en" checked>
+<input id="fr_AliasB" name="AliasB" class="lang FR" type="radio" value="fr">
+<h3><a name="AliasB" href="#ext"></a><a href="https://chrome.google.com/webstore/detail/alias-bookmarks/oglbhaepiihmmmaipmglkfhbaahhbkec" target="_blank">Alias bookmarks</a> <span class="LU">(2020-05-05)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_AliasB" class="_ALL">&#x2731;</label></li>
+<li><label for="en_AliasB" class="EN">en</label></li>
+<li><label for="fr_AliasB" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_AliasB" class="tag notranslate">en</label><div lang="en">
+<div class="intro">Set aliases for your bookmarks. Aliases are called from the omnibox: "/ aliasName [params]" and from the popup (ctrl+.)</div><p>
+This extension mimics the ability of Firefox and mozilla based browsers to use aliases as a shortcut to call specific bookmarks.<p>
+
+<div class="warn"><b>Important notice:</b> <span class="LU">(2020-05-05)</span><br>With the lastest chrome version (80+) you absolutely need to change one of "Alias Bookmarks" options. Check the option "<i>Use alternate method to execute bookmarklet code</i>". Failing to do this will prevent bookmarklets from working properly. The next version of Alias Bookmarks will come with this option enabled by default.</div><p>
+
+It allows you to set alias/shortcut for your URL or javascript bookmarklets or folders, directly in the bookmark manager. You can then call an alias from chrome's omnibox or from the extension's popup window (keyboard shortcut: "ctrl+.").<br>
+Simple "http(s)" bookmarks as well as javascript bookmarklets can be called with or without parameters.<br>
+If it works as a bookmark, it works as an alias.<p>
+
+Since your aliases are stored with your bookmarks, exporting or transfering them also transfers the aliases.<p>
+
+Starting with version 0.9.6.15, folder alias is available. It can be used to open static pages, or to make a group search on multiple search sites (examples provided).<p>
+
+Version 0.9.8 introduces auto-completion in popup window (see options page to enable).<p>
+
+<a href="https://chrome.google.com/webstore/detail/alias-bookmarks/oglbhaepiihmmmaipmglkfhbaahhbkec" target="_blank">Direct link to chrome web store</a><p><br>
+</div>
+
+<label for="fr_AliasB" class="tag notranslate">fr</label><div lang="fr">
+<div class="intro">Attribuez des alias à vos favoris. Les alias sont appelés dans la barre d'adresse: "/ nomAlias [params]" ou depuis le popup (ctrl+.)</div><p>
+Cette extension imite la capacité de Firefox et des navigateurs basés sur le moteur mozilla, d'utiliser un alias comme raccourci pour appeler l'un de vos favoris.<p>
+
+<div class="warn"><b>Remarque importante:</b> <span class="LU">(2020-05-05)</span><br>Avec les dernières versions de chrome (80+) il est devenu indispensable de changer une des options d'Alias bookmarks. Cocher l'option "<i>Utiliser une méthode alternative pour exécuter les bookmarklets</i>". Faute de quoi les bookmarklets ne fonctionneront pas correctement. La prochaine version d'Alias Bookmarks activera cette option par défaut.</div><p>
+
+L'extension vous permet d'attribuer un alias/raccourci à un lien http, à un bookmarklet javascript, et aussi à un dossier, directement dans le gestionnaire de favoris. Vous pouvez alors appeler un alias depuis la barre d'adresse de chrome, ou depuis la popup de l'extension (raccourci clavier: "ctrl+.").<br>
+Les favoris avec un lien "http(s)", ainsi que les favoris bookmarklets peuvent être appelés avec ou sans paramètres.<br>
+Si un lien fonctionne en favori, il fonctionne aussi comme alias.<p>
+
+Vos alias étant stockés dans les favoris, l'exportation ou le transfert de ceux-ci copie aussi les alias.<p>
+
+A partir de la version 0.9.6.15, les alias de dossier sont disponibles. Un alias de ce type peut-être utilise pour ouvrir un groupe de pages statiques, ou pour effectuer une recherche sur un ensemble de moteurs de recherche (exemples fournis).<p>
+
+La version 0.9.8 introduit l'auto-complétion dans la fenêtre popup (voir la page d'options pour activer).<p>
+
+<a href="https://chrome.google.com/webstore/detail/alias-bookmarks/oglbhaepiihmmmaipmglkfhbaahhbkec" target="_blank">Lien direct vers le chrome web store</a>
+</div>
+
+</div></div>
+
+<h3><a name="ExtLog" href="#ext"></a><a href="https://chrome.google.com/webstore/detail/extension-log/eiljhbjamiikjjldhnepillceohglbjh" target="_blank">Extension log</a></h3>
+<div class="nfo">
+<div class="intro">Logs when an extension is installed, uninstalled, upgraded, enabled or disabled. Also keeps track of each chrome update.</div><p>
+Keep track of all your old extensions, as well as current and past states of the extensions still installed.<br>
+"Extension log" logs when an extension is installed, uninstalled, upgraded, enabled or disabled.<p>
+
+View all these informations in a table sorted by name, state (enabled, disabled, uninstalled), extension type, or id. With a list of events associated with each extension ever installed (as long as "Extension log" is always enabled).<p>
+
+Aside from its main purpose, "Extension log" records a log of the date and version of every chrome update.<p>
+
+You can save the whole log history, in case of crash. Right click the extension icon and select "Export log" (save the whole page or one of the textareas). No restore function available yet, but you can access the stored values manually from the background page's javascript console (and update from there if necessary).<p>
+
+EL allows you to save extensions packages in its original format or as a zip file.<p>
+<br>
+
+2018-12-31: (0.5.6)<br>
+Badge used to warn user when an event occurs: now fully functional.<br>
+You can now import options, and chrome version history from a backup. Import of events is still in beta.<p>
+
+2018-09-12: (0.5)<br>
+Extension packages can be saved as CRX and/or ZIP files.<br>
+The list of current permissions for all extensions is displayed in the tooltip of their version number.<p>
+
+2018-09-04: (0.4.11)<br>
+Added support to download CRX packages.<p>
+
+2018-08-22: (0.4.10.1)<br>
+Some minor fixes and layout improvements.<p>
+
+2018-07: (0.4.9.8)<br>
+Stable version. Still missing import data feature. Almost done but development halted at least for several weeks. Sorry.<p>
+
+2018-06-19: (0.4)<br>
+Still in beta, but shouldn't crash.<p>
+<a href="https://chrome.google.com/webstore/detail/extension-log/eiljhbjamiikjjldhnepillceohglbjh" target="_blank">Direct link to chrome web store</a>
+</div>
+
+<h3><a name="TinyPrx" href="#ext"></a><a href="https://chrome.google.com/webstore/detail/tiny-proxy/lfkcejmhdobcohddodlbhmecbplciobn" target="_blank">Tiny Proxy</a></h3>
+<div class="nfo">
+<div class="intro">A small footprint proxy extension. Allows simple and complex settings. Quick and easy to switch between proxies.</div><p>
+<b>Online help</b> is available <a href="TP/" target="_blank">here</a>.
+<p>
+Tiny proxy allows you to manage multiple proxy servers, and to change easily between them.<p>
+The current proxy settings are defined by Tiny Proxy as PAC scripts.<p>
+This extension is a work in progress. Your input is welcome (and please, do).<p>
+
+TP implements the following types of proxies:<br>
+<ul>
+ <li>"server": all other "proxies" are directly/indirectly using one or several "server" proxies</li>
+ <li>"PAC": currently only supports local PAC script code.
+ <li>"alias": shortcut to any of the other types of proxies.
+ <li>"switch": list of rules to fine-tune the websites to use with or without a proxy
+ <li>"pool": if you have a set of unreliable proxies you can group them in "pools" and let chrome select the first valid one.
+</ul><p>
+TP allows you to add temporary proxy rules (see popup). This way you can combine multiples proxy profiles.<p>
+
+Notes:<br> 
+<ul><li>You have to select which proxies appear in the popup list. In the settings window, check the box next to their name.
+<li>TP does not support proxy authentication yet. Need volunteers to test...
+<li>TP should be compatible with any unicode letter/symbol. If you encounter a problem, please contact me.
+</ul>
+
+<br>
+
+2020-03-03 (0.6.3): bugs fixes + export of a subset of proxies<br>
+2019-12-07 (0.6): Strengthened handling of user provided PACscripts, color-coded errors while editing, drag & drop (editing)...<br>
+2019-10-23 (0.5): Bugs fixes and new features (import proxy servers by copy/paste list from website)<br>
+2019-07-05 (0.4.3.5): Bug fixed for proxy names using unicode chars. Chrome refuses non-ASCII chars in proxy script. Symbols used in other charsets/languages won't generate a proxy error anymore. Hopefully...<br>
+2019-07-04 (0.4.3.3): bugs fixes, including failure with servers with per-protocol additional servers<br>
+2019-07-02 (0.4.3): added online help page<br>
+2019-06-25 (0.4.2): added: draggability to proxies list in "switch" and "pool".<p>
+<a href="https://chrome.google.com/webstore/detail/tiny-proxy/lfkcejmhdobcohddodlbhmecbplciobn" target="_blank">Direct link to chrome web store</a>
+</div>
+
+</div>
+
+<h2>Javascript bookmarklets</h2>
+<div class="lst">
+
+<h3 class="lnk"><a name="VI" href="#bkjs"></a>View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></h3>
+<div class="nfo">
+This bookmarklet is based on one of <a href="https://www.squarefree.com/bookmarklets/" target="_blank">Jesse's Bookmarklets</a>. It is a modified and more complete version of <a>"list alts"</a> in the <a href="https://www.squarefree.com/bookmarklets/validation.html" target="_blank">"Validation Bookmarklets"</a> category. (the list of the many enhancements is not available yet)<p>
+
+This bookmarklet lists all images used in &lt;img&gt; tags and in css styles. It also tries to list alternate versions of images as provided in srcset attributes.<br>
+It shows them in a list, limiting their maximum size to avoid overflowing the display. Simply click an image to open it in its own tab. 
+<p>
+
+The source is in this <a href="javascript:(function(){var D=document,i,e,a,k,y,s,m,u,t,r,j,v,h,q,c,src,src0,aa,W=open(),G=W.document;G.open();G.write('<head><title>Images from '+location.href+'</title><style>img{max-width:28vw;}.s img{max-width:8.8vw}td:nth-of-type(3){max-width:28vw;}a{display:inline-block;}table:hover a{background-color:#F0F0F0;}td:hover a{background-color:#E0E0E0;}td a:hover{background-color:#D0D0D0;}div a.s{text-align:center;font-size:85%;margin:2px;border:1px solid lightgray;}a img{position:relative;float:right;clear:both;}[src$=svg].svg,[src^=&quot;data:image/svg+xml;&quot;].svg{min-width:28vw;outline:3px solid red;}.s [src$=svg].svg,.s [src^=&quot;data:image/svg+xml;&quot;].svg{min-width:8.8vw;}.warn{color:red;text-decoration:none;}.furl{background:lightgray;}</style><base target=&quot;_blank&quot;></head>');G.close();function pf(D,wd,hide){var B=[],A=[],i;function C(t){return G.createElement(t)}function P(p,c){p.appendChild(c)}function T(t){return G.createTextNode(t)}function U(u){return new URL(u,location.href).href}function HI(src,a,srcs,csrc,brkn){function addI(src){var aa=C('a'),src0=src;aa.href=src;if(src0.startsWith('data:')){j=src0=src0.substr(0,50)+' [...]';h=''}else{h=src0.split('/')[2];j=src0.split('?')[0].split('/').reverse()[0]}aa.title=src0;s=C('span');s.style.color=['red','gray','green'][y];s.style.fontStyle=['italic','italic',''][y];P(s,T(['missing','empty',a][y]));if(brkn){aa.className='warn';m=T('&quot;404&quot; / filtered')}else {m=C('img');m.src=src}P(aa,m);return aa;}k=escape(src)+'%'+(a!=null)+a;if(!A[k]){y=!!a+(a!=null);aa=addI(src);B.push([0,7,T(j),aa,s,T(h)]);A[k]=B.length}u=B[A[k]-1];if(srcs||csrc){var e=C('div'),t;P(e,u[3]);u[3]=e;}if(csrc){e.innerHTML+='<br>curSrc:<br>';P(e,addI(csrc));}if(srcs){e.innerHTML+='<br>srcset:<br>';srcs.forEach(function(u){var a=C('a'),i=C('img');a.href=U(u[0]);i.src=U(u[0]);a.className='s';a.title=u[0];P(a,i);P(a,C('br'));P(a,T(u[1]||''));P(e,a);});}else{u[1]=(T(++u[0]))}}for(i=0;e=D.images[i];++i){src=e.src||e.currentSrc;src0='';let srcs='';a=e.getAttribute('alt');if(src==e.baseURI)continue;if(src){HI(src,a,null,null,!e.naturalWidth);if(e.currentSrc&amp;&amp;e.src&amp;&amp;(e.src!=e.currentSrc)){src0=e.currentSrc;}}let E=[];if(e.parentNode.tagName=='PICTURE'){e=e.parentNode.children;for(var j=0;j<e.length;j++)E.push(e[j])}else E=[e];while(e=E.shift()){if(j=e.srcset){srcs=srcs||[];if(e.srcset.startsWith('data:')) srcs.push([e.srcset]);else while(k=/(\S+(?: [^\s\,]+)?)[\s,]*(.*)/s.exec(j)){j=k[2];srcs.push(k[1].trim().split(' '));}}}if(srcs||src0)HI(src,a,srcs,src0);}var se=wd.document.querySelectorAll('*'),iob,stb=[];for(i=0;i<se.length;i++){if((src=wd.getComputedStyle(se[i]).getPropertyValue('background-image'))=='none')continue;while(k=/(.*?)(url\(.*?\))(?: *,? *)?(.*)/.exec(src)){stb.push(k[2]);src=k[1]+k[3];}while(k=/(.*?)([a-z-]+gradient\([^\(]*?(?:\(.*?\))?[^\(]*?(?:\(.*?\))?[^\(]*?(?:\(.*?\))?[^\(]*?\))(?: *,? *)?(.*)/.exec(src)){stb.push(k[2]);src=k[1]+k[3];}if(src=src.replace(/^[ ,]*(.*?)[ ,]*$/,&quot;$1&quot;))stb.push(src);}while(src0=src=stb.shift()){iob=src0.startsWith('url\(')?true:false;src=src.replace(/^url\(&quot;(.*)&quot;\).*/,&quot;$1&quot;);a=null;k=escape(src)+'%css';if(!A[k]){aa=C('a');if(iob)aa.href=src;if(src0.startsWith('url(&quot;data:')){j=src0=src0.substr(0,50)+' [...]';h=''}else{h=src0.split('/')[2];j=src0.slice(5,-2).split('?')[0].split('/').reverse()[0]}aa.title=src0;s=C('span');s.style.color='gray';s.style.fontStyle='italic';P(s,T('css'));m=C(iob ? 'IMG': 'DIV');if(iob){m.src=src;}else{m.style.background=src0;m.style.width='100px';m.style.height='100px';j='background style'}P(aa,m);B.push([0,7,T(j),aa,s,T(h||'')]);A[k]=B.length}u=B[A[k]-1];u[1]=(T(++u[0]))}t=C('table');t.border=1;r=t.createTHead().insertRow(-1);for(j=0;v=['#','Filename','Image','Alternate text','Host'][j];++j){h=C('th');P(h,T(v));P(r,h);}if(hide){r=t.insertRow(0);c=r.insertCell(-1);c.colSpan=5;c.width=1;c.className='furl';P(c,T('frame (&quot;'+wd.frameElement.id+'&quot;): '+(wd.location.href==window.location.href?'':wd.location.href)));}for(i=0;q=B[i];++i){r=t.insertRow(-1);for(j=1;v=q[j];++j){c=r.insertCell(-1);P(c,v);hide=false;}}if(hide)return;P(G.body,t);}pf(D,window);var wf=window.frames;for(i=0;i<wf.length;i++){try{pf(wf[i].document,wf[i],true)}catch(e){}}W.g=function(){if(this.width==0&amp;&amp;this.naturalWidth>0)this.classList.add(&quot;svg&quot;);else if(this.naturalWidth>0)this.parentNode.title=this.naturalWidth+&quot; x &quot;+this.naturalHeight+'\n'+this.parentNode.title};W.f=function(){if(W.document.readyState!=&quot;complete&quot;)return;var e=W.document.querySelectorAll(&quot;img&quot;);for(var i=0;i<e.length;i++)e[i].onload=W.g};W.f();function fA(w){function F(n){var u,r,c,x;if(n.nodeType==3){u=n.data.search(/[^ \r\n]{35}/);if(u>=0){tot++;r=n.splitText(u+34);n.parentNode.insertBefore(D.createElement('WBR'),r)}}else if(n.tagName!='STYLE'&amp;&amp;n.tagName!='SCRIPT'&amp;&amp;n.tagName!='NOSCRIPT'){for(c=0;x=n.childNodes[c];++c){F(x)}}}var D=w,tot=0;F(D.body);if(tot)with(D.body.style){display='none';display=''}}fA(G)})()">link</a><span class="note">(*)</span>. Current version (beta): 2021-01-19<br>
+Click on the link to display the list of images used in this page.<p>
+
+(*) drag & drop on your bookmark bar to add the link to your bookmarks.
+<p>
+</div>
+
+<h3 class="lnk"><a name="iBg" href="#bkjs"></a>IMDb - enlarge images in cast listing (x2)</h3>
+<div class="nfo">
+This bookmarklet increases the size of all images in the cast list on IMDb. It doubles the width/height and replaces the current image with an image of the appropriate dimensions. Can be applied multiple times if x2 is not enough.<p>
+
+The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.*?_V1\.*(?:\._CR.*?)?_U.)(\d+_CR\d+.*)$/.test(u))return RegExp.$1+RegExp.$2.replace(/\d+/g,function(a){return a << 1});return u;}var e=document.querySelectorAll('.primary_photo img'),j0=0;function fi(){var i,s=Date.now();for(var j=j0;i=e[j];j++){i.width=i.width << 1;i.height=i.height << 1;i.src=getImg(i.src);if(i.attributes.loadlate)i.setAttribute('loadlate',getImg(i.attributes.loadlate.value));if(Date.now()-s > 200){j0=j+1;setTimeout(fi,0);return 1}}}fi();})()">link</a><span class="note">(*)</span>. Current version: 20181025<p>
+
+(*) drag & drop on your bookmark bar to add the link to your bookmarks.<p>
+<img src="imdb-img-sz.gif" alt="IMDb cast listing">
+<p>
+</div>
+
+</div>
+
+<h2>Javascript userscripts</h2>
+<div class="lst">
+
+<h3 class="lnk"><a name="GH_sort" href="#js"></a>GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2020-06-26)</span></h3>
+<div class="nfo">
+A link "(r)" is added in the two tabs "Issues" and "PR'. It is used as a single click shortcut to the corresponding listing sorted by "Recently updated".<p>
+
+<img src="sortByRecent.png" alt="GitHub tabs"><br>
+<br>
+And in the GitHub page header (since 2019-11-22).<p>
+<img src="GitHub-header-sort.png" alt="GitHub tabs"><br>
+<br>
+On the page displaying all your Pull requests, or Issues, a new category ("Commenter") now appears (added 2019-11-28).<br>
+Clicking this button will display all the issues/pr in which you made a comment. They might not appear in the other categories.<p>
+<img src="GitHub-commenter.gif" alt="GitHub commenter"><p>
+<img src="GitHub-commenter2.gif" alt="GitHub commenter"><br>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/403857-github-sort-by-recently-updated" target="_blank">greasyfork.org</a><br>
+The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-recently" target="_blank">GitHub page</a>.<p>
+<p>
+</div>
+
+<h3 class="lnk"><a name="GH_flip" href="#js"></a>GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes</h3>
+<div class="nfo">
+This userscript adds an icon to swap the sides of a comparison. It can be used when you need to sync your fork to the original repository.<p>
+
+<img src="flip-compare.png" alt="GitHub flip icon"><p>
+
+The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare" target="_blank">GitHub page</a>.<p>
+<p>
+</div>
+
+<div class="multiL">
+<input id="_all_gmx_pop" name="gmx_pop" class="lang _ALL" type="radio" value="*">
+<input id="en_gmx_pop" name="gmx_pop" class="lang EN" type="radio" value="en" checked>
+<input id="fr_gmx_pop" name="gmx_pop" class="lang FR" type="radio" value="fr">
+<input id="NoL_gmx_pop" name="gmx_pop" class="lang _NoL" type="checkbox" value="_NoL">
+<h3 class="lnk"><a name="gmx_Pop" href="#js"></a><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-02-22)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_gmx_pop" class="_ALL">&#x2731;</label></li>
+<li><label for="en_gmx_pop" class="EN">en</label></li>
+<li><label for="fr_gmx_pop" class="FR">fr</label></li>
+<li><label for="NoL_gmx_pop" class="_NoL _NoL1">de</label></li>
+<li><label for="NoL_gmx_pop" class="_NoL">es</label></li>
+</ul>
+<div class="nfo">
+<label for="en_gmx_pop" class="tag notranslate">en</label><div lang="en">
+Early January 2020 or late December 2019, Gmx made a modification that changed the behavior of the "open email" icon (see screenshot). Now it opens the emails within the gmx webmail interface instead of opening a popup window.<br>
+The functionnality is still available, but I could not find an option in the interface to change it. So here is a userscript to do that.<p>
+The script adds a checkbox next to the buttons toolbar (see screenshot). When checked the popup behavior is enabled, when unchecked it's the current default. The script remembers your choice.<br>
+On the first installation, the option is automatically set to checked.<br>
+If the userscript is installed outside of a script manager (Tampermonkey, Greasemonkey, Violentmonkey, ...), it uses an alternative method to store the checkbox state. It remembers the state as long as the window/tab is open.<p>
+
+<s><b>As of July 1st 2020</b>, gmx has removed this function on all versions of its site.</s><br>
+<b>Starting with v0.6</b> (July 12), the script tries to mimick how the functionality worked. It opens a popup with the email displayed. It does this by duplicating a frame of the site, and hides the nonrelevant elements of the page: the listing, the ads panels, and until they can be used correctly inside the popup, the button bar.<br>
+If, when using the popup, you see elements appearing that shouldn't, please contact me so I can fix it.<br>
+<s><b>August 4th 2020</b>, again gmx internal working has changed. The popup can't display the message as it did. I have to find another work-around...</s><br>
+<b>August 5th 2020</b>, the new version (0.6.2) revives the popup view.<br>
+<b>February 10 2021</b>, fix code to handle minor modification of HTML of the page.<p>
+
+The script has been tested on <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/395358-gmx-standalone-view" target="_blank">greasyfork.org</a><p>
+</div>
+
+<label for="fr_gmx_pop" class="tag notranslate">fr</label><div lang="fr">
+Début janvier 2020 ou fin décember 2019, Gmx a effectué des modifications qui ont changé le comportement de l'icône "Ouvrir e-mail" (voir capture d'écran). Maintenant cela ouvre l'email dans l'interface webmail au lieu d'une fenêtre popup.<br>
+La fonctionnalité est toujours disponible, mais rien dans l'interface ne permet de la changer. Voici donc un userscript pour le faire.<p>
+Le script ajoute une case à cocher dans la barre de boutons (voir capture d'écran). Quand elle est cochée, l'ouverture de la fenêtre popup est activée. Quand la case est décochée cela rétablit le comportement actuel par défaut. Le script garde en mémoire votre choix.<br>
+L'option est automatiquement cochée au moment de l'installation du script.<br>
+Si le script est installé en dehors d'une extension de gestion de scripts (Tampermonkey, Greasemonkey, Violentmonkey, ...) il utilise une méthode alternative pour sauvegarder l'état de l'option. Il s'en souvient tant que la fenêtre/onglet est ouverte.<p>
+
+<s><b>Au 1er juillet 2020</b>, gmx a retiré cette fonction de toutes les versions de son site. Ce script ne fonctionne plus actuellement.</s><br>
+<b>A partir de la version v0.6</b> (12 juillet), le script essaie de simuler le fonctionnement de cette option. Il ouvre une fenêtre popup contenant le message. Pour cela il duplique une "frame" du site, et cache les éléments inutiles de la page : la liste, les panneaux de publicité, et jusqu'à ce que cela fonctionne correctement dans la popup, la barre de boutons.<br>
+Si quand vous utilisez la popup, vous voyez des éléments qui ne devraient pas y être affichés, s'il vous plaît, contactez-moi pour que je puisse corriger.<br>
+<s><b>4 août 2020</b>, le fonctionnement interne de gmx a encore changé. La popup ne peut plus afficher le message directement. Je dois trouver une autre méthode. Suite au prochain épisode...</s><br>
+<b>5 août 2020</b>, la nouvelle version (0.6.2) rétablit l'affichage du message dans une fenêtre séparée.<br>
+<b>10 février 2021</b>, correction suite à une petite modification du code HTML de la page.<p>
+
+Ce script a été testé sur <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
+
+Le script est disponible sur <a href="https://greasyfork.org/scripts/395358-gmx-standalone-view" target="_blank">greasyfork.org</a><p>
+<p>
+</div>
+<img src="gmx-standalone.gif" alt="Gmx standalone"><p>
+</div></div>
+
+<div class="multiL showL">
+<input id="_all_gmx_new" name="gmx_new" class="lang _ALL" type="radio" value="*">
+<input id="en_gmx_new" name="gmx_new" class="lang EN" type="radio" value="en" checked>
+<input id="fr_gmx_new" name="gmx_new" class="lang FR" type="radio" value="fr">
+<input id="NoL_gmx_new" name="gmx_new" class="lang _NoL" type="checkbox" value="_NoL">
+<h3 class="lnk"><a name="gmx_new" href="#js"></a><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2020-09-24)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_gmx_new" class="_ALL">&#x2731;</label></li>
+<li><label for="en_gmx_new" class="EN">en</label></li>
+<li><label for="fr_gmx_new" class="FR">fr</label></li>
+<li><label for="NoL_gmx_new" class="_NoL _NoL1">de</label></li>
+<li><label for="NoL_gmx_new" class="_NoL">es</label></li>
+</ul>
+<div class="nfo">
+<img class="fr" src="gmx - mark new unread.gif" alt="Gmx new unread">
+<label for="en_gmx_new" class="tag notranslate">en</label><div lang="en">
+This userscript highlights the folders where new emails have arrived by using a red background on the message count. It keeps track of how much unread emails there is in each folder, and which one are marked, so that this info isn't lost when you close the window or logout.<p>
+A folder is unmarked when the unread count decreases (you've read an email). You can also unmark a folder - without the need to read a message - by pressing CTRL + left-clicking the folder's spanner next to the message count (see screenshot).<p>
+Upon installation of the script, you must reload the webmail page/tab. Folders will then be marked when new emails are received.<p>
+
+<b>Notes:</b>
+<ul>
+<li>Supports multiple accounts on the same domain.
+<li>Compatible with <b>gmx.net</b>, <b>gmx.com</b>, <b>gmx.fr</b>, <b>gmx.es</b>, <b>gmx.co.uk</b>, <b>web.de</b>, (and <b>gmx.at</b> , <b>gmx.ch</b> which use gmx.net).<br>
+Contact me if there are other domains. But it should work correctly for these domains too.
+<li>If you are reading your emails in a private tab, tampermonkey needs to be configured to run in private mode. And the "Security" option "Store data in incognito mode" needs to be set to "Permanent" if you want the script to store its data (marked folders and unread count).
+</ul>
+<br>
+This is a work in progress. I can add an option interface to change the marked color (if you are already using userstyles to change the default colors, and red doesn't work well) as well as other settings (eg. never mark specific folders).<p>
+
+I have another userscript for gmx ("standalone view") to add the possibility to open an email in its own stand-alone popup window (as it used to be).<p>
+
+If you're german or spanish, and find this script useful, you can propose translation of this text in your language. Any help is welcomed.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/398539-gmx-show-new-unread" target="_blank">greasyfork.org</a><p><br>
+</div>
+
+<label for="fr_gmx_new" class="tag notranslate">fr</label><div lang="fr">
+<!--b><i>Gmx - marquer nouveaux dossiers non-lus</i></b><p-->
+Ce userscript marque les dossiers où de nouveaux emails sont arrivés en colorant le fond du compteur en rouge.
+Il garde en mémoire le décompte des messages non-lus de chaque dossier, ainsi que l'état marqué, afin de pouvoir les réutiliser après que vous ayez fermé l'onglet, ou que vous vous soyez déconnecté.<p>
+Un dossier repasse a l'état non-marqué quand le compte des messages non-lus diminue (vous venez d'ouvrir un email). Vous pouvez aussi dé-marquer un dossier en appuyant sur la toucher CTRL pendant que vous cliquez sur le symbôle de clé situé à côté du compteur (voir capture d'écran).<p>
+Au moment de l'installation du script, vous devez recharger la page/l'onglet du webmail. Les dossiers seront marqués dès l'arrivée de nouveaux messages.<p>
+
+<b>Notes:</b>
+<ul>
+<li>Supporte plusieurs comptes sur le même domaine.
+<li>Compatible avec <b>gmx.net</b>, <b>gmx.com</b>, <b>gmx.fr</b>, <b>gmx.es</b>, <b>gmx.co.uk</b>, <b>web.de</b>, (et <b>gmx.at</b> , <b>gmx.ch</b>  qui utilise gmx.net).<br>
+Contactez-moi si d'autres domaines existent. Mais le script devrait aussi fonctionner sur ces domaines.
+<li>Si vous lisez vos email dans un onglet privé, tampermonkey doit être configuré pour fonctionner en navigation privée. Si vous voulez qu'il garde en mémoire l'état lu/marqué/non-lu en navigation privée, vous devez aussi mettre l'option "Sécurité"/"Enregistrer les données dans le mode de navigation privée" en "Permanent".
+</ul>
+<br>
+Ce script est toujours en développement. Si vous le désirez, je peux ajouter un interface pour modifier des options: changer la couleur du marqueur (si vous utiliser des styles pour modifier les couleurs par défaut, et que le rouge ne convient pas), et d'autres (ex: ne jamais marquer certains dossiers).<p>
+
+J'ai un autre script pour gmx ("standalone view") pour redonner la possibilité d'ouvrir un email dans sa propre fenêtre (comme c'était le cas auparavant).<p>
+
+Si vous être allemand ou espagnol, et que ce script vous plaît, vous pouvez m'envoyer la traduction de ce texte dans votre langue. Toute aide est la bienvenue.<p>
+
+Le script est disponible sur <a href="https://greasyfork.org/scripts/398539-gmx-show-new-unread" target="_blank">greasyfork.org</a><p>
+</div>
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_Gcookie" name="Gcookie" class="lang _ALL" type="radio" value="*">
+<input id="en_Gcookie" name="Gcookie" class="lang EN" type="radio" value="en" checked>
+<input id="fr_Gcookie" name="Gcookie" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="Gcookie" href="#js"></a><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2020-11-10)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_Gcookie" class="_ALL">&#x2731;</label></li>
+<li><label for="en_Gcookie" class="EN">en</label></li>
+<li><label for="fr_Gcookie" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_GfixTLD" class="tag notranslate">en</label><div lang="en">
+This userscript auto-agrees to the cookie warning dialog. The dialog should only appear once.<p>
+
+The popup is not hidden, will flash while it is dismissed by the script and disappear for ever (until you clear your cookies). It's on purpose in case the script fails and leave you in a state where google constantly asks the same question.<p>
+
+If you are really fed up with cookie warnings on many sites, I suggest installing an extension that handles it automatically (including for google). I can suggest one that works well for chrome and firefox. On the add-on/extension store, search for: <code>I don't care about cookies</code><p>
+
+<b style="color:red;">Note for Firefox users:</b> If you are using tampermonkey as userscript manager, this script won't work. There is a bug in <b>Tampermonkey</b> and <b>Tampermonkey beta</b> - as well as <b>Greasemonkey</b> - which prevents the script to be executed on the popup. Other scripts from other programmers might not work properly too; use the solution below.<br>
+<b style="color:red;">Solution for Firefox:</b> As far as I know, only one userscript manager works properly: <b>ViolentMonkey</b>. Feel free to install it to run this userscript.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/412348-google-dismiss-cookies-warning" target="_blank">greasyfork.org</a><p>
+</div>
+
+<label for="fr_GfixTLD" class="tag notranslate">fr</label><div lang="fr">
+Ce script accepte automatiquement l'avertissement sur les cookies. Le dialogue ne devrait apparaître qu'une fois.<p>
+
+La popup n'est pas cachée, et apparaît un court moment le temps que ce script la confirme. Elle ne devrait plus réapparaître (jusqu'à ce que vous supprimiez les cookies). Ceci à dessein pour éviter une problème si le script échoue et que google continue à vous poser la même question.<p>
+
+Si vous en avez marre des avertissements de cookies présentés par de nombreux sites, je vous suggère d'installer une extension qui le gère automatiquement (y compris pour google). Je peux en suggérer une qui fonctionne bien bien sur chrome et sur firefox. Faites une recherche sur le texte: <code>I don't care about cookies</code><p>
+
+<b style="color:red;">Note pour les utilisateurs de Firefox :</b> Si vous utilisez tampermonkey en tant que gestionnaire de userscripts, ce script ne fonctionnera pas. Il y a un bug dans <b>Tampermonkey</b> et <b>Tampermonkey beta</b> - ainsi que dans <b>Greasemonkey</b> - qui empêche le script d'être exécuté sur la popup. D'autres scripts provenant d'autres programmeurs peuvent aussi rencontrer ce problème et ne pas fonctionner correctement; utilisez la solution çi-dessous.<br>
+<b style="color:red;">Solution pour Firefox :</b> Pour autant que je sache, un seul gestionnaire de scripts fonctionne correctement : <b>ViolentMonkey</b>. Libre à vous de l'installer.<p>
+
+Le script est disponible sur <a href="https://greasyfork.org/scripts/412348-google-dismiss-cookies-warning" target="_blank">greasyfork.org</a><p>
+</div>
+<img src="google-cookie warning.gif" alt="Google cookie dialog">
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_GfixTLD" name="GfixTLD" class="lang _ALL" type="radio" value="*">
+<input id="en_GfixTLD" name="GfixTLD" class="lang EN" type="radio" value="en" checked>
+<input id="fr_GfixTLD" name="GfixTLD" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="GfixTLD" href="#js"></a><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_GfixTLD" class="_ALL">&#x2731;</label></li>
+<li><label for="en_GfixTLD" class="EN">en</label></li>
+<li><label for="fr_GfixTLD" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_GfixTLD" class="tag notranslate">en</label><div lang="en">
+This fixes regional TLDs in google links (to other services).<p>
+
+On its homepage (www.google.com, www.google.co.uk, www.google.be, or whichever TLD is used), and on the search result pages, google directs some of its internal links to the google domain associated with the TLD used for the geographic position of your IP address. This means that if you want to use a google TLD of another country (or the .com from outside the US), or if you're travelling and still want to use your home TLD, you'll end with links to the local TLD.
+<p>
+<img src="google-tld-2b.gif" alt="Google search - TLDs">
+<p>
+This userscript rewrites every link that doesn't use the .com TLD or the TLD of the current page, and replaces every non-matching TLD with the current TLD. In the screenshots, all the tagged links are modified to use the page TLD. (Read the github page for a more complete explanation)
+<p>
+More infos and screenshots on the <a href="https://github.com/Procyon-b/Google-fix-TLD-links" target="_blank">github repository</a>.<br>
+Get it from <a href="https://github.com/Procyon-b/Google-fix-TLD-links/blob/master/google-fix-tld-links.user.js" target="_blank">GitHub</a>. (and click the "Raw" button to load it into tampermonkey)<p> 
+<p>
+</div>
+
+<label for="fr_GfixTLD" class="tag notranslate">fr</label><div lang="fr">
+Ce script corrige le domaine de premier niveau ("TLD", ex: .com .fr .ca) des liens vers d'autres services de google.<p> 
+
+Sur sa page d'accueil (www.google.com, www.google.be, www.google.fr, peut importe le TLD utilisé), et sur les pages de résultats, google redirige certains de ses liens vers le domaine associé au TLD utilisé par défaut dans la zone géographique de votre adresse IP. Cela signifie que si vous voulez utiliser le domaine TLD d'un autre pays (ou .com en dehors des États-Unis), ou si vous voyager et voulez continuer à utiliser votre TLD, vous allez vous retrouver avec des liens vers le TLD local.<p>
+
+<img src="google-tld-2b.gif" alt="Google search - TLDs">
+<p>
+Ce script réécrit les liens qui ne finissent pas en .com ou avec le TLD de la page actuelle, et le remplace pas le TLD de la page. Dans la capture d'écran, tous les liens marqués (carré rouge) sont modifiés pour utiliser le TLD de la page. (La page github donne plus de précisions, en anglais)<p>
+Plus d'infos et de captures d'écrans sur <a href="https://github.com/Procyon-b/Google-fix-TLD-links" target="_blank">github</a>.<br>
+Le script est disponible sur <a href="https://github.com/Procyon-b/Google-fix-TLD-links/blob/master/google-fix-tld-links.user.js" target="_blank">GitHub</a>. (cliquer le bouton "Raw" pour charger automatiquement dans tampermonkey)<p> 
+<p>
+</div>
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_insta_noLog" name="insta_noLog" class="lang _ALL" type="radio" value="*">
+<input id="en_insta_noLog" name="insta_noLog" class="lang EN" type="radio" value="en" checked>
+<input id="fr_insta_noLog" name="insta_noLog" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="insta_noLog" href="#js"></a><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_insta_noLog" class="_ALL">&#x2731;</label></li>
+<li><label for="en_insta_noLog" class="EN">en</label></li>
+<li><label for="fr_insta_noLog" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_insta_noLog" class="tag notranslate">en</label><div lang="en">
+This script inserts a stylesheet to hide the small non-blocking "login" dialog, and the "login to continue" blocking dialog. It also auto-accepts the cookies dialog.<p>
+It checks every link on the page, as well as the ones added when scrolling down. And fixes all these links so you can click on them without having to use the right-click menu "Open link in a new tab".<br>
+<samp>Left-click</samp> and <samp>CTRL + Left-click</samp> now work as expected.<p>
+Unfortunately, "stories" and "tagged" links can't be unlocked. While for other links, a script locks them, in this particular case the content is not even sent to you browser if you're not logged in.<p>
+Get the script from <a href="https://greasyfork.org/scripts/403031-instagram-browse-not-logged" target="_blank">greasyfork.org</a>
+</div>
+
+<label for="fr_insta_noLog" class="tag notranslate">fr</label><div lang="fr">
+Ce script insère une feuille de style pour cacher le petit dialogue non-bloquant "Se connecter", et le dialogue bloquant "Connectez-vous pour continuer". Il accepte automatiquement le dialogue au sujet des cookies.<p>
+Il vérifie tous les liens de la page, ainsi que ceux ajoutés quand vous la faites défiler. Et corrige ces liens pour pouvoir les utiliser sans avoir à ouvrir le menu clic-droit et à cliquer "Ouvrir le lien dans un nouvel onglet"<br>
+<samp>Clic-gauche</samp> and <samp>CTRL + Clic-gauche</samp> fonctionnent maintenant normalement.<p>
+Malheureusement les liens "histoires / stories" et "identifé(e) / tagged" ne peuvent être débloqués. Contrairement aux autres liens qui sont seulement bloqués pas un script, dans ce cas particulier le contenu n'est même pas envoyé à votre navigateur si vous n'êtes pas connecté.<p>
+Le script est disponible sur <a href="https://greasyfork.org/scripts/403031-instagram-browse-not-logged" target="_blank">greasyfork.org</a>
+</div>
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_YT_si" name="YT_si" class="lang _ALL" type="radio" value="*">
+<input id="en_YT_si" name="YT_si" class="lang EN" type="radio" value="en" checked>
+<input id="fr_YT_si" name="YT_si" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="YT_si" href="#js"></a><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2020-12-03)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_YT_si" class="_ALL">&#x2731;</label></li>
+<li><label for="en_YT_si" class="EN">en</label></li>
+<li><label for="fr_YT_si" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_YT_si" class="tag notranslate">en</label><div lang="en">
+When you're not signed into youtube, a popup opens automatically asking you to identify.<p>
+
+This userscript hides this dialog and auto-dismisses it.<br>
+It also takes care of the GDPR cookie dialog for those not using an extension to dismiss GDPR cookie warnings.<p>
+
+And it prevents those 2 dialogs from pausing/stopping the current video if one is playing.<br>
+As of version 0.4 there is no exception left. The userscript should prevent pausing and stopping by popups in all situations. (If you still encounter this problem, please report it)<p>
+Other smaller popups/dialogs are also dismissed. They are not hidden in case some are not noticed by the script. This is the reason you could still spot them for a short moment before they disappear.<p>
+
+Please report any problem.<br>
+I'm unable to test properly on smartphones, but it should work on the latest browsers. If you have a problem provide the version number of the browser you are using. I'll be able to simulate it and try to fix.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/412178-youtube-dismiss-sign-in" target="_blank">greasyfork.org</a><p>
+</div>
+
+<label for="fr_YT_si" class="tag notranslate">fr</label><div lang="fr">
+Quand vous n'êtes pas connecté à youtube, une popup s'ouvre automatiquement vous demandant de vous identifier.<p>
+
+Ce userscript cache ce dialogue et répond "non merci".<br>
+Il se charge aussi de cacher le message RGPD à propos des cookies pour ceux qui n'utilisent pas une extension qui cache automatiquement ces messages.<p>
+
+Il empêche aussi ces 2 dialogues de pauser/stopper la vidéo s'il y en a une en train de jouer.<br>
+A partir de la version 0.4 il n'existe plus d'exception. Le script devrait empêcher les popups de pauser ou stopper la vidéo. (si vous rencontrez encore ce problème, envoyez-moi un message)<p>
+D'autres popups/dialogues sont aussi fermés. Ils ne sont pas cachés au cas où l'un d'eux ne serait pas remarqué par le script. C'est la raison pour laquelle vous pouvez encore les voir pendant un instant avant qu'ils ne disparaissent.<p>
+
+Faites-moi part des problèmes éventuels.<br>
+Il ne m'est pas possible de tester convenablement sur les smartphones, mais le script devrait fonctionner sur les derniers navigateurs. Si vous avez un problème veuillez me fournir la version du navigateur que vous utilisez. Il me sera alors possible de le simuler et tenter de faire fonctionner le script correctement.<p>
+
+Le script est disponible sur <a href="https://greasyfork.org/scripts/412178-youtube-dismiss-sign-in" target="_blank">greasyfork.org</a><p>
+</div>
+
+<img width="445" src="youtube-sign-in.gif" alt="youtube sign in">
+<img width="445" src="youtube-cookies.gif" alt="youtube GDPR">
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_WB_tt" name="WB_tt" class="lang _ALL" type="radio" value="*">
+<input id="en_WB_tt" name="WB_tt" class="lang EN" type="radio" value="en" checked>
+<input id="fr_WB_tt" name="WB_tt" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="WB_tt" href="#js"></a><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2020-08-03)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_WB_tt" class="_ALL">&#x2731;</label></li>
+<li><label for="en_WB_tt" class="EN">en</label></li>
+<li><label for="fr_WB_tt" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_WB_tt" class="tag notranslate">en</label><div lang="en">
+When browsing archived pages on <b><samp>archive.org</samp></b>, the site is meddling with the page margins and padding, and displaying its toolbar over the page. This toolbar, most of the time, hides parts of the header/menus of the page. The  toolbar disappears when javascript is disabled for <b><samp>archive.org</samp></b>, but margins and padding values can become messiers, hiding parts of the original page. Also, many sites need javascript to be displayed properly.<p>
+
+The toolbar can be closed by clicking the appropriate icon, but disappears forever (until reloading). And, once again, margins and padding keep their wrong values.<p>
+
+This userscript allows the user to set the toolbar in a "toggle" mode: always masked, and displayed when the mouse is moved over the top of the tab's viewport. Margins and padding are restored to the original values when the toolbar is put in this mode.<p>
+
+As a safeguard in case this script breaks a page (it shouldn't), the "toggle" mode is only activated when double-clicking an empty space in the toolbar (whitespace either on the right or on the left between the logo and the capture infos).<br>
+Moving the mouse at the top of the page's viewport should display the toolbar. If it doesn't, it means that an element of the page, usually the header or a fixed element, is in front of the toolbar. Maintain both <b><samp>ctrl</samp></b> and <b><samp>alt</samp></b> keys down while moving the mouse (at the top). When the toolbar reappears, release the keys. It stays visible as long as the mouse is over it.<p>
+
+<b>New in version 0.6.1 (2020-05-06)</b>: Once the toolbar is in "toggle" mode, you can click its "close" icon - if it is green - and the toolbar will disappear until you use the "<b><samp>ctrl</samp></b> and <b><samp>alt</samp></b>" trick. If the button is gray it means that the userscript won't be able to respawn it.<p>
+
+<ul>
+<li>#1: a copy of this page without javascript. Transparency added to show hidden content due to modified margins.
+<li>#2: with javascript and the toolbar. Margins are still incorrect.
+<li>#3: the toolbar in "float" mode. The mouse moved over it to make it visible, the margins are finally correct.
+</ul><p>
+Get the script from <a href="https://greasyfork.org/scripts/401753-wayback-machine-toolbar-toggler" target="_blank">greasyfork.org</a><p>
+</div>
+
+<label for="fr_WB_tt" class="tag notranslate">fr</label><div lang="fr">
+Quand vous visitez des pages archivées sur <b><samp>archive.org</samp></b>, ce site modifie les valeurs d'origine des marges de la page, et affiche sa barre d'outils par dessus le contenu. La plupart du temps, la barre d'outils masque une partie de l'entête et des menus de la page. Cette barre disparaît si javascript est désactivé pour le site <b><samp>archive.org</samp></b>, mais les marges restent erronnées, masquant des parties de page. De plus, beaucoup de sites ont besoin de javascript pour s'afficher correctement.<p>
+
+La barre d'outils peut être fermée en cliquant sur l'icône appropriée, mais disparaît alors définitivement (jusqu'au rechargement). Et les marges restent erronnées.<p>
+
+Ce script permet à l'utilisateur de placer la barre d'outils en mode "masqué": toujours cachée et affichée quand la souris est déplacée en haut de la fenêtre. Les marges sont restaurées à leur valeur d'origine quand la barre est dans ce mode.<p>
+
+Comme protection contre d'éventuelles erreurs du script, le mode "masqué" n'est activé que si on double-clique un espace vide de la barre d'outils (à gauche ou à droite entre le logo et les informations d'archivage).<br>
+Déplacer la souris en haut de la page devrait faire réapparaître la barre. Si ce n'est pas le cas, cela signifie qu'un élément de la page, habituellement l'entête ou un élément fixe, se trouve au dessus de la barre d'outils. Maintenez les touches <b><samp>ctrl</samp></b> et <b><samp>alt</samp></b> enfoncée pendant que vous déplacez la souris en haut de la page. Relâchez les touches quand le barre réapparaît. Elle restera visible aussi longtemps que la souris se trouvera au dessus.<p>
+
+<b>Nouveau dans la version 0.6.1 (2020-05-03)</b>: Quand la barre d'outil est en mode "masqué", vous pouvez cliquer sur son icône "fermer" (si il est de couleur verte). Elle disparait alors totalement jusqu'à ce que vous utilisiez l'astuce "<b><samp>ctrl</samp></b> et <b><samp>alt</samp></b>". Si le bouton est gris cela signifie que ce userscript ne pourra pas la faire réapparaître.<p>
+
+<ul>
+<li>#1: une archive de cette page sans javascript. La transparence a été ajoutée pour voir le contenu caché dû aux marges modifiées.
+<li>#2: avec javascript et la barre en mode normal. Les marges ne sont pas encore correctes.
+<li>#3: la barre en mode "masqué". La souris par dessus pour l'afficher, et les marges enfin correctes.
+</ul><p>
+Le script est disponible sur <a href="https://greasyfork.org/scripts/401753-wayback-machine-toolbar-toggler" target="_blank">greasyfork.org</a><p>
+</div>
+<p class="fl num num3 mg2"><img src="wayback-toolbar1.gif" alt="wayback no js" width="295"><span>#1</span></p>
+<p class="fl num num3 mg2"><img src="wayback-toolbar2.gif" alt="wayback normal" width="295"><span>#2</span></p>
+<p class="fl num num3"><img src="wayback-toolbar3.gif" alt="wayback floating toolbar" width="295"><span>#3</span></p>
+<p class="clr"></p>
+</div>
+</div>
+
+
+</div>
+
+<h2>CSS userstyle (Non-programming)</h2>
+<div class="lst">
+
+<h3 class="lnk"><a name="gmx_toolbar" href="#css"></a>Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></h3>
+<div class="nfo">
+In july 2020 Gmx changed the color scheme of the buttons bar from blue to gray (like web.de). This modification was applied to all gmx webmails domains ( .net, .com, .fr, .es, ... ).<p>
+This stylesheet restores the original layout. It is the exact style, and was recovered from a backup I've made earlier this year.<br>
+It works on: <samp>gmx.net</samp>, <samp>gmx.com</samp>, <samp>gmx.fr</samp>, <samp>gmx.es</samp>, <samp>gmx.co.uk</samp>, <samp>gmx.at</samp>, <samp>gmx.ch</samp><p>
+
+gmx.net gives you the choice of the layout color scheme. This fix works only on the default layout.
+<p>
+The stylesheet is available on <a href="https://userstyles.org/styles/189816/gmx-webmails-restore-blue-buttons-bar" target="_blank">userstyle.org</a>
+and on <a href="https://greasyfork.org/scripts/411899-gmx-webmails-restore-blue-buttons-bar" target="_blank">greasyfork.org</a> .<br>
+<p>
+<img src="gmx-buttons bar.gif" alt="gmx buttons bar">
+</div>
+
+<h3 class="lnk"><a name="google_fixMenu" href="#css"></a>Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></h3>
+<div class="nfo">
+Early April, google changed some parameters in its stylesheet. Since then, when accessing the "Settings" menu on google search homepage, some of the items can be unclickable depending on the size of the window.<br>
+It's due to the fact that in html the form is taking the whole width of the page and is displayed over the menu.<p>
+In the screenshot I've set a red background, partially transparent, to the form. You can see that it overlaps the menu (opaque yellow background).<br>
+When this fix is applied, the menu is displayed in front and is clickable.<p>
+The stylesheet is available on <a href="https://userstyles.org/styles/182714/google-fix-menu-accessibility" target="_blank">userstyle.org</a>.<br>
+<p>
+<img src="google-menu-fixed.gif" alt="google menu fixed">
+<br><br>
+<s>Was apparently fixed by google</s> <span class="LU">(2020-04-26)</span><br>
+<b>The problem has reappeared.</b> I noticed it today <span class="LU">(2020-05-17)</span><br>
+Apparently fixed... for the time being... <span class="LU">(2020-09)</span>
+</div>
+
+<div class="multiL">
+<input id="_all_google_ico" name="google_ico" class="lang _ALL" type="radio" value="*">
+<input id="en_google_ico" name="google_ico" class="lang EN" type="radio" value="en" checked>
+<input id="fr_google_ico" name="google_ico" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="google_ico" href="#css"></a><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2021-01-20)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_google_ico" class="_ALL">&#x2731;</label></li>
+<li><label for="en_google_ico" class="EN">en</label></li>
+<li><label for="fr_google_ico" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_google_ico" class="tag notranslate">en</label><div lang="en">
+This userstyle can modify the new google search results layout (with the favicon line).<br>
+It can:<br>
+<ul>
+<li>swap the 2 lines: the "favicon" line and the "title" line.</li>
+<li>hide the favicon (by default)</li>
+<li>reduce the font size of the result blocks. 90% (default) is close to the old size (before 2019).</li>
+</ul>
+<br>
+The stylesheet is available on <a href="https://userstyles.org/styles/179230/google-search-old-style" target="_blank">userstyle.org</a> (non-configurable stylesheet).<br>
+as well as on <a href="https://greasyfork.org/scripts/395346-google-search-old-style" target="_blank">greasyfork.org</a> in the userstyle/userCSS format (configurable options).<p>
+<br>
+<b>The userCSS format</b> allows these configurable options (screenshot #2):
+<ul>
+<li>swap the 2 lines: the "favicon" line and the "title" line.</li>
+<li>hide the favicon (by default) (as of 03/2020, the icon doesn't seem to appear as much, or not at all)</li>
+<li>reduce the font size of the result blocks. 90% (default) is close to the old size (before 2019).</li>
+<li>multiple options to reduce whitespace: line height and margins</li>
+<li>change the font used to display search results</li>
+</ul>
+<p>
+Suggested values to achieve a layout closer to the pre-2020 look:
+<ul>
+<li>activate "Recover whitespace"</li>
+<li>"Text's line height": 1.4</li>
+<li>"Bottom margin": 10px</li>
+<li>other options are already set to recommended values. Click the "x" (reset) to restore default.</li>
+<li>FYI: if google plays again with fonts, the font family name used to be: <code>arial,sans-serif</code></li>
+</ul><br>
+</div>
+
+<label for="fr_google_ico" class="tag notranslate">fr</label><div lang="fr">
+Cette feuille de styles peut modifier la nouvelle mise en page de la page de résultats du google (avec la ligne de favicon).<br>
+Elle peut:<br>
+<ul>
+<li>échanger les 2 lignes: la ligne "favicon" et celle du titre.</li>
+<li>cacher l'icône favicon (par défaut)</li>
+<li>diminuer la taille du lettrage des blocs de résultats. 90% (defaut) est proche de l'ancienne taille (avant 2019).</li>
+</ul>
+<br>
+Cette feuille de styles est disponible sur <a href="https://userstyles.org/styles/179230/google-search-old-style" target="_blank">userstyle.org</a> (version non-configurable).<br>
+ainsi que sur <a href="https://greasyfork.org/scripts/395346-google-search-old-style" target="_blank">greasyfork.org</a> au format "userstyle/userCSS" (version configurable: options pour chaque correction).<p>
+<br>
+<b>Le format userCSS</b> permet les options de configuration (image #2)&nbsp;:
+<ul>
+<li>échanger les 2 lignes: la ligne "favicon" et celle du titre.</li>
+<li>cacher l'icône favicon (par défaut) (à partir de mars 2020, l'icône n'apparaît plus autant, ou plus du tout)</li>
+<li>diminuer la taille du lettrage des blocs de résultats. 90% (defaut) est proche de l'ancienne taille (avant 2019).</li>
+<li>plusieurs options pour réduire l'espace inutile: hauteur de ligne et marges</li>
+<li>changer la police d'affichage utilisée pour les résultats</li>
+</ul>
+<p>
+Valeurs suggérées pour retrouver une apparence proche de celle qui existait avant 2020&nbsp;:
+<ul>
+<li>activer "Recover whitespace"</li>
+<li>"Text's line height": 1.4</li>
+<li>"Bottom margin": 10px</li>
+<li>les autres options ont déjà la valeur recommandée. Cliquer "x" (reset) pour restaurer la valeur par défaut de cette feuille de style.</li>
+<li>pour info: si google change la police, le nom de celle habituellement utilisée est: <code>arial,sans-serif</code></li>
+</ul><br>
+</div>
+<img src="google-search-favicon.gif" alt="Google search"><p>
+<img src="google old style - stylus menu.gif" alt="Google search"><p>
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_googleImage_size" name="googleImage_size" class="lang _ALL" type="radio" value="*">
+<input id="en_googleImage_size" name="googleImage_size" class="lang EN" type="radio" value="en" checked>
+<input id="fr_googleImage_size" name="googleImage_size" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="googleImage_size" href="#css"></a><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2020-11-15)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_googleImage_size" class="_ALL">&#x2731;</label></li>
+<li><label for="en_googleImage_size" class="EN">en</label></li>
+<li><label for="fr_googleImage_size" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_googleImage_size" class="tag notranslate">en</label><div lang="en">
+Late February 2020, google images stopped displaying image size over thumbnails.<p>
+This fix is available in 2 formats:<br>
+<ul>
+<li>The simple non-configurable stylesheet always displays the size and hides it when the mouse is over the thumbnail&nbsp;(#1).<br>
+Available on <a href="https://userstyles.org/styles/182719/google-image-show-size" target="_blank">userstyles.org</a></li>
+<li>With the user-stylesheet (if the extension managing your styles can handle it) you can choose if the size should always be displayed, or only on mouse-over; and if it is displayed at the top or bottom, and on the left or right of the thumbnails&nbsp;(#4).<br>
+Available on <a href="https://greasyfork.org/scripts/401760-google-images-show-size" target="_blank">greasyfork.org</a>.</li>
+</ul>
+<br>
+</div>
+
+<label for="fr_googleImage_size" class="tag notranslate">fr</label><div lang="fr">
+Fin février 2020, google images a arrêté d'afficher la taille des images sur les miniatures.<p>
+Ce correctif est disponible en 2 formats:<br>
+<ul>
+<li>La simple feuille de style non-configurable affiche toujours la taille et la masque quand la souris passe sur la miniature&nbsp;(#1).<br>
+Disponible sur <a href="https://userstyles.org/styles/182719/google-image-show-size" target="_blank">userstyles.org</a></li>
+<li>Avec la user-stylesheet (si l'extension qui gère vos styles est capable de comprendre ce format) vous choisissez si la taille est toujours affichée, ou seulement quand la souris passe sur l'image; et si elle est affichée en haut ou en bas, et à gauche ou droite des miniatures&nbsp;(#4).<br>
+Disponible sur <a href="https://greasyfork.org/scripts/401760-google-images-show-size" target="_blank">greasyfork.org</a>.</li>
+</ul>
+<br>
+</div>
+
+<p class="fl num num3 mg2"><img src="GI-size-bt.gif" alt="GI size at bottom" width="295"><span>#1</span></p>
+<p class="fl num num3 mg2"><img src="GI-size-sg.gif" alt="GI with hover" width="295"><span>#2</span></p>
+<p class="fl num num3"><img src="GI-size-t.gif" alt="GI size at top" width="295"><span>#3</span></p>
+<p class="fl num num3 clr"><img src="GI-size-stylus-menu.gif" alt="GI stylus menu"><span>#4</span></p>
+<p class="clr">
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_hm" name="hm" class="lang _ALL" type="radio" value="*">
+<input id="en_hm" name="hm" class="lang EN" type="radio" value="en" checked>
+<input id="fr_hm" name="hm" class="lang FR" type="radio" value="fr">
+<h3 class="lnk"><a name="hm" href="#css"></a><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2019-06-21)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_hm" class="_ALL">&#x2731;</label></li>
+<li><label for="en_hm" class="EN">en</label></li>
+<li><label for="fr_hm" class="FR">fr</label></li>
+</ul>
+<div class="nfo">
+<label for="en_hm" class="tag notranslate">en</label><div lang="en">
+Recover ads banner space (bottom and right side).<br>
+Hides "Upgrade to Office 360" link.<br>
+Reduces the height of lines in the folders list.<br>
+Reduces the height of lines in emails listing in the 3 modes: without preview pane, with preview pane at the bottom and with preview pane on the right side.<br><br>
+The stylesheet is available on <a href="https://userstyles.org/styles/167012/hotmail-outlook-redeem-whitespace" target="_blank">userstyle.org</a>.<p>
+</div>
+
+<label for="fr_hm" class="tag notranslate">fr</label><div lang="fr">
+Récupère l'espace des bannières publicitaires (en bas et à droite).<br>
+Cache le lien "Mise à niveau vers Office 360".<br>
+Réduit la hauteur des lignes dans la liste des dossiers.<br>
+Réduit la hauteur des lignes dans la liste des messages, dans les 3 modes: sans le volet de lecture, avec le volet en bas et avec la volet à droite.<br><br>
+La feuille de styles est disponibles sur <a href="https://userstyles.org/styles/167012/hotmail-outlook-redeem-whitespace" target="_blank">userstyle.org</a>.<p>
+</div>
+
+<img src="hotmail-css.gif" alt="hotmail screenshots"><p>
+
+</div>
+</div>
+
+<h3 class="lnk"><a name="imdb" href="#css"></a>IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2020-07-06)</span></h3>
+<div class="nfo">
+This stylesheet removes dead space around the image.<p>
+Note that even if your adblocker hides the space used by the ads (the "dead" space at the top of the screen in the screenshot), it doesn't make the image use the whole space. This stylesheet does.<p>
+
+<b>Update 2020-07-06:</b> IMDb is implementing a new design. Depending on your cookies, you are given one of the 3 layouts.<br>
+The stylesheet has been updated to work with the new design, and make it look like the old one: hiding the header (menu and search field) and the footer of the page and recovering the space used by the top bar (back button and # of image).<p>
+
+In the new design, the top bar will be visible all the time. If you want to be able to toggle it like the bottom info box, use the userscript instead.<p>
+
+The userstyle is available on <a href="https://userstyles.org/styles/177588/imdb-fullscreen-imageviewer" target="_blank">userstyle.org</a>.<br>
+The userscript is available on <a href="https://greasyfork.org/scripts/406544-imdb-fullscreen-imageviewer" target="_blank">greasyfork.org</a>.<p>
+<img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer"><p><br>
+With the new 2020 design:<p>
+<img src="imdb-img.2020.gif" alt="IMBd mediaviewer">
+<img src="imdb-img.2020-b.gif" alt="IMBd mediaviewer"><p>
+</div>
+
+
+<div class="multiL">
+<input id="_all_tuinFix" name="tuinFix" class="lang _ALL" type="radio" value="*">
+<input id="en_tuinFix" name="tuinFix" class="lang EN" type="radio" value="en" checked>
+<input id="fr_tuinFix" name="tuinFix" class="lang FR" type="radio" value="fr">
+<input id="NoL_tuinFix" name="NoL_tuinFix" class="lang _NoL" type="checkbox" value="_NoL">
+<h3 class="lnk"><a name="tuinFix" href="#css"></a><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_tuinFix" class="_ALL">&#x2731;</label></li>
+<li><label for="en_tuinFix" class="EN">en</label></li>
+<li><label for="fr_tuinFix" class="FR">fr</label></li>
+<li><label for="NoL_tuinFix" class="_NoL _NoL1">nl</label></li>
+<li><label for="NoL_tuinFix" class="_NoL">de</label></li>
+</ul>
+<div class="nfo">
+<label for="en_tuinFix" class="tag notranslate">en</label><div lang="en">
+When viewing a page with many items, the processor (CPU) consumption of the tab can increase a lot. The more you scroll down the page, the more it will use.<br>
+See screenshot (chrome): the "CPU" column shows 49.9% used by the "Webwinkel" tab.<p>
+
+It is due to the way the page is designed. A picture placeholder (spinning dots) is used for each item while its picture loads. The problem is that this spinning image, while being hidden from your view when the real image is displayed, is still spinning in the background. And there is one for each item. The consequence is that the page can gradually become sluggish, especially when scrolling.<p>
+The % could vary depending on the size of the browser window. It may not be as noticeable for everybody (slow/fast computer).<p>
+
+This very simple userstyle fixes the issue by completely hiding the spinning images. The tab consumption goes down to 0% when it is applied.<p>
+
+Available on <a href="https://userstyles.org/styles/182899/tuinadvies-matelma-fix-cpu-consumption" target="_blank">userstyle.org</a><p>
+</div>
+
+<label for="en_tuinFix" class="tag notranslate">fr</label><div lang="fr">
+Quand vous affichez une page contenant beaucoup d'articles, la consommation du processeur (CPU) peut augmenter fortement. Plus vous faites défiler la page, plus la consommation sera importante.<br>
+Voir la capture d'écran (chrome): la colonne "CPU" indique 49.9% utilisé par l'onglet "Webwinkel".<p>
+
+Ceci est dû à la manière dont la page est conçue. Une image temporaire (des points en rotation) est utilisée pendant que l'image de l'article est chargée. Le problème est que, bien que masquée une fois l'image définitive affichée à sa place, l'image temporaire continue à tourner en arrière-plan. Et il y en a une par article. La conséquence est que la page peut devenir lente à réagir, notamment lors du défilement du contenu.<p>
+Le % peut varier en fonction de la taille de la fenêtre du navigateur. Cela peut être plus ou moins perceptible selon l'utilisateur (ordinateur lent/rapide).<p>
+
+Cette feuille de style toute simple corrige le problème en cachant définitivement les images temporaires animées. La consommation de l'onglet retombe à 0% quand ce correctif est appliqué.<p>
+
+Disponible sur <a href="https://userstyles.org/styles/182899/tuinadvies-matelma-fix-cpu-consumption" target="_blank">userstyle.org</a><p>
+</div>
+<img src="matelma-CPU.png" alt="chrome tab's CPU usage">
+
+</div>
+</div>
+
+<div class="multiL">
+<input id="_all_tuin" name="tuin" class="lang _ALL" type="radio" value="*">
+<input id="en_tuin" name="tuin" class="lang EN" type="radio" value="en" checked>
+<input id="fr_tuin" name="tuin" class="lang FR" type="radio" value="fr">
+<input id="NoL_tuin" name="NoL_tuin" class="lang _NoL" type="checkbox" value="_NoL">
+<h3 class="lnk"><a name="tuin" href="#css"></a><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></h3>
+<ul class="selL notranslate"><li class="__ALL"><label for="_all_tuin" class="_ALL">&#x2731;</label></li>
+<li><label for="en_tuin" class="EN">en</label></li>
+<li><label for="fr_tuin" class="FR">fr</label></li>
+<li><label for="NoL_tuin" class="_NoL _NoL1">nl</label></li>
+<li><label for="NoL_tuin" class="_NoL">de</label></li>
+</ul>
+<div class="nfo">
+<label for="en_tuin" class="tag notranslate">en</label><div lang="en">
+This stylesheet applies to "Tuinadvies"/"Matelma" gardening webstores:<br>
+<ul>
+<li>https://www.tuinadvies.be/
+<li>https://www.tuinadvies.nl/
+<li>https://www.matelma.com/de-de/
+<li>https://www.matelma.com/fr-fr/
+<li>https://www.matelma.com/be-fr/
+</ul><br>
+It reduces the size of the page header once you scroll the page down.<br>
+Useful on smaller screens.<p>
+
+Screenshots:
+<ul>
+<li>#1: normal layout without the stylesheet
+<li>#2: colored strip removed
+<li>#3: when the page is scrolled, only a small part of the header is visible<br>
+It reappears when the mouse is moved over it (like #2)
+</ul>
+<p>
+It is available on <a href="https://userstyles.org/styles/175709/tuinadvies-matelma-smaller-header-petit-bandeau" target="_blank">userstyle.org</a>.<p>
+<p>
+</div>
+
+<label for="fr_tuin" class="tag notranslate">fr</label><div lang="fr">
+Cette feuille de styles s'applique à toutes les versions du site de vente de la chaîne "Tuinadvies"/"Matelma":<br>
+<ul>
+<li>https://www.tuinadvies.be/
+<li>https://www.tuinadvies.nl/
+<li>https://www.matelma.com/de-de/
+<li>https://www.matelma.com/fr-fr/
+<li>https://www.matelma.com/be-fr/
+</ul><br>
+Réduit la taille du bandeau en haut de page une fois que vous faites défiler le contenu de la page vers le bas.<br>
+Utile pour les écrans de petite taille.<p>
+
+Captures d'écran:
+<ul>
+<li>#1: apparence normale du site sans le feuille de style
+<li>#2: la ligne colorée est retirée
+<li>#3: quand la page défile, seule une petite partie du bandeau apparaît<br>
+Il réapparaît en entier quand la souris passe au dessus (comme #2)
+</ul>
+<p>
+Disponible sur <a href="https://userstyles.org/styles/175709/tuinadvies-matelma-smaller-header-petit-bandeau" target="_blank">userstyle.org</a>.<p>
+<p>
+</div>
+<br>
+<p class="fl num num4 mg2"><img src="tuinadvies1.gif" alt="without style"><span>#1</span></p>
+<p class="fl num num4 mg2"><img src="tuinadvies2.gif" alt="with style"><span>#2</span></p>
+<p class="fl num num4"><img src="tuinadvies3.gif" alt="small header"><span>#3</span></p>
+<p class="clr"></p>
+<br>
+</div>
+</div>
+
+</div>
+
+<h2>Fixing sites</h2>
+<div class="lst">
+
+<h3 class="lnk"><a name="imdbFix" href="#fix"></a>IMDb - reduce bloatware <span class="LU">(2019-11-24)</span></h3>
+<div class="nfo">
+Each update to the IMDb site slows it down. I have discovered that simply adding the following user rules to your filters revives the site.
+<p>
+First, you should probably install "uBlock Origin", the ad-blocking extension.
+Then, in the "My filters" tab, add these filters.
+<pre>
+amazon.com/1/batch/*$domain=imdb.com
+! 20191124: speed up imdb page load. Many scripts loaded from there. But still works without them.
+! 20191128  while entering a search query, the suggestion list will be missing.
+!           It's that, or 34+ script loaded each time.  
+||m.media-amazon.com/images/I/*$script,domain=imdb.com
+! privacy ?
+||images-na.ssl-images-amazon.com/images/G/01/AUIClients/ClientSideMetricsAUIJavascript$script,domain=imdb.com
+</pre>
+If you have another extension handling filtering, see if it supports this syntax.
+<p>
+<p>
+</div>
+
+<div class="multiL" lang="fr">
+<h3 class="lnk"><a name="LeM_WB" href="#fix"></a>
+"Le Figaro" archivé sur "Wayback Machine" <span class="LU">(2020-04-04) (2020-05-30)</span>
+</h3>
+<ul class="selL notranslate">
+<li><label for="fr_LeM_WB" class="FR _Only">fr</label></li>
+</ul>
+<div class="nfo">
+Quand des pages du site "Le Figaro" sont archivées sur le site "Wayback Machine" d'"Internet Archive", celles-ci semblent être vides. Vous trouverez çi-dessous une technique pour pouvoir lire correctement ces pages.<p>
+
+Le problème vient d'un des scripts propres à la page du Figaro. Celui-ci efface le contenu de l'article quand le domaine de la page n'est pas <b><samp>lefigaro.fr</samp></b>. Dans le cas présent le domaine est <b><samp>web.archive.org</code></b> puisque c'est une page archivée.<p>
+<br>
+La première solution est de désactiver javascript. Votre navigateur permet de le faire domaine par domaine, mais cela signifie que toutes les pages archivées pour d'autres domaines seront aussi sans javascript. Ce qui cassera beaucoup d'entre-elles.<br>
+Un autre inconvénient est que les images d'un article du Figaro sont chargées par script. Avec javascript désactivé, pas d'images en dehors de la première.<p>
+<br>
+Une autre solution est d'utiliser une extension anti-pub pour bloquer les scripts des pages du Figaro archivées.<br>
+Dans uBlockOrigin, ajouter le filtre suivant:
+<pre>||web.archive.org/web/*://www.lefigaro.fr/*chunks*$script</pre>
+Une fois ce filtre ajouté, les pages archivées du Figaro devraient être lisibles. Si elles ne le sont pas, vous avez loupé quelque chose.<p>
+La seconde partie de cette solution est de charger les images de la page avec un userscript. Ce userscript est chargé à l'aide d'une extension (greasemonkey, tampermonkey, violentmonkey). Vous trouverez le script sur <a href="https://github.com/Procyon-b/userCSS-userScript/blob/master/Wayback-fix%20figaro.user.js" target="_blank">GitHub</a> (cliquer sur le bouton "Raw" pour le charger dans l'extension).
+
+</div>
+</div>
+
+</div>
+
+<h2>Participation in other programmers' projects</h2>
+<div class="lst">
+
+<h3 class="lnk"><a name="oth_acm" href="#oth"></a>Awesome cookie manager (chrome extension)</h3>
+<div class="lst">Displays a list of all Google Chrome cookies. Allows searching, viewing, editing, saving, restoring, and deleting cookies.<p>
+On the <a target="_blank" href="https://chrome.google.com/webstore/detail/awesome-cookie-manager/hcpidejphgpcgfnpiehkcckkkemgneif">chrome web store</a>.<br>
+Its <a target="_blank" href="https://github.com/Phatsuo/awesome-cookie-manager">GitHub page</a>.<br>
+<br>
+</div>
+
+<h3 class="lnk"><a name="oth_dacse" href="#oth"></a>Don't add custom search engines (chrome extension)</h3>
+<div class="lst">Google Chrome extension that stops sites from adding custom search engines.<p>
+On the <a target="_blank" href="https://chrome.google.com/webstore/detail/dont-add-custom-search-en/dnodlcololidkjgbpeoleabmkocdhacc">chrome web store</a>.<br>
+Its <a target="_blank" href="https://github.com/gregsadetsky/chrome-dont-add-custom-search-engines">GitHub page</a>.<br>
+<br>
+</div>
+
+<h3 class="lnk"><a name="oth_GIsizer" href="#oth"></a>Google image sizer (extension | userscript)</h3>
+<div class="lst">Simple extension to re-implement Google Images size filter (e.g. Larger than 2MP)<p>
+
+On the <a target="_blank" href="https://chrome.google.com/webstore/detail/image-search-sizer/pkfdieeblkapoopkmlpnnlepnblgbphk">chrome web store</a>.<br>
+The <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/google-image-sizer/">Firefox add-ons</a> version.<br>
+Its <a target="_blank" href="https://github.com/danieljbingham/google-image-sizer">GitHub page</a>.<br>
+<br>
+</div>
+
+<h3 class="lnk"><a name="oth_mGISga" href="#oth"></a>Make Google Images great again (userscript | chrome extension)</h3>
+<div class="lst">This web extension adds back "View Image" button to Google Image Search results.<p>
+The extension is outdated and won't work properly (as of May 2020). You can find it on the <a target="_blank" href="https://chrome.google.com/webstore/detail/google-search-view-image/hgngncnljacgakaiifjcgdnknaglfipo">chrome web store</a>.<br>
+Its <a target="_blank" href="https://github.com/devunt/make-gis-great-again">GitHub page</a> has a link to an updated version. Search for the issue <a target="_blank" href="https://github.com/devunt/make-gis-great-again/issues?q=+is%3Aissue+is%3Aopen+sort%3Aupdated-desc">here</a> titled "Lastest version", and read the instructions to install.<br>
+<br>
+</div>
+
+<h3 class="lnk"><a name="oth_TF" href="#oth"></a>TabFern (chrome extension)</h3>
+<div class="lst">TabFern is Google Chrome extension for saving and restoring sets of tabs, and for switching between windows and tabs from a vertical, grouped list.<p>
+<ul>
+<li>Gives you a vertical list of all your open tabs
+<li>Groups your tabs by window
+<li>Saves sets of tabs so you can close them and resume later
+<li>Backs up and restores sets of tabs
+</ul>
+<p>
+On the <a target="_blank" href="https://chrome.google.com/webstore/detail/tabfern-tab-manager-and-b/hbajjpcdbninabigakflkhiogmmjaakm">chrome web store</a>.<br>
+Its <a target="_blank" href="https://github.com/cxw42/TabFern">GitHub page</a>.<br>
+<br>
+</div>
+
+</div>
+
+<script src="f.js"></script>
+<script>
+function setLang(a) {
+  for (let L of navigator.languages) {
+    L=L.split('-')[0];
+    //console.info(L);
+    if (a[L]) {
+      //console.info('match !');
+      a[L].checked=true;
+      return;
+      }
+    }
+}
+
+//console.info({languages:navigator.languages});
+var ml=document.querySelectorAll('.multiL');
+//console.info({ml});
+
+for (let i=0; i < ml.length; i++) {
+  //console.info(i,ml[i]);
+  let l={}, ln=ml[i].querySelectorAll('.lang');
+  for (let j=0; j < ln.length; j++) {
+    l[ln[j].value]=ln[j]; 
+    }
+  //console.info({ln,l});
+  setLang(l);
+  }
+
+</script>
+
+</body>
+</html>
