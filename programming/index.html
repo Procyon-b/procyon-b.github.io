@@ -194,7 +194,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-04-22</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-04-23</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -224,6 +224,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT upd" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-04-02)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
+<li class="multiT newest"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
 <li class="new upd"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2021-04-22)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2021-04-20)</span></a></li>
@@ -661,6 +662,24 @@ Le script est disponible sur <a href="https://github.com/Procyon-b/Google-fix-TL
 </div>
 
 </div>
+</div>
+
+<h3 class="lnk"><a name="imdb_lnk" href="#js"></a>IMDb - fix links <span class="LU">(2021-04-23)</span></h3>
+<div class="nfo">
+This script removes the tracking elements from all links on imdb pages.<br>
+It keeps other parameters intact: search query, hash element.<p>
+
+For me, the usefulness of the script is mainly to get back uniformity in pages urls.<br>
+With a tracking element, the same page can be linked with different urls, and your browsing history won't show a page as viewed (with a link in a different color) even if you have viewed it previously.<p>
+
+Example:<p>
+<ul>
+<li>The link to a film from a search result: <code>www.imdb.com/title/tt0053221/?ref_=fn_al_tt_1</code></li>
+<li>The same film from an actor's page: <code>www.imdb.com/title/tt0053221/?ref_=nm_flmg_act_38</code></li>
+<li>With this script, the link is always: <code>www.imdb.com/title/tt0053221/</code></li>
+</ul><br>
+Get the script from <a href="https://greasyfork.org/scripts/425447-imdb-fix-links" target="_blank">greasyfork.org</a>
+<p>
 </div>
 
 <div class="multiL">
