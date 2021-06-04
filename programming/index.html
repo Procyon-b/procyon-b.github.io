@@ -186,6 +186,14 @@ img.thumb:hover {
   padding: 0.5em;
 }
 
+.stb {
+  border: 0;
+  border-collapse: collapse;
+}
+.stb tr {
+  vertical-align: top;
+}
+
 </style>
 </head>
 <body>
@@ -674,9 +682,13 @@ With a tracking element, the same page can be linked with different urls, and yo
 
 Example:<p>
 <ul>
-<li>The link to a film from a search result: <code>www.imdb.com/title/tt0053221/?ref_=fn_al_tt_1</code></li>
-<li>The same film from an actor's page: <code>www.imdb.com/title/tt0053221/?ref_=nm_flmg_act_38</code></li>
-<li>With this script, the link is always: <code>www.imdb.com/title/tt0053221/</code></li>
+<table class="stb">
+<tr><td><li>The link to a film from a search result:&nbsp;</li></td><td><code>www.imdb.com/title/tt0053221/?ref_=fn_al_tt_1</code><br>
+<code>www.imdb.com/title/tt0053221/?ref_=nv_sr_srsg_0</code></td></tr>
+<tr><td><li>The same film from an actor's page:</li></td><td> <code>www.imdb.com/title/tt0053221/?ref_=nm_flmg_act_38</code></td></tr>
+<tr><td><li>With this script, the link is always:</li></td><td> <code>www.imdb.com/title/tt0053221/</code></td></tr>
+</table>
+
 </ul><br>
 Get the script from <a href="https://greasyfork.org/scripts/425447-imdb-fix-links" target="_blank">greasyfork.org</a>
 <p>
