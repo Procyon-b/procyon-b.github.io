@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-07-02</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-07-05</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -228,11 +228,11 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <ul class="mnu">
 <li><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2020-06-26)</span></a></li>
 <li><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
-<li class="upd multiT" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-06-28)</span></a></li>
+<li class="upd multiT" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-07-05)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-05-12)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
-<li class="multiT newest upd"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-06-02)</span></a></li>
+<li class="multiT new upd"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-06-02)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
 <li class="new upd"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2021-04-26)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2021-05-20)</span></a></li>
@@ -480,7 +480,7 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare
 <input id="en_gmx_pop" name="gmx_pop" class="lang EN" type="radio" value="en" checked>
 <input id="fr_gmx_pop" name="gmx_pop" class="lang FR" type="radio" value="fr">
 <input id="NoL_gmx_pop" name="gmx_pop" class="lang _NoL" type="checkbox" value="_NoL">
-<h3 class="lnk"><a name="gmx_Pop" href="#js"></a><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-06-28)</span></h3>
+<h3 class="lnk"><a name="gmx_Pop" href="#js"></a><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-07-05)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_gmx_pop" class="_ALL">&#x2731;</label></li>
 <li><label for="en_gmx_pop" class="EN">en</label></li>
 <li><label for="fr_gmx_pop" class="FR">fr</label></li>
@@ -491,18 +491,23 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare
 <label for="en_gmx_pop" class="tag notranslate">en</label><div lang="en">
 Early January 2020 or late December 2019, Gmx made a modification that changed the behavior of the "open email" icon (see screenshot). Now it opens the emails within the gmx webmail interface instead of opening a popup window.<br>
 The functionnality is still available, but I could not find an option in the interface to change it. So here is a userscript to do that.<p>
-The script adds a checkbox next to the buttons toolbar (see screenshot). When checked the popup behavior is enabled, when unchecked it's the current default. The script remembers your choice.<br>
+The script adds a checkbox next to the buttons toolbar (see screenshot). When checked the popup behavior is enabled, when unchecked it's the current default. The script remembers your choice.<p>
+
+The script offers 2 possibilities to open an email in a separate popup window:
+<ul><li>click the "Open email" icon in the email listing (see screenshot). It will open a popup if the checkbox is checked.</li>
+<li>when a message is opened, ctrl+click the "Fullscreen" button next to the "Save" and "Print" icons/buttons. A pop is opened regardless of the checkbox state.</li></ul><p>
+
 On the first installation, the option is automatically set to checked.<br>
 If the userscript is installed outside of a script manager (Tampermonkey, Greasemonkey, Violentmonkey, ...), it uses an alternative method to store the checkbox state. It remembers the state as long as the window/tab is open.<p>
 
+The script has been tested on <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
+
 <s><b>As of July 1st 2020</b>, gmx has removed this function on all versions of its site.</s><br>
-<b>Starting with v0.6</b> (July 12), the script tries to mimick how the functionality worked. It opens a popup with the email displayed. It does this by duplicating a frame of the site, and hides the nonrelevant elements of the page: the listing, the ads panels, and until they can be used correctly inside the popup, the button bar.<br>
+<b>Starting with v0.6</b> (July 12), the script tries to mimic how the functionality worked. It opens a popup with the email displayed. It does this by duplicating a frame of the site, and hides the nonrelevant elements of the page: the listing, the ads panels, and until they can be used correctly inside the popup, the button bar.<br>
 If, when using the popup, you see elements appearing that shouldn't, please contact me so I can fix it.<br>
 <s><b>August 4th 2020</b>, again gmx internal working has changed. The popup can't display the message as it did. I have to find another work-around...</s><br>
 <b>August 5th 2020</b>, the new version (0.6.2) revives the popup view.<br>
 <b>February 10 2021</b>, fix code to handle minor modification of HTML of the page.<p>
-
-The script has been tested on <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
 
 Get the script from <a href="https://greasyfork.org/scripts/395358-gmx-standalone-view" target="_blank">greasyfork.org</a><p>
 </div>
@@ -510,9 +515,16 @@ Get the script from <a href="https://greasyfork.org/scripts/395358-gmx-standalon
 <label for="fr_gmx_pop" class="tag notranslate">fr</label><div lang="fr">
 Début janvier 2020 ou fin décember 2019, Gmx a effectué des modifications qui ont changé le comportement de l'icône "Ouvrir e-mail" (voir capture d'écran). Maintenant cela ouvre l'email dans l'interface webmail au lieu d'une fenêtre popup.<br>
 La fonctionnalité est toujours disponible, mais rien dans l'interface ne permet de la changer. Voici donc un userscript pour le faire.<p>
-Le script ajoute une case à cocher dans la barre de boutons (voir capture d'écran). Quand elle est cochée, l'ouverture de la fenêtre popup est activée. Quand la case est décochée cela rétablit le comportement actuel par défaut. Le script garde en mémoire votre choix.<br>
+Le script ajoute une case à cocher dans la barre de boutons (voir capture d'écran). Quand elle est cochée, l'ouverture de la fenêtre popup est activée. Quand la case est décochée cela rétablit le comportement actuel par défaut. Le script garde en mémoire votre choix.<p>
+
+Le script offre 2 possibilités d'ouvrir un email dans une fenêtre popup séparée:
+<ul><li>cliquer l'icone "Ouvrir email" dans le listing des emails (voir capture d'écran). Une fenêtre popup s'ouvrira si l'option est activée.</li>
+<li>quand un message est ouvert, ctrl+cliquer le bouton "Plein écran" à côté des icones/boutons "Sauvegarder" et "Imprimer". Une popup s'ouvrira quel que soit l'état de la case à cocher.</li></ul><p>
+
 L'option est automatiquement cochée au moment de l'installation du script.<br>
 Si le script est installé en dehors d'une extension de gestion de scripts (Tampermonkey, Greasemonkey, Violentmonkey, ...) il utilise une méthode alternative pour sauvegarder l'état de l'option. Il s'en souvient tant que la fenêtre/onglet est ouverte.<p>
+
+Ce script a été testé sur <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
 
 <s><b>Au 1er juillet 2020</b>, gmx a retiré cette fonction de toutes les versions de son site. Ce script ne fonctionne plus actuellement.</s><br>
 <b>A partir de la version v0.6</b> (12 juillet), le script essaie de simuler le fonctionnement de cette option. Il ouvre une fenêtre popup contenant le message. Pour cela il duplique une "frame" du site, et cache les éléments inutiles de la page : la liste, les panneaux de publicité, et jusqu'à ce que cela fonctionne correctement dans la popup, la barre de boutons.<br>
@@ -520,8 +532,6 @@ Si quand vous utilisez la popup, vous voyez des éléments qui ne devraient pas 
 <s><b>4 août 2020</b>, le fonctionnement interne de gmx a encore changé. La popup ne peut plus afficher le message directement. Je dois trouver une autre méthode. Suite au prochain épisode...</s><br>
 <b>5 août 2020</b>, la nouvelle version (0.6.2) rétablit l'affichage du message dans une fenêtre séparée.<br>
 <b>10 février 2021</b>, correction suite à une petite modification du code HTML de la page.<p>
-
-Ce script a été testé sur <samp>gmx.net</samp> , <samp>gmx.com</samp> , <samp>gmx.fr</samp> , <samp>gmx.es</samp> , <samp>gmx.co.uk</samp> , <samp>gmx.at</samp> , <samp>gmx.ch</samp> , <samp>web.de</samp> .<p>
 
 Le script est disponible sur <a href="https://greasyfork.org/scripts/395358-gmx-standalone-view" target="_blank">greasyfork.org</a><p>
 <p>
