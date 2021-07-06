@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-07-05</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-07-06</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -230,7 +230,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2021-07-05)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
-<li class="upd multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-05-12)</span></a></li>
+<li class="upd multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-07-06)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
 <li class="multiT new upd"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-06-02)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
@@ -606,7 +606,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/398539-gmx-
 <input id="_all_Gcookie" name="Gcookie" class="lang _ALL" type="radio" value="*">
 <input id="en_Gcookie" name="Gcookie" class="lang EN" type="radio" value="en" checked>
 <input id="fr_Gcookie" name="Gcookie" class="lang FR" type="radio" value="fr">
-<h3 class="lnk"><a name="Gcookie" href="#js"></a><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-05-12)</span></h3>
+<h3 class="lnk"><a name="Gcookie" href="#js"></a><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-07-06)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_Gcookie" class="_ALL">&#x2731;</label></li>
 <li><label for="en_Gcookie" class="EN">en</label></li>
 <li><label for="fr_Gcookie" class="FR">fr</label></li>
@@ -619,8 +619,12 @@ The popup is not hidden, will flash while it is dismissed by the script and disa
 
 If you are really fed up with cookie warnings on many sites, I suggest installing an extension that handles it automatically (including for google). I can suggest one that works well for chrome and firefox. On the add-on/extension store, search for: <code>I don't care about cookies</code><p>
 
+<b>Note:</b> google regularly changes the style names. This could break the userscript. Please post a comment if this is the case for you.<p>
+
+<s>2021/04/02: Google has modified the display of the dialog. The script has been fixed. Report here if it still fails for you.<br>
+The new dialog is a little bit different. The remark on Firefox and the userscript managers can be disregarded if the older version of the dialog is no longer used by google.<br>
 <b style="color:red;">Note for Firefox users:</b> If you are using tampermonkey as userscript manager, this script won't work. There is a bug in <b>Tampermonkey</b> and <b>Tampermonkey beta</b> - as well as <b>Greasemonkey</b> - which prevents the script to be executed on the popup. Other scripts from other programmers might not work properly too; use the solution below.<br>
-<b style="color:red;">Solution for Firefox:</b> As far as I know, only one userscript manager works properly: <b>ViolentMonkey</b>. Feel free to install it to run this userscript.<p>
+<b style="color:red;">Solution for Firefox:</b> As far as I know, only one userscript manager works properly: <b>ViolentMonkey</b>. Feel free to install it to run this userscript.<p></s>
 
 Get the script from <a href="https://greasyfork.org/scripts/412348-google-dismiss-cookies-warning" target="_blank">greasyfork.org</a><p>
 </div>
@@ -632,8 +636,12 @@ La popup n'est pas cachée, et apparaît un court moment le temps que ce script 
 
 Si vous en avez marre des avertissements de cookies présentés par de nombreux sites, je vous suggère d'installer une extension qui le gère automatiquement (y compris pour google). Je peux en suggérer une qui fonctionne bien bien sur chrome et sur firefox. Faites une recherche sur le texte: <code>I don't care about cookies</code><p>
 
+<b>Note:</b> google change réglièrement le nom des styles. Cela peut casser le script. Si c'est votre cas, n'hésitez pas à poster un commentaire.<p>
+
+<s>2021/04/02: Google a modifié le dialogue des cookies. J'ai corrigé le script. Rapportez tout problème si vous en rencontrez encore.<br>
+Le nouveau dialogue est légèrement différent. La remarque sur Firefox et les gestionnaires de userscript peut être ignorée si l'ancienne version du dialogue n'est plus utilisée par google.<br>
 <b style="color:red;">Note pour les utilisateurs de Firefox :</b> Si vous utilisez tampermonkey en tant que gestionnaire de userscripts, ce script ne fonctionnera pas. Il y a un bug dans <b>Tampermonkey</b> et <b>Tampermonkey beta</b> - ainsi que dans <b>Greasemonkey</b> - qui empêche le script d'être exécuté sur la popup. D'autres scripts provenant d'autres programmeurs peuvent aussi rencontrer ce problème et ne pas fonctionner correctement; utilisez la solution çi-dessous.<br>
-<b style="color:red;">Solution pour Firefox :</b> Pour autant que je sache, un seul gestionnaire de scripts fonctionne correctement : <b>ViolentMonkey</b>. Libre à vous de l'installer.<p>
+<b style="color:red;">Solution pour Firefox :</b> Pour autant que je sache, un seul gestionnaire de scripts fonctionne correctement : <b>ViolentMonkey</b>. Libre à vous de l'installer.<p></s>
 
 Le script est disponible sur <a href="https://greasyfork.org/scripts/412348-google-dismiss-cookies-warning" target="_blank">greasyfork.org</a><p>
 </div>
