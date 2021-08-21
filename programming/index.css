@@ -207,6 +207,14 @@ p.num4 > span {
   margin-top: 0;
   margin-right: 2em;
 }
+.fl.ct {
+  text-align: center;
+}
+.fl.cmt > img ~ span {
+  border: 2px solid lightblue;
+  border-top: 0;
+  display: block;
+}
 .noM {
   margin-right: 0.5em;
 }
