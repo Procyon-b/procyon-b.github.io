@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-08-21</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2021-08-24</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -233,6 +233,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="upd multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-07-06)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
 <li class="multiT upd"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-08-17)</span></a></li>
+<li class="newest"><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
 <li><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2021-04-26)</span></a></li>
 <li class="multiT upd" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2021-08-21)</span></a></li>
@@ -247,6 +248,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT" langs="en fr"><a href="#googleImage_size"><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2021-04-11)</span></a></li>
 <li class="upd multiT" langs="en fr"><a href="#hm"><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2021-07-02)</span></a></li>
 <li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2020-07-06)</span></a></li>
+<li class="newest"><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
 </ul>
@@ -714,6 +716,54 @@ Get the script from <a href="https://greasyfork.org/scripts/425447-imdb-fix-link
 <p>
 </div>
 
+<h3 class="lnk"><a name="imdb_stopjs" href="#js"></a>IMDb - stop scripts <span class="LU">(2021-08-24)</span></h3>
+<div class="nfo">
+Every IMDb page loads more than 30 scripts (almost 50 on the new "title" page). <i>(Note that these scripts are not the ones filtered by an ad-blocking extension)</i><p>
+
+The execution of these script takes a toll on the loading time of the page (from 2s to 10s, depending on the page). But it depends on how powerful your computer is.<br>
+Most of the scripts are used to display widgets (on the homepage or on the new title page) or track the user. They are also used to display the suggestion box of the search field. At the end only 4-5 scripts are loaded. The rest is blocked by this userscript.<br>
+In fact it prevents them from being executed, but doesn't prevent the browser from loading them. If you have an ad-blocker like uBlock Origin, you can double the effect by adding some rules (see below). But be warned that you'll have to check this page regularly to see if the block list changes (mine hasn't changed since I started using this script almost 2 years ago, in late 2019). Anyway, blocking at "an ad-blocking" level is not necessary.<p>
+
+The blocked scripts are loaded in the following circumstances:<ul>
+<li>always on the homepage (useless without)
+<li>always on the image viewer page (control buttons don't work without)
+<li>when the users starts to type something in the search field (takes 2-5s to complete).
+</ul>
+<p>All image below when the search field is focused (user is ready to type).<br>
+The search field before typing:<br>
+<img src="imdb-search.gif">
+<p>
+during, and after typing:<br>
+<img src="imdb-search-after.gif">
+<p>
+The search field thereafter, or on the homepage, or when the userscript is not applied (all scripts loaded):<br>
+<img src="imdb-search-after-empty.gif">
+<p>
+The userscript has been tested on chrome and firefox. If you encounter a problem, please post a message.<br>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/431311-imdb-stop-scripts" target="_blank">greasyfork.org</a><br>
+<br>
+Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab:
+<pre class="code">
+! << replace with the date at which you add this block in you filter list >>
+! 5 filters used (but not needed) to help the userscript: https://greasyfork.org/scripts/431311-imdb-stop-scripts
+! speed up imdb page load. Many scripts loaded from there. But still works without them.
+||m.media-amazon.com/images/I/*$script,domain=imdb.com
+! restore search suggestion (combined with userscript)
+@@||m.media-amazon.com/images/I/*?$script,domain=imdb.com
+! 20210811: new "title" layout (film/episode)
+||d1zcggttmijv1z.cloudfront.net/_next/static/$script,domain=imdb.com
+! 20210811: killing scripts uses 100% cpu caused by this:
+www.imdb.com##.ipc-loader__circle,.ipc-loader__dot:style(animation: unset !important)
+!  (if :style is not supported by adblocker) www.imdb.com##svg.ipc-loader
+@@||d1zcggttmijv1z.cloudfront.net/_next/static/*?$script,domain=imdb.com
+! === END of filters used for userscript: https://greasyfork.org/scripts/431311-imdb-stop-scripts
+</pre>
+
+Adding these filters alone (without the script) achieves the same result. Except that the search field suggestion won't work, the homepage will have some parts missing, the image viewer won't be able to show previous or next image.
+</div>                                                                                                                                                                                                                                 
+
+
 <div class="multiL">
 <input id="_all_insta_noLog" name="insta_noLog" class="lang _ALL" type="radio" value="*">
 <input id="en_insta_noLog" name="insta_noLog" class="lang EN" type="radio" value="en" checked>
@@ -1060,6 +1110,28 @@ With the new 2020 design:<p>
 <p class="fl mg cmt ct"><img src="imdb-img.2021.gif" alt="IMBd mediaviewer"><span>How it looks in 2021</span></p>
 <p class="fl clr cmt ct"><img src="imdb-img.2020-b.gif" alt="IMBd mediaviewer"><span>With the userstyle/userscript applied</span></p>
 <p class="clr">
+</div>
+
+<h3 class="lnk"><a name="imdb_fixTitle" href="#css"></a>IMDb - fix title page <span class="LU">(2021-08-24)</span></h3>
+<div class="nfo">
+This userstyle tries to fix the new "title" page (films/episodes) on IMDb to make it look more like the previous version (pre-May 2021).
+<p>
+List of modifications:<ul><li>convert the "top cast" display into a list mimicking the old layout. Image size is reduced, name and role displayed in a line
+<li>cast line's background color alternates like in previous version
+<li>visited links are in a different color (whole page)
+<li>the font size of the text is reduced to (almost) match the rest of the site (font-family is not fixed)
+<li>the width of the content's block is limited to the same size as all other pages (and as in the previous version). Black margins appear left and right. Some image are resized to fit and appear smaller.
+</ul>
+<p>
+Other modifications could appear in the future, but I'm already pleased (even surprised) to see the page nicer to look at with such minor modifications.<p>
+
+The userstyle is available on <a href="https://userstyles.world/style/852/imdb-fix-title-page" target="_blank">userstyle.world</a>.<p>
+Don't forget to look at my other fixes for IMDb: "IMDb - fix links", "IMDb - stop scripts", "IMDb fullscreen imageviewer".<p>
+<br>
+<i><b>(Actual screen size is 40% bigger than in images)</b></i>
+<p class="fl cmt ct clr"><img src="imdb-title-normal-m.gif" alt="IMBd mediaviewer"><span>Before</span></p>
+<p class="fl cmt ct clr"><img src="imdb-title-after-m.gif" alt="IMBd mediaviewer"><span>With the stylesheet</span></p>
+<br class="clr"><br>
 </div>
 
 
