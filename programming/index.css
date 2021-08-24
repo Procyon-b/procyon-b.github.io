@@ -226,7 +226,7 @@ p.num4 > span {
   color: black;
 }
 
-code {
+code, .code {
   background-color: #ebf5f9;
 }
 
