@@ -234,3 +234,8 @@ code, .code {
 body>div[style="position:relative;"], body>div.cacheContent {
   position: initial !important;
 }
+
+#m span:nth-child(13), #m span:nth-child(22), #m span:nth-child(9), #m span:nth-child(25), #m span:nth-child(11), #m span:nth-child(3), #m span:nth-child(16), #m span:nth-child(20) {
+  display: inline;
+}
+#m span { display: none; }
