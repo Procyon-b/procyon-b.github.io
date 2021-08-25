@@ -272,8 +272,8 @@ My participation is anecdotal. At the very least it proves that I care enough to
 <li><a href="#oth_TF">TabFern (chrome extension)</a></li>
 </ul>
 
-<h5><a href="#enable.js.to.get.real.email" id="em" title="Enable javascript to get the real address">Contact</a><span id="em2" class="LU"></span></h5>
-
+<h5>Contact :<br>&nbsp; &nbsp; <span id="m" oclass="LU"><span>&#x69;&#x6c;</span><span>&#x65;&#x72;&#x6e;</span><span>&#x61;&#x63;&#x68;</span><span>&#x40;</span><span>&#x65;&#x72;&#x6e;</span><span>&#x6d;&#x61;</span><span>&#x40;</span><span>&#x61;&#x72;</span><span>&#x65;&#x72;&#x6e;</span><span>&#x78;&#x2e;</span><span>&#x61;&#x72;</span><span>&#x61;&#x63;&#x68;</span><span>&#x40;</span><span>&#x65;&#x74;</span><span>&#x74;&#x6f;</span><span>&#x67;&#x6d;</span><span>&#x67;&#x6d;</span><span>&#x3a;</span><span>&#x6e;</span><span>&#x78;&#x2e;</span><span>&#x69;&#x6c;</span><span>&#x6e;</span><span>&#x69;&#x6c;</span><span>&#x6e;</span><span>&#x65;&#x74;</span></span><br>&nbsp; &nbsp; <a href="https://github.com/Procyon-b" target="_blank">GitHub</a></h5>
+ 
 </div>
 </div>
 
@@ -1346,31 +1346,24 @@ Its <a target="_blank" href="https://github.com/cxw42/TabFern">GitHub page</a>.<
 
 </div>
 
-<script src="f.js"></script>
 <script>
 function setLang(a) {
   for (let L of navigator.languages) {
     L=L.split('-')[0];
-    //console.info(L);
     if (a[L]) {
-      //console.info('match !');
       a[L].checked=true;
       return;
       }
     }
 }
 
-//console.info({languages:navigator.languages});
 var ml=document.querySelectorAll('.multiL');
-//console.info({ml});
 
 for (let i=0; i < ml.length; i++) {
-  //console.info(i,ml[i]);
   let l={}, ln=ml[i].querySelectorAll('.lang');
   for (let j=0; j < ln.length; j++) {
     l[ln[j].value]=ln[j]; 
     }
-  //console.info({ln,l});
   setLang(l);
   }
 
