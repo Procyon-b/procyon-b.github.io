@@ -63,6 +63,9 @@ h3 .LU {
   font-size: 60%;
   font-weight: normal;
 }
+.LU * {
+  color: inherit;
+}
 .mnu li a {
   text-decoration: none;
   color: inherit;
