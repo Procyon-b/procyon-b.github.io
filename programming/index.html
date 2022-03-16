@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2022-03-04</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2022-03-15</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -232,8 +232,11 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2021-07-06)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
-<li class="multiT"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
-<li class="multiT"><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
+<li><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
+
+<li class="new"><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2022-03-15)</span></a></li>
+
+<li><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
 <li><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2021-09-12)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2020-12-17)</span></a></li>
 <li class="upd"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2022-01-08)</span></a></li>
@@ -252,7 +255,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT" langs="en fr"><a href="#googleImage_size"><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2021-04-11)</span></a></li>
 <li class="multiT upd" langs="en fr"><a href="#hm"><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2022-03-04)</span></a></li>
 <li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2020-07-06)</span></a></li>
-<li class="upd"><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-03-04)</span></a></li>
+<li class="upd"><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-03-15)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
 </ul>
@@ -717,7 +720,45 @@ Note (2021-08-17) : the new layout for the "title" page (film/episode) doesn't c
 
 <p>
 Get the script from <a href="https://greasyfork.org/scripts/425447-imdb-fix-links" target="_blank">greasyfork.org</a><p>
-Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" <!--, "<a href="#imdb_lnk">Fix links</a>"<!--> , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
+Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" <!--, "<a href="#imdb_lnk">Fix links</a>" <!-->, "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
+</div>
+
+<h3 class="lnk"><a name="imdb_fix_rating" href="#js"></a>IMDb - fix rating <span class="LU">(2021-04-23) (2021-09-12)</span></h3>
+<div class="nfo">
+<img src="imdb-rating.gif" class="fr">
+This userscript uses IMDb's raw vote values to re-compute the rating (and the total of votes) of the film, without the bias included by their algorithm. It replaces the displayed value with the result and tells you if there is a difference.<br>
+It also allows you to alter the result based on some basic preferences.<p>
+
+You can choose which votes to use:<ul>
+<li>All voters (default)
+<li>US voters only
+<li>non-US voters only
+<li>Top 1000 voters
+<li>aggregate of US and non-US voters
+</ul><p>
+You can discard:<ul>
+<li>"10"
+<li>"10" if it is the highest %
+<li>"1"
+<li>"9" if it is the highest % (and "10" if you want)
+</ul><p>
+
+The userscript is active on the "title" page, the "title/reference" page, the episodes list page. There are 2 options to enable this also for the "chart" page (top 250) and "search" page ("/search/" is in the path)<p>
+
+The script configuration menu can be opened by `ctrl + alt + left-click`-ing the rating value, and, on the page with more than one rating, the title element of the page (eg. "Episode List"). You can also click your userscript manager's icon to open its popup, and click the "Settings" line next to the userscript name.<p>
+<p class="fl mg2"><img src="imdb-rating-3.gif"></p>
+<p class="fl mg2"><img src="imdb-rating-2.gif"></p>
+<p class="fr mg"><img src="imdb-rating-4.gif"></p>
+<p style="clear:left;"><br>
+I've verified that it works in both tampermonkey and violentmonkey.<p>
+
+The script gets the values by downloading `imdb.com/title/tt0000000/ratings...` in the background, storing the data and using it for a period of 16 hours (configurable).<p>
+
+For pages with multiple items, when it needs to fetch the values from the server, it does it without hammering the server. This means that it could take several seconds to fill all the elements. It's almost instantaneous when the values are cached. Note that "aggregate of US and non-US voters" is particularly long to load since it needs to get 2 sets of data per film/episode.
+<p>
+Get the script from <a href="https://greasyfork.org/scripts/441478-imdb-fix-rating" target="_blank">greasyfork.org</a><p>
+Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" <!--, "<a href="#imdb_fix_rating">fix rating</a>" <!-->, "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
+<p class="clr">
 </div>
 
 <h3 class="lnk"><a name="imdb_sort" href="#js"></a>IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></h3>
@@ -729,10 +770,10 @@ By default, without modifying the setting, the default sorting is now set to "He
 To access the small menu - only available on the title page, or the reference title page - scroll to one of the "User reviews" links, press and maintain <samp>CTRL+ALT</samp> and click the link with the mouse's left button. (Due to the way the page is designed, your first and maybe your second click could be ignored)<p>
 The menu should opens a little below the link. You can then select the default option (including choosing IMDb's default).<br>
 The choice is saved immediately and the links are modified (you can move your mouse over them to see the modification).<p>
-<img src="imdb-set review sort.gif"><p>
+<img src="imdb-set review sort.gif" alt="IMDb review sorting - config"><p>
 This userscript has been tested on Firefox and chrome with Tampermonkey or Violentmonkey.<p>
 
-Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>"<!-- , "<a href="#imdb_sort">Set default user reviews sorting</a>"<!-->
+Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" <!--, "<a href="#imdb_sort">Set default user reviews sorting</a>"<!-->
 
 <p>
 Get the script from <a href="https://greasyfork.org/scripts/433573-imdb-set-default-user-reviews-sorting" target="_blank">greasyfork.org</a>
@@ -765,7 +806,7 @@ The userscript has been tested on chrome and firefox. If you encounter a problem
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/431311-imdb-stop-scripts" target="_blank">greasyfork.org</a><p>
 
-Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_lnk">Fix links</a>" <!--, "<a href="#imdb_stopjs">Stop scripts</a>"<!--> , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
+Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" <!--, "<a href="#imdb_stopjs">Stop scripts</a>" <!-->, "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
 Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: <span class="LU">(last modified: 2021-09-12)</span>
 <pre class="code">
 ! << replace with the date at which you add this block in you filter list >>
@@ -1161,7 +1202,7 @@ In the new design, the top bar will be visible all the time. If you want to be a
 
 The userstyle is available on <a href="https://userstyles.org/styles/177588/imdb-fullscreen-imageviewer" target="_blank">userstyle.org</a>.<br>
 The userscript is available on <a href="https://greasyfork.org/scripts/406544-imdb-fullscreen-imageviewer" target="_blank">greasyfork.org</a> (preferred version).<p>
-Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" <!--, "<a href="#imdb">Fullscreen imageviewer</a>"<!--> , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
+Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" <!--, "<a href="#imdb">Fullscreen imageviewer</a>" <!-->, "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
 
 <img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer"><p><br>
 With the new 2020 design:<p>
@@ -1171,7 +1212,7 @@ With the new 2020 design:<p>
 <p class="clr">
 </div>
 
-<h3 class="lnk"><a name="imdb_fixTitle" href="#css"></a>IMDb - fix title page <span class="LU">(2021-08-24) (2022-03-04)</span></h3>
+<h3 class="lnk"><a name="imdb_fixTitle" href="#css"></a>IMDb - fix title page <span class="LU">(2021-08-24) (2022-03-15)</span></h3>
 <div class="nfo">
 This userstyle tries to fix the new "title" page (films/episodes) on IMDb to make it look more like the previous version (pre-May 2021).
 <p>
@@ -1188,7 +1229,7 @@ List of modifications:<ul><li>convert the "top cast" display into a list mimicki
 I’m still adding new style modifications. To see them, click Stylus icon. In the menu next to this style’s name, click the “gear” icon and enable “testing”. The test styles will be applied (or not) based on the other switches. (If you have checked “on change” in Stylus popup menu, you will be able to see the styles applied live while enabling/disabling their switch)<p>
 
 The userstyle is available on <a href="https://userstyles.world/style/852/imdb-fix-title-page" target="_blank">userstyle.world</a>.<p>
-Look at my other IMDb's fixes: <!--"<a href="#imdb_fixTitle">fix title page / title page old layout</a>" ,<!--> "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>".<p>
+Look at my other IMDb's fixes: <!--"<a href="#imdb_fixTitle">fix title page / title page old layout</a>" ,<!--> "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
 <br>
 <i><b>(Actual screen size is 40% bigger than in images)</b></i>
 <p class="fl cmt ct clr"><img src="imdb-title-normal-m.gif" alt="IMBd title page - before"><span>Before</span></p>
