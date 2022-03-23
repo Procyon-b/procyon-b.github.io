@@ -806,7 +806,7 @@ The userscript has been tested on chrome and firefox. If you encounter a problem
 Get the script from <a href="https://greasyfork.org/scripts/431311-imdb-stop-scripts" target="_blank">greasyfork.org</a><p>
 
 Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" <!--, "<a href="#imdb_stopjs">Stop scripts</a>" <!-->, "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
-Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: <span class="LU">(last modified: 2021-09-12)</span>
+Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: <span class="LU">(last modified: 2022-03-22)</span>
 <pre class="code">
 ! << replace with the date at which you add this block in you filter list >>
 ! 5 filters used (but not needed) to help the userscript: https://greasyfork.org/scripts/431311-imdb-stop-scripts
@@ -814,13 +814,13 @@ Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: 
 ||m.media-amazon.com/images/I/*$script,domain=www.imdb.com
 ! restore search suggestion (combined with userscript)
 @@||m.media-amazon.com/images/I/*?$script,domain=www.imdb.com
-! 20210811: new "title" layout (film/episode)
-||d1zcggttmijv1z.cloudfront.net/_next/static/$script,domain=www.imdb.com
+! 20210811 20220322: new "title" layout (film/episode)
+||cloudfront.net/_next/static/$script,domain=www.imdb.com
 ! 20210811: killing scripts uses 100% cpu caused by this:
 www.imdb.com##.ipc-loader__circle,.ipc-loader__dot:style(animation: unset !important)
 !  (if :style is not supported by adblocker) www.imdb.com##svg.ipc-loader
-! (new "title" layout) restore search suggestion (combined with userscript)
-@@||d1zcggttmijv1z.cloudfront.net/_next/static/*?$script,domain=www.imdb.com
+! 20210811 20220322: (new "title" layout) restore search suggestion (combined with userscript)
+@@||cloudfront.net/_next/static/*?$script,domain=www.imdb.com
 ! === END of filters used for userscript: https://greasyfork.org/scripts/431311-imdb-stop-scripts
 </pre>
 
