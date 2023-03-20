@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2023-03-04</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2023-03-21</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -241,6 +241,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="upd"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
 <li class="new"><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
 <li class="new upd"><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-02-24)</span></a></li>
+<li class="newest"><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21)</span></a></li>
 <li class="upd"><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
 <li class="new upd"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
 <li class="new upd"><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
@@ -905,10 +906,40 @@ Get the script from <a href="https://greasyfork.org/scripts/459799-style-shadowd
 
 <h3 class="lnk"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-02-24)</span></h3>
 <div class="nfo">
-Adds a button to <code>userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
+Adds a button on <code>userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
 Get the script from <a href="https://greasyfork.org/scripts/443153-uso-add-usoa-button-on-userstyle-page" target="_blank">greasyfork.org</a><p>
 <img src="usoa-button-old2.gif" alt="button in the classic site"><p>
 <img src="usoa-button-new2.gif" alt="button in the new site"><p>
+</div>
+
+<h3 class="lnk"><a name="USO_moredata" href="#js"></a>userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21)</span></h3>
+<div class="nfo">
+This userscript adds more info to the displayed userstyles. It also fixes some global style to make the site more practical to use. And it fixes some issues with the site's navigation, mainly when you click the back button.<p>
+
+Additional information is added to every card displaying userstyle data:
+<ul>
+<li>Total installs
+<li>Last updated date
+<li>Creation date
+</ul>
+
+Total installs is also added to the userstyle full information popup.<p>
+
+Horizontal scrollbars replace buttons on sections on the homepage. Logo animation is prevented.<br>
+Get the script from <a href="https://greasyfork.org/scripts/462221-uso-display-additional-infos-fixes" target="_blank">greasyfork.org</a><br>
+<p>
+</div>
+
+<h3 class="lnk"><a name="USO_edit" href="#js"></a>userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></h3>
+<div class="nfo">
+I know this site is a pain, and is most of the time really slow to respond, but I'm still targeting people using Stylish instead of Stylus. So I have to use their interface to handle modifications.<p>
+
+When editing a userstyle, if you resize one of the textarea, or if you add an element in "style settings", the size of the page increases and the "Save" button moves outside of the visible viewport. You have to move up in the page and reduce the height of textarea elements to make the button re-appear.<p>
+
+No more need for that with this small userscript. The element (an iframe) containing the form is automatically resized to fit.<p>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/431548-uso-fix-editor-s-page-height" target="_blank">greasyfork.org</a><br>
+<p>
 </div>
 
 <h3 class="lnk"><a name="USO_forceclassic" href="#js"></a>userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></h3>
@@ -937,18 +968,6 @@ Compared to what is displayed when you click on "<i>View JSON</i>", the code is 
 
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-source-code" target="_blank">greasyfork.org</a><br>
-<p>
-</div>
-
-<h3 class="lnk"><a name="USO_edit" href="#js"></a>userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></h3>
-<div class="nfo">
-I know this site is a pain, and is most of the time really slow to respond, but I'm still targeting people using Stylish instead of Stylus. So I have to use their interface to handle modifications.<p>
-
-When editing a userstyle, if you resize one of the textarea, or if you add an element in "style settings", the size of the page increases and the "Save" button moves outside of the visible viewport. You have to move up in the page and reduce the height of textarea elements to make the button re-appear.<p>
-
-No more need for that with this small userscript. The element (an iframe) containing the form is automatically resized to fit.<p>
-<br>
-Get the script from <a href="https://greasyfork.org/scripts/431548-uso-fix-editor-s-page-height" target="_blank">greasyfork.org</a><br>
 <p>
 </div>
 
