@@ -222,6 +222,10 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <ul class="mnu">
 <li><a href="#VI">View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></a></li>
 <li><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
+
+<li class="newest"><a href="#tr">Translate webpage (follow "How-to" to use as a bookmarklet) <span class="LU">(2023-07-14)</span></a></li>
+
+
 </ul>
 <a name="js"> </a>
 <h3>Javascript userscripts</h3>
@@ -240,6 +244,13 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="upd multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
 <li><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
 <li><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
+
+
+
+<li class="newest"><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
+
+
+
 <li class="upd"><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
 <li class="upd new"><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
 <li><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
@@ -905,6 +916,102 @@ Without the userscript, only the normal elements are outlined (in green). With t
 Get the script from <a href="https://greasyfork.org/scripts/459799-style-shadowdom" target="_blank">greasyfork.org</a><p>
 <img src="style-shadow1.gif" alt="shadow without style">
 <img src="style-shadow2.gif" alt="shadow styled"><br>
+</div>
+
+<h3 class="lnk"><a name="tr" href="#js"></a>Translate webpage <span class="LU">(2023-07-14)</span></h3>
+<div class="nfo">
+<p>This userscript mimicks chrome's built-in page translator. It can be used as a userscript (from the context menu, or, always on) or as a bookmarklet (clicking the bookmark translates the page). Works in Firefox and in chrome. It has been tested with <i>Tampermonkey</i> and <i>Violentmonkey</i>.</p>
+<br>
+<i>
+Since June 2023, the built-in translation in old versions of chrome has stopped working. This sparked the idea to bring the feature back to those users who are still sticking to their old programs, and make it more flexible and browser independant. <strong>It should works in all versions of Firefox and chromium-based browsers</strong>. If you experience problem in older versions, feel free to contact me.<br>
+The only cave-at is that it uses google translate. You are warned.
+</i>  
+<p>Webmasters have always been able to add a widget to integrate the service to their site to allow their foreign visitors to translate the page on the fly. (Look at this example <a href="https://www.w3schools.com/css/" target="_blank">here</a>. Click the earth icon in the black toolbar).<br>
+The userscript is using this script on all pages, which allows complete inline translation of pages and frames.</p>
+
+<br><b>When used as a bookmarklet</b>, it integrates the translation toolbar with the default capabilities. Except for a few css tunings to fix some issues:
+<ul>
+<li>The toolbar is hidden. It appears when the mouse pointer is moved in <b>the top 4 pixels</b> of the viewport.
+<li>The boxes displaying the list of languages is scrollable to accommodate lower resolutions.
+</ul>
+<p>The target language is saved site by site in a session cookies. A default language can be set. See below in the section on how to install as a bookmarklet.
+<p><img src="gt_toolbar.png"></p>
+<p class="fl mg2"><img src="gt_menu.png"></p><p class="fl cmt ct"><img src="gt_choice.png"><span><small>When no target language</small></span></p>
+<p class="clr"></p>
+<br>
+<b>When used as a userscript</b>, buttons and menu items are added:
+<ul>
+<li>The button "Set as default language" saves the current default target language for your translation.
+<li>A button with the current default language serves as a shortcut to set the current target language when you've changed it (see the screenshot below).
+</ul>
+<p><img src="gt_toolbar_ujs.png"></p>
+
+
+<p class="fr mg"><img src="gt_menu_full.png"></p>
+
+<p>The menu has other commands: <i>(items are usually hidden and are all displayed here as a convenience)</i>
+<ul>
+<li>The first one now also save the choice in the script config
+<li>The second allows to revert your choice
+<li>You can turn off translation on all sites. A trigger will be added to the webpages to start the translation process, but no connection to the service is made if you don't click it.
+<li>You can turn off globally while allowing for the current site. You can still allow/disallow individual sites with the first 2 commands
+<li>You can revert translation on for all site
+<li>The last item at the bottom <code>&iquest;?</code> , is in if the language used in the toolbar is incorrect. When clicked it selects the language used in your browser's interface and displays a list of country codes to choose from. You'll have to reload the page to take effect.
+</ul>
+</p>
+<p class="clr"></p>
+
+<p class="fl cmt ct mg2"><img src="gt_menu_ujs.png"><span>Menu as it really appears</span></p>
+<p class="fl cmt ct"><img src="gt_menu_ujs_def.png"><span>forcing the toolbar language</span></p>
+<p class="clr"></p><br>
+
+<b>How to use</b><p>
+<div class="snfo">
+Note that the userscript has the advantage to update automatically when a new version is released. For the bookmarlet you'll have to do it yourself.<p>
+<b>As a userscript</b> <i>(context menu)</i><br>
+By default when installed in <i>Tampermonkey</i>, the userscript is accessible through the browser's context-menu of the page. Right-click over the section of a page (eg. a frame), click on "Tampermonkey" and then on the userstyle's name in the submenu. This is the prefered method if you don't need to translate too often.<br>
+This functionality is not available in <i>Violentmonkey</i> where the other method is used.
+<p>
+<b>As a userscript</b><br>
+In this configuration, all the websites will be subjected to translation. You can disable this for each site separately, but the default option is to translate. You can configure the script to work the opposite way: never translate unless called from the trigger, or if the site is set to auto-translate.
+<p class="fl mg2"><img src="gt_dis.png"></p>This appears (hidden by default) in the top right corner of a page where auto-translation is disabled. Move the mouse pointer there where <b>an area 3 by 3 pixels</b> triggers the display of the symbol. Click it to start the translation. The translation will start, or the "Select language" dialog appear if the script doesn't know the language to use.
+<p class="clr"></p>
+<br>
+<b>Switching between the 2 configurations</b> (<i>Tampermonky only</i>)<br>
+<p>In Tampermonkey, open the userscript, click the "<i>Settings</i>" tab. In the 2nd section, "<i>General</i>" "<i>Run at</i>", change between <code>Default</code> (or <code>context-menu</code>) and <code>document-idle</code>. When <code>document-idle</code> is set the context menu entry disappears.</p><br>
+
+<b>As a bookmarklet</b><br>
+<ul>
+<li>Create a new bookmark that you place for easy access in the bookmarks toolbar or in a submenu of the bookmarks toolbar.
+<li>Open the bookmarks manager and edit that bookmark.
+<li>Visit the page with the userscript source code. Select everything below <code>==/UserScript==</code>, starting with <code>javascript:</code> up until the end.
+<li>Go to the bookmark manager and paste in the url field of the bookmark. If you want to set a default target language, save the bookmark without closing the manager.
+<li>Edit the bookmark. Go to the url field. Hit the "home" key to go to the beginning of the code
+<li>Type your language code (country code, <code>en</code> for english, <code>fr</code> for french, etc.) between the "" after <code>var defLang=</code><br>If you don't know the country code, type a <code>?</code> . The userscript will try to use the language of the browser.
+<br><br>
+<li>If the language used to display the toolbar isn't what you want, you can do the same thing but between the "" after <code>toolbarLang=</code>
+
+</ul>
+
+</div>
+<br>
+<b>Notes</b><p>
+If a cookie is set, it has precedence over other configurations.
+<ul>
+<li>The current target language is ignored. If you change the default to another language, and then go back to a site recently visited, it will use the previous language. (the cookie was set at that time).
+<li>If a site is set to never translate (global or site-specific), it will translate as set by the cookie.
+<li>Cookies can be discarded either by clicking the cross icon in the toolbar ; by clicking "<i>Show Original</i>" ; when the browser is restarted and the session cookies are erased.
+</ul>
+<p>The session cookie is always set when a translation is attempted. Except for sites where cookies are blocked by configuring your browser.</p>
+<br>
+<p>The userscript contains several translations for the added buttons and menu items. Except for language that I know, or poorly know, they are taken as-is from google translate. Forgive me for the errors.<br>The translations included are: french, dutch, spanish, italian, german, portuguese, japanese, chinese (simplified and traditionnal).</p>
+<br>
+If you encounter any problem when running it in older browsers, feel free to contact me.
+<br><br>
+
+<p>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/" target="_blank">greasyfork.org</a><p>
 </div>
 
 <h3 class="lnk"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></h3>
