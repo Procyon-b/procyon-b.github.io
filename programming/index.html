@@ -967,7 +967,7 @@ The userscript is using this script on all pages, which allows complete inline t
 
 <b>How to use</b><p>
 <div class="snfo">
-Note that the userscript has the advantage to update automatically when a new version is released. For the bookmarlet you'll have to do it yourself.<p>
+Note that the userscript has the advantage to update automatically when a new version is released. For the bookmarklet you'll have to do it yourself.<p>
 <b>As a userscript</b> <i>(context menu)</i><br>
 By default when installed in <i>Tampermonkey</i>, the userscript is accessible through the browser's context-menu of the page. Right-click over the section of a page (eg. a frame), click on "Tampermonkey" and then on the userstyle's name in the submenu. This is the prefered method if you don't need to translate too often.<br>
 This functionality is not available in <i>Violentmonkey</i> where the other method is used.
@@ -977,7 +977,7 @@ In this configuration, all the websites will be subjected to translation. You ca
 <p class="fl mg2"><img src="gt_dis.png"></p>This appears (hidden by default) in the top right corner of a page where auto-translation is disabled. Move the mouse pointer there where <b>an area 3 by 3 pixels</b> triggers the display of the symbol. Click it to start the translation. The translation will start, or the "Select language" dialog appear if the script doesn't know the language to use.
 <p class="clr"></p>
 <br>
-<b>Switching between the 2 configurations</b> (<i>Tampermonky only</i>)<br>
+<b>Switching between the 2 configurations</b> (<i>Tampermonkey only</i>)<br>
 <p>In Tampermonkey, open the userscript, click the "<i>Settings</i>" tab. In the 2nd section, "<i>General</i>" "<i>Run at</i>", change between <code>Default</code> (or <code>context-menu</code>) and <code>document-idle</code>. When <code>document-idle</code> is set the context menu entry disappears.</p><br>
 
 <b>As a bookmarklet</b><br>
@@ -1002,16 +1002,18 @@ If a cookie is set, it has precedence over other configurations.
 <li>If a site is set to never translate (global or site-specific), it will translate as set by the cookie.
 <li>Cookies can be discarded either by clicking the cross icon in the toolbar ; by clicking "<i>Show Original</i>" ; when the browser is restarted and the session cookies are erased.
 </ul>
-<p>The session cookie is always set when a translation is attempted. Except for sites where cookies are blocked by configuring your browser.</p>
-<br>
-<p>The userscript contains several translations for the added buttons and menu items. Except for language that I know, or poorly know, they are taken as-is from google translate. Forgive me for the errors.<br>The translations included are: french, dutch, spanish, italian, german, portuguese, japanese, chinese (simplified and traditionnal).</p>
-<br>
-If you encounter any problem when running it in older browsers, feel free to contact me.
-<br><br>
+<p>The session cookie is always set when a translation is attempted. Except for sites where cookies are blocked by configuring your browser.</p><br>
+
+<p>The userscript contains several translations for the added buttons and menu items. Except for languages that I know, or poorly know, they are taken as-is from google translate. Forgive me for the errors.<br>The translations included are: french, dutch, spanish, italian, german, portuguese, japanese, chinese (simplified and traditionnal).</p><br>
+
+If the website that you want to translate is configured to block inline script, the translation won't work. Parts of google translate scripts will be blocked.<p><br>
+
+If you encounter any problem when running it in older browsers, feel free to contact me.<p><br>
 
 <p>
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/470861-translate-webpage" target="_blank">greasyfork.org</a><p>
+<br>
 </div>
 
 <h3 class="lnk"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></h3>
