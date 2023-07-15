@@ -202,7 +202,7 @@ img.thumb:hover {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2023-06-13</i>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2023-07-15</i>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -222,10 +222,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <ul class="mnu">
 <li><a href="#VI">View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></a></li>
 <li><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
-
 <li class="newest"><a href="#tr">Translate webpage (follow "How-to" to use as a bookmarklet) <span class="LU">(2023-07-14)</span></a></li>
-
-
 </ul>
 <a name="js"> </a>
 <h3>Javascript userscripts</h3>
@@ -244,13 +241,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="upd multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
 <li><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
 <li><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
-
-
-
 <li class="newest"><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
-
-
-
 <li class="upd"><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
 <li class="upd new"><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
 <li><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
@@ -259,6 +250,8 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
 <li class="new upd"><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-05-24)</span></a></li>
+<li class="newest upd"><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
+<li class="newest upd"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
 </ul>
 <a name="css"> </a>
 <h3>CSS userstyle (Non-programming)</h3>
@@ -273,7 +266,7 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT upd" langs="en fr"><a href="#hm"><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2023-05-07)</span></a></li>
 <li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
 <li><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></a></li>
-<li class="new"><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
+<li><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
 <li class="new upd"><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
@@ -956,7 +949,8 @@ The userscript is using this script on all pages, which allows complete inline t
 <li>You can turn off translation on all sites. A trigger will be added to the webpages to start the translation process, but no connection to the service is made if you don't click it.
 <li>You can turn off globally while allowing for the current site. You can still allow/disallow individual sites with the first 2 commands
 <li>You can revert translation on for all site
-<li>The last item at the bottom <code>&iquest;?</code> , is in if the language used in the toolbar is incorrect. When clicked it selects the language used in your browser's interface and displays a list of country codes to choose from. You'll have to reload the page to take effect.
+<li>The last item at the bottom <code>&iquest;?</code> , is in if the language used in the toolbar is incorrect. When clicked it selects the language used in your browser's interface and displays a list of country codes to choose from. You'll have to reload the page to take effect.<br>
+Selecting the first item (empty) sets it back to autodetection.
 </ul>
 </p>
 <p class="clr"></p>
@@ -1193,6 +1187,38 @@ Display the like and dislike counts next to the arrow buttons.<p>
 
 Get the script from <a href="https://greasyfork.org/scripts/466543" target="_blank">greasyfork.org</a><p>
 <img src="9gag - dislike.png" alt=""><p>
+</div>
+
+
+<h3 class="lnk"><a name="9gag_nsfw" href="#js"></a>9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></h3>
+<div class="nfo">
+When you are not logged in, this userscript forces 9gag to display all nsfw images & videos in posts and comments.<p><br>
+Get the script from <a href="https://greasyfork.org/scripts/469261" target="_blank">greasyfork.org</a><p>
+<br>
+</div>
+
+
+<h3 class="lnk"><a name="9gag_scrl" href="#js"></a>9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></h3>
+<div class="nfo">
+This userscript is an attempt to allow a 9gag user to easily scroll back to the position on the page focused when he clicked the "scroll to top" icon. Or if the user scrolled up to read a comment again, and wants to resume where he was.<br><br>
+<p class="fl mg3">
+<img src="9gag-down2L.png">
+<img src="9gag-down2D.png"><br><br>
+<img src="9gag-upL.png">
+<img src="9gag-upD.png">
+</p>
+The userscript adds one or two button to allow you to scroll back down to the position where the viewport was when you clicked 9gag's up arrow.<p>
+Once you start scrolling the page, 9gag displays the up arrow at the bottom-right corner of the window.<p>
+If you scroll up, either manually or by clicking the up arrow, the userscript displays a down arrow in the top-right corner of the page. Clicking it moves you back to the farther position that you reached when scrolling down.<br>
+This icon disappears when you have moved down at least as far as you were, either by scrolling manually or by clicking it.<p>
+A second down arrow appears under the first one when you click the up arrow and have already scrolled a little (in short, when the first down arrow is visible). Clicking this second arrow moves you down were you where when you click the up arrow. Which is not as far as the first down arrow will bring you.<br>
+This arrow disappears when you scroll down pass the position.<p>
+<p class="clr"></p><br>
+The script remembers the positions for all sections visited in the same "long-lived" page (when the page is dynamically update but not fully reloaded). Say you click the "Home", scroll up/down a little ; then click "Trending", scroll there too. When you click "Home" again, 9gag remember your scrolling position, and the userscript, the state of its buttons.
+<p><br>
+
+Get the script from <a href="https://greasyfork.org//scripts/451648" target="_blank">greasyfork.org</a><p>
+<br>
 </div>
 
 

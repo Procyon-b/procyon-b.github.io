@@ -174,6 +174,9 @@ p > .img:first-child, p.mg {
 p.mg2 {
   margin-right: 0.3em;
 }
+p.mg3 {
+  margin-right: 1em;
+}
 p.num {
   position: relative;
 }
