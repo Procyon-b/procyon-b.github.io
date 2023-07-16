@@ -250,8 +250,8 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 <li class="multiT" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
 <li class="new upd"><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
-<li class="newest upd"><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
 <li class="newest upd"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
+<li class="newest upd"><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
 </ul>
 <a name="css"> </a>
 <h3>CSS userstyle (Non-programming)</h3>
@@ -457,7 +457,7 @@ This bookmarklet increases the size of all images in the cast list on IMDb. It d
 The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.*?_V1\.*(?:\._CR.*?)?_U.)(\d+_CR\d+.*)$/.test(u))return RegExp.$1+RegExp.$2.replace(/\d+/g,function(a){return a << 1});return u;}var e=document.querySelectorAll('.primary_photo img'),j0=0;function fi(){var i,s=Date.now();for(var j=j0;i=e[j];j++){i.width=i.width << 1;i.height=i.height << 1;i.src=getImg(i.src);if(i.attributes.loadlate)i.setAttribute('loadlate',getImg(i.attributes.loadlate.value));if(Date.now()-s > 200){j0=j+1;setTimeout(fi,0);return 1}}}fi();})()">link</a><span class="note">(*)</span>. Current version: 20181025<p>
 
 (*) drag & drop on your bookmark bar to add the link to your bookmarks.<p>
-<img src="imdb-img-sz.gif" alt="IMDb cast listing">
+<img src="imdb-img-sz.gif" alt="IMDb cast listing" width="584" height="421" loading="lazy">
 <p>
 </div>
 
@@ -470,15 +470,15 @@ The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.
 <div class="nfo">
 A link "(r)" is added in the two tabs "Issues" and "PR'. It is used as a single click shortcut to the corresponding listing sorted by "Recently updated".<p>
 
-<img src="sortByRecent.png" alt="GitHub tabs"><br>
+<img src="sortByRecent.png" alt="GitHub tabs" width="514" height="92" loading="lazy"><br>
 <br>
 And in the GitHub page header (since 2019-11-22).<p>
-<img src="GitHub-header-sort.png" alt="GitHub tabs"><br>
+<img src="GitHub-header-sort.png" alt="GitHub tabs" width="721" height="64" loading="lazy"><br>
 <br>
 On the page displaying all your Pull requests, or Issues, a new category ("Commenter") now appears (added 2019-11-28).<br>
 Clicking this button will display all the issues/pr in which you made a comment. They might not appear in the other categories.<p>
-<img src="GitHub-commenter.gif" alt="GitHub commenter"><p>
-<img src="GitHub-commenter2.gif" alt="GitHub commenter"><br>
+<img src="GitHub-commenter.gif" alt="GitHub commenter" width="700" height="48" loading="lazy"><p>
+<img src="GitHub-commenter2.gif" alt="GitHub commenter" width="700" height="48" loading="lazy"><br>
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/403857-github-sort-by-recently-updated" target="_blank">greasyfork.org</a><br>
 The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-recently" target="_blank">GitHub page</a>.<p>
@@ -489,7 +489,7 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-rece
 <div class="nfo">
 This userscript adds an icon to swap the sides of a comparison. It can be used when you need to sync your fork to the original repository.<p>
 
-<img src="flip-compare.png" alt="GitHub flip icon"><p>
+<img src="flip-compare.png" alt="GitHub flip icon" width="798" height="130" loading="lazy"><p>
 
 The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare" target="_blank">GitHub page</a>.<p>
 <p>
@@ -556,7 +556,7 @@ Si quand vous utilisez la popup, vous voyez des éléments qui ne devraient pas 
 Le script est disponible sur <a href="https://greasyfork.org/scripts/395358-gmx-standalone-view" target="_blank">greasyfork.org</a><p>
 <p>
 </div>
-<img src="gmx-standalone.gif" alt="Gmx standalone"><p>
+<img src="gmx-standalone.gif" alt="Gmx standalone" width="849" height="401" loading="lazy"><p>
 </div></div>
 
 <div class="multiL showL">
@@ -572,7 +572,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/395358-gmx-
 <li><label for="NoL_gmx_new" class="_NoL">es</label></li>
 </ul>
 <div class="nfo">
-<img class="fr" src="gmx - mark new unread.gif" alt="Gmx new unread">
+<img class="fr" src="gmx - mark new unread.gif" alt="Gmx new unread" width="192" height="192" loading="lazy">
 <label for="en_gmx_new" class="tag notranslate">en</label><div lang="en">
 This userscript highlights the folders where new emails have arrived by using a red background on the message count. It keeps track of how much unread emails there is in each folder, and which one are marked, so that this info isn't lost when you close the window or logout.<p>
 A folder is unmarked when the unread count decreases (you've read an email). You can also unmark a folder - without the need to read a message - by pressing CTRL + left-clicking the folder's spanner next to the message count (see screenshot).<p>
@@ -665,7 +665,7 @@ Le nouveau dialogue est légèrement différent. La remarque sur Firefox et les 
 
 Le script est disponible sur <a href="https://greasyfork.org/scripts/412348-google-dismiss-cookies-warning" target="_blank">greasyfork.org</a><p>
 </div>
-<img src="google-cookie warning.gif" alt="Google cookie dialog">
+<img src="google-cookie warning.gif" alt="Google cookie dialog" width="332" height="285" loading="lazy">
 
 </div>
 </div>
@@ -685,7 +685,7 @@ This fixes regional TLDs in google links (to other services).<p>
 
 On its homepage (www.google.com, www.google.co.uk, www.google.be, or whichever TLD is used), and on the search result pages, google directs some of its internal links to the google domain associated with the TLD used for the geographic position of your IP address. This means that if you want to use a google TLD of another country (or the .com from outside the US), or if you're travelling and still want to use your home TLD, you'll end with links to the local TLD.
 <p>
-<img src="google-tld-2b.gif" alt="Google search - TLDs">
+<img src="google-tld-2b.gif" alt="Google search - TLDs" width="796" height="224" loading="lazy">
 <p>
 This userscript rewrites every link that doesn't use the .com TLD or the TLD of the current page, and replaces every non-matching TLD with the current TLD. In the screenshots, all the tagged links are modified to use the page TLD. (Read the github page for a more complete explanation)
 <p>
@@ -699,7 +699,7 @@ Ce script corrige le domaine de premier niveau ("TLD", ex: .com .fr .ca) des lie
 
 Sur sa page d'accueil (www.google.com, www.google.be, www.google.fr, peut importe le TLD utilisé), et sur les pages de résultats, google redirige certains de ses liens vers le domaine associé au TLD utilisé par défaut dans la zone géographique de votre adresse IP. Cela signifie que si vous voulez utiliser le domaine TLD d'un autre pays (ou .com en dehors des États-Unis), ou si vous voyager et voulez continuer à utiliser votre TLD, vous allez vous retrouver avec des liens vers le TLD local.<p>
 
-<img src="google-tld-2b.gif" alt="Google search - TLDs">
+<img src="google-tld-2b.gif" alt="Google search - TLDs" width="796" height="224" loading="lazy">
 <p>
 Ce script réécrit les liens qui ne finissent pas en .com ou avec le TLD de la page actuelle, et le remplace pas le TLD de la page. Dans la capture d'écran, tous les liens marqués (carré rouge) sont modifiés pour utiliser le TLD de la page. (La page github donne plus de précisions, en anglais)<p>
 Plus d'infos et de captures d'écrans sur <a href="https://github.com/Procyon-b/Google-fix-TLD-links" target="_blank">github</a>.<br>
@@ -737,7 +737,7 @@ Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title 
 
 <h3 class="lnk"><a name="imdb_fix_rating" href="#js"></a>IMDb - fix rating <span class="LU">(2021-04-23) (2023-05-15)</span></h3>
 <div class="nfo">
-<img src="imdb-rating-v0.5.gif" class="fr">
+<img src="imdb-rating-v0.5.gif" class="fr" width="306" height="399" loading="lazy">
 This userscript uses IMDb's raw vote values to re-compute the rating (and the total of votes) of the film, without the bias included by their algorithm. It replaces the displayed value with the result and tells you if there is a difference.<br>
 It also allows you to alter the result based on some basic preferences.<p>
 
@@ -758,9 +758,9 @@ You can discard:<ul>
 The userscript is active on the "title" page, the "title/reference" page, the episodes list page. There are 2 options to enable this also for the "chart" page (top 250) and "search" page ("/search/" is in the path)<p>
 
 The script configuration menu can be opened by `ctrl + alt + left-click`-ing the rating value, and, on the page with more than one rating, the title element of the page (eg. "Episode List"). You can also click your userscript manager's icon to open its popup, and click the "Settings" line next to the userscript name.<p>
-<p class="fl mg2"><img src="imdb-rating-3.gif"></p>
-<p class="fl mg2"><img src="imdb-rating-2.gif"></p>
-<p class="fr mg"><img src="imdb-rating-4.gif"></p>
+<p class="fl mg2"><img src="imdb-rating-3.gif" width="306" height="167" loading="lazy"></p>
+<p class="fl mg2"><img src="imdb-rating-2.gif" width="306" height="111" loading="lazy"></p>
+<p class="fr mg"><img src="imdb-rating-4.gif" width="184" height="425" loading="lazy"></p>
 <p style="clear:left;"><br>
 I've verified that it works in both tampermonkey and violentmonkey.<p>
 
@@ -782,7 +782,7 @@ By default, without modifying the setting, the default sorting is now set to "He
 To access the small menu - only available on the title page, or the reference title page - scroll to one of the "User reviews" links, press and maintain <samp>CTRL+ALT</samp> and click the link with the mouse's left button. (Due to the way the page is designed, your first and maybe your second click could be ignored)<p>
 The menu should opens a little below the link. You can then select the default option (including choosing IMDb's default).<br>
 The choice is saved immediately and the links are modified (you can move your mouse over them to see the modification).<p>
-<img src="imdb-set review sort.gif" alt="IMDb review sorting - config"><p>
+<img src="imdb-set review sort.gif" alt="IMDb review sorting - config" width="406" height="206" loading="lazy"><p>
 This userscript has been tested on Firefox and chrome with Tampermonkey or Violentmonkey.<p>
 
 Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" <!--, "<a href="#imdb_sort">Set default user reviews sorting</a>"<!-->
@@ -806,13 +806,13 @@ The blocked scripts are loaded in the following circumstances:<ul>
 </ul>
 <p>All images below when the search field is focused (user is ready to type).<br>
 The search field before typing:<br>
-<img src="imdb-search.gif" alt="IMDb search field">
+<img src="imdb-search.gif" alt="IMDb search field" width="430" height="56" loading="lazy">
 <p>
 during, and after typing:<br>
-<img src="imdb-search-after.gif" alt="IMDb search field">
+<img src="imdb-search-after.gif" alt="IMDb search field" width="430" height="132" loading="lazy">
 <p>
 The search field thereafter, or on the homepage, or when the userscript is not applied (all scripts loaded):<br>
-<img src="imdb-search-after-empty.gif" alt="IMDb search field">
+<img src="imdb-search-after-empty.gif" alt="IMDb search field" width="430" height="56" loading="lazy">
 <p>
 The userscript has been tested on chrome and firefox. If you encounter a problem, please post a message.<br>
 <br>
@@ -907,8 +907,8 @@ Without the userscript, only the normal elements are outlined (in green). With t
 <p>
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/459799-style-shadowdom" target="_blank">greasyfork.org</a><p>
-<img src="style-shadow1.gif" alt="shadow without style">
-<img src="style-shadow2.gif" alt="shadow styled"><br>
+<img src="style-shadow1.gif" alt="shadow without style" width="400" height="300" loading="lazy">
+<img src="style-shadow2.gif" alt="shadow styled" width="400" height="300" loading="lazy"><br>
 </div>
 
 <h3 class="lnk"><a name="tr" href="#js"></a>Translate webpage <span class="LU">(2023-07-14)</span></h3>
@@ -928,8 +928,8 @@ The userscript is using this script on all pages, which allows complete inline t
 <li>The boxes displaying the list of languages is scrollable to accommodate lower resolutions.
 </ul>
 <p>The target language is saved site by site in a session cookies. A default language can be set. See below in the section on how to install as a bookmarklet.
-<p><img src="gt_toolbar.png"></p>
-<p class="fl mg2"><img src="gt_menu.png"></p><p class="fl cmt ct"><img src="gt_choice.png"><span><small>When no target language</small></span></p>
+<p><img src="gt_toolbar.png" width="800" height="54" loading="lazy"></p>
+<p class="fl mg2"><img src="gt_menu.png" width="244" height="130" loading="lazy"></p><p class="fl cmt ct"><img src="gt_choice.png" width="167" height="30" loading="lazy"><span><small>When no target language</small></span></p>
 <p class="clr"></p>
 <br>
 <b>When used as a userscript</b>, buttons and menu items are added:
@@ -937,10 +937,10 @@ The userscript is using this script on all pages, which allows complete inline t
 <li>The button "<i>Set as default language</i>" saves the current default target language for your translation.
 <li>A button with the current default language serves as a shortcut to set the current target language when you've changed it (see the screenshot below).
 </ul>
-<p><img src="gt_toolbar_ujs.png"></p>
+<p><img src="gt_toolbar_ujs.png" width="800" height="54" loading="lazy"></p>
 
 
-<p class="fr mg"><img src="gt_menu_full.png"></p>
+<p class="fr mg"><img src="gt_menu_full.png" width="271" height="246" loading="lazy"></p>
 
 <p>The menu has other commands: <i>(items are usually hidden and are all displayed here as a convenience)</i>
 <ul>
@@ -955,8 +955,8 @@ Selecting the first item (empty) sets it back to autodetection.
 </p>
 <p class="clr"></p>
 
-<p class="fl cmt ct mg2"><img src="gt_menu_ujs.png"><span>Menu as it really appears</span></p>
-<p class="fl cmt ct"><img src="gt_menu_ujs_def.png"><span>forcing the toolbar language</span></p>
+<p class="fl cmt ct mg2"><img src="gt_menu_ujs.png" width="272" height="205" loading="lazy"><span>Menu as it really appears</span></p>
+<p class="fl cmt ct"><img src="gt_menu_ujs_def.png" width="272" height="205" loading="lazy"><span>forcing the toolbar language</span></p>
 <p class="clr"></p><br>
 
 <b>How to use</b><p>
@@ -968,7 +968,7 @@ This functionality is not available in <i>Violentmonkey</i> where the other meth
 <p>
 <b>As a userscript</b><br>
 In this configuration, all the websites will be subjected to translation. You can disable this for each site separately, but the default option is to translate. You can configure the script to work the opposite way: never translate unless called from the trigger, or if the site is set to auto-translate.
-<p class="fl mg2"><img src="gt_dis.png"></p>This appears (hidden by default) in the top right corner of a page where auto-translation is disabled. Move the mouse pointer there where <b>an area 3 by 3 pixels</b> triggers the display of the symbol. Click it to start the translation. The translation will start, or the "Select language" dialog appear if the script doesn't know the language to use.
+<p class="fl mg2"><img src="gt_dis.png" width="36" height="40" loading="lazy"></p>This appears (hidden by default) in the top right corner of a page where auto-translation is disabled. Move the mouse pointer there where <b>an area 3 by 3 pixels</b> triggers the display of the symbol. Click it to start the translation. The translation will start, or the "Select language" dialog appear if the script doesn't know the language to use.
 <p class="clr"></p>
 <br>
 <b>Switching between the 2 configurations</b> (<i>Tampermonkey only</i>)<br>
@@ -1014,8 +1014,8 @@ Get the script from <a href="https://greasyfork.org/scripts/470861-translate-web
 <div class="nfo">
 Adds a button on <code>userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
 Get the script from <a href="https://greasyfork.org/scripts/443153-uso-add-usoa-button-on-userstyle-page" target="_blank">greasyfork.org</a><p>
-<img src="usoa-button-old2.gif" alt="button in the classic site"><p>
-<img src="usoa-button-new2.gif" alt="button in the new site"><p>
+<img src="usoa-button-old2.gif" alt="button in the classic site" width="700" height="233" loading="lazy"><p>
+<img src="usoa-button-new2.gif" alt="button in the new site" width="800" height="210" loading="lazy"><p>
 </div>
 
 <h3 class="lnk"><a name="USO_moredata" href="#js"></a>userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></h3>
@@ -1070,7 +1070,7 @@ Get the script from <a href="https://greasyfork.org/scripts/460633-uso-force-sit
 This userscript displays the userstyle's source code on the "UserStyles.org Archive" pages. It uses the data already available on the page itself without making any request to USOa server.<p>
 
 Compared to what is displayed when you click on "<i>View JSON</i>", the code is human-readable and the meta-headers are generated when the userstyle is customizable (variables are involved).<p>
-<img src="usoa-code.gif" alt="USOa source code"><br>
+<img src="usoa-code.gif" alt="USOa source code" width="720" height="291" loading="lazy"><br>
 
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-source-code" target="_blank">greasyfork.org</a><br>
@@ -1119,8 +1119,8 @@ Il ne m'est pas possible de tester convenablement sur les smartphones, mais le s
 Le script est disponible sur <a href="https://greasyfork.org/scripts/412178-youtube-dismiss-sign-in" target="_blank">greasyfork.org</a><p>
 </div>
 
-<img width="445" src="youtube-sign-in.gif" alt="youtube sign in">
-<img width="445" src="youtube-cookies.gif" alt="youtube GDPR">
+<img width="445" src="youtube-sign-in.gif" alt="youtube sign in" height="256" loading="lazy">
+<img width="445" src="youtube-cookies.gif" alt="youtube GDPR" height="256" loading="lazy">
 </div>
 </div>
 
@@ -1173,9 +1173,9 @@ Quand la barre d'outil est en mode "masqué", vous pouvez cliquer sur son icône
 </ul><p>
 Le script est disponible sur <a href="https://greasyfork.org/scripts/401753-wayback-machine-toolbar-toggler" target="_blank">greasyfork.org</a><p>
 </div>
-<p class="fl num num3 mg2"><img src="wayback-toolbar1.gif" alt="wayback no js" width="295"><span>#1</span></p>
-<p class="fl num num3 mg2"><img src="wayback-toolbar2.gif" alt="wayback normal" width="295"><span>#2</span></p>
-<p class="fl num num3"><img src="wayback-toolbar3.gif" alt="wayback floating toolbar" width="295"><span>#3</span></p>
+<p class="fl num num3 mg2"><img src="wayback-toolbar1.gif" alt="wayback no js" width="295" height="94" loading="lazy"><span>#1</span></p>
+<p class="fl num num3 mg2"><img src="wayback-toolbar2.gif" alt="wayback normal" width="295" height="94" loading="lazy"><span>#2</span></p>
+<p class="fl num num3"><img src="wayback-toolbar3.gif" alt="wayback floating toolbar" width="295" height="94" loading="lazy"><span>#3</span></p>
 <p class="clr"></p>
 </div>
 </div>
@@ -1193,15 +1193,7 @@ In the comments, most values will have a ~. This means that for some accounts, t
 Hides the "cheers" associated with the post.<p>
 
 Get the script from <a href="https://greasyfork.org/scripts/466543" target="_blank">greasyfork.org</a><p>
-<img src="9gag - dislike.png" alt=""><p>
-</div>
-
-
-<h3 class="lnk"><a name="9gag_nsfw" href="#js"></a>9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></h3>
-<div class="nfo">
-When you are not logged in, this userscript forces 9gag to display all nsfw images & videos in posts and comments.<p><br>
-Get the script from <a href="https://greasyfork.org/scripts/469261" target="_blank">greasyfork.org</a><p>
-<br>
+<img src="9gag - dislike.png" alt="" width="333" height="342" loading="lazy"><p>
 </div>
 
 
@@ -1209,10 +1201,10 @@ Get the script from <a href="https://greasyfork.org/scripts/469261" target="_bla
 <div class="nfo">
 This userscript is an attempt to allow a 9gag user to easily scroll back to the position on the page focused when he clicked the "scroll to top" icon. Or if the user scrolled up to read a comment again, and wants to resume where he was.<br><br>
 <p class="fl mg3">
-<img src="9gag-down2L.png">
-<img src="9gag-down2D.png"><br><br>
-<img src="9gag-upL.png">
-<img src="9gag-upD.png">
+<img src="9gag-down2L.png" width="62" height="98" loading="lazy">
+<img src="9gag-down2D.png" width="62" height="98" loading="lazy"><br><br>
+<img src="9gag-upL.png" width="62" height="56" loading="lazy">
+<img src="9gag-upD.png" width="62" height="56" loading="lazy">
 </p>
 The userscript adds one or two button to allow you to scroll back down to the position where the viewport was when you clicked 9gag's up arrow.<p>
 Once you start scrolling the page, 9gag displays the up arrow at the bottom-right corner of the window.<p>
@@ -1227,6 +1219,14 @@ The script remembers the positions for all sections visited in the same "long-li
 Get the script from <a href="https://greasyfork.org//scripts/451648" target="_blank">greasyfork.org</a><p>
 <br>
 </div>
+<h3 class="lnk"><a name="9gag_nsfw" href="#js"></a>9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></h3>
+<div class="nfo">
+When you are not logged in, this userscript forces 9gag to display all nsfw images & videos in posts and comments.<p><br>
+Get the script from <a href="https://greasyfork.org/scripts/469261" target="_blank">greasyfork.org</a><p>
+<br>
+</div>
+
+
 
 
 
@@ -1243,7 +1243,7 @@ There is no background image set by default in the userstyle, so, once installed
 <code>"https://images5.alphacoders.com/104/thumb-1920-1043977.jpg"</code> (source: <code>https://wall.alphacoders.com/big.php?i=1043977</code>)<p>
 You must keep the <code>""</code> around the url. And you must ensure that you add a couple around the url you'll be using afterward. (there is a reminder in the label of the option)<p>
 The stylesheet is available on <a href="https://userstyles.world/style/1174/duckduckgo-background-image" target="_blank">userstyle.world</a><p>
-<img src="ddg-bg-img.jpg" alt="DDG with background image"><p>
+<img src="ddg-bg-img.jpg" alt="DDG with background image" width="850" height="446" loading="lazy"><p>
 </div>
 
 <h3 class="lnk"><a name="GH_sqa" href="#css"></a>GitHub - Square avatars <span class="LU">(2021-10-08)</span></h3>
@@ -1266,7 +1266,7 @@ gmx.net gives you the choice of the layout color scheme. This fix works only on 
 The stylesheet is available on <a href="https://userstyles.org/styles/189816/gmx-webmails-restore-blue-buttons-bar" target="_blank">userstyles.org</a>
 and on <a href="https://greasyfork.org/scripts/411899-gmx-webmails-restore-blue-buttons-bar" target="_blank">greasyfork.org</a> .<br>
 <p>
-<img src="gmx-buttons bar.gif" alt="gmx buttons bar">
+<img src="gmx-buttons bar.gif" alt="gmx buttons bar" width="979" height="93" loading="lazy">
 </div>
 
 <h3 class="lnk"><a name="google_fixMenu" href="#css"></a>Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></h3>
@@ -1277,7 +1277,7 @@ In the screenshot I've set a red background, partially transparent, to the form.
 When this fix is applied, the menu is displayed in front and is clickable.<p>
 The stylesheet is available on <a href="https://userstyles.org/styles/182714/google-fix-menu-accessibility" target="_blank">userstyles.org</a>.<br>
 <p>
-<img src="google-menu-fixed.gif" alt="google menu fixed">
+<img src="google-menu-fixed.gif" alt="google menu fixed" width="700" height="350" loading="lazy">
 <br><br>
 <s>Was apparently fixed by google</s> <span class="LU">(2020-04-26)</span><br>
 <b>The problem has reappeared.</b> I noticed it today <span class="LU">(2020-05-17)</span><br>
@@ -1355,8 +1355,8 @@ Valeurs suggérées pour retrouver une apparence proche de celle qui existait av
 <li>pour info: si google change la police, le nom de celle habituellement utilisée est: <code>arial,sans-serif</code></li>
 </ul><br>
 </div>
-<img src="google-search-favicon.gif" alt="Google search"><p>
-<img src="google old style - stylus menu.gif" alt="Google search"><p>
+<img src="google-search-favicon.gif" alt="Google search" width="800" height="450" loading="lazy"><p>
+<img src="google old style - stylus menu.gif" alt="Google search" width="325" height="545" loading="lazy"><p>
 
 </div>
 </div>
@@ -1365,7 +1365,7 @@ Valeurs suggérées pour retrouver une apparence proche de celle qui existait av
 <div class="nfo">
 Display the image preview panel in darkmode while the page is in the lightmode theme.<p>
 The stylesheet is available on <a href="https://userstyles.world/style/10273/google-images-darkmode-preview-in-lightmode-page" target="_blank">userstyle.world</a><p>
-<img src="google-images-dark.jpg" alt="google images dark preview"><p>
+<img src="google-images-dark.jpg" alt="google images dark preview" width="800" height="442" loading="lazy"><p>
 </div>
 
 <div class="multiL">
@@ -1402,10 +1402,10 @@ Disponible sur <a href="https://greasyfork.org/scripts/401760-google-images-show
 <br>
 </div>
 
-<p class="fl num num3 mg2"><img src="GI-size-bt.gif" alt="GI size at bottom" width="295"><span>#1</span></p>
-<p class="fl num num3 mg2"><img src="GI-size-sg.gif" alt="GI with hover" width="295"><span>#2</span></p>
-<p class="fl num num3"><img src="GI-size-t.gif" alt="GI size at top" width="295"><span>#3</span></p>
-<p class="fl num num3 clr"><img src="GI-size-stylus-menu.gif" alt="GI stylus menu"><span>#4</span></p>
+<p class="fl num num3 mg2"><img src="GI-size-bt.gif" alt="GI size at bottom" width="295" width="295" height="226" loading="lazy"><span>#1</span></p>
+<p class="fl num num3 mg2"><img src="GI-size-sg.gif" alt="GI with hover" width="295" width="295" height="226" loading="lazy"><span>#2</span></p>
+<p class="fl num num3"><img src="GI-size-t.gif" alt="GI size at top" width="295" width="295" height="226" loading="lazy"><span>#3</span></p>
+<p class="fl num num3 clr"><img src="GI-size-stylus-menu.gif" alt="GI stylus menu" width="322" height="618" loading="lazy"><span>#4</span></p>
 <p class="clr">
 </div>
 </div>
@@ -1436,7 +1436,7 @@ Réduit la hauteur des lignes dans la liste des messages, dans les 3 modes: sans
 La feuille de styles est disponibles sur <a href="https://userstyles.org/styles/167012/hotmail-outlook-redeem-whitespace" target="_blank">userstyles.org</a>.<p>
 </div>
 
-<img src="hotmail-css.gif" alt="hotmail screenshots"><p>
+<img src="hotmail-css.gif" alt="hotmail screenshots" width="750" height="389" loading="lazy"><p>
 
 </div>
 </div>
@@ -1455,11 +1455,11 @@ The userscript is available on <a href="https://greasyfork.org/scripts/406544-im
 The userstyle is available on <a href="https://userstyles.org/styles/177588/imdb-fullscreen-imageviewer" target="_blank">userstyles.org</a>.<p>
 Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" <!--, "<a href="#imdb">Fullscreen imageviewer</a>" <!-->, "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
 
-<img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer"><p><br>
+<img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer" width="750" height="375" loading="lazy"><p><br>
 With the new 2020 design:<p>
-<p class="fl cmt ct"><img src="imdb-img.2020.gif" alt="IMBd mediaviewer"><span>Early stages of the 2020 design</span></p>
-<p class="fl mg cmt ct"><img src="imdb-img.2021.gif" alt="IMBd mediaviewer"><span>How it looks in 2021</span></p>
-<p class="fl clr cmt ct"><img src="imdb-img.2020-b.gif" alt="IMBd mediaviewer"><span>With the userstyle/userscript applied</span></p>
+<p class="fl cmt ct"><img src="imdb-img.2020.gif" alt="IMBd mediaviewer" width="400" height="224" loading="lazy"><span>Early stages of the 2020 design</span></p>
+<p class="fl mg cmt ct"><img src="imdb-img.2021.gif" alt="IMBd mediaviewer" width="400" height="224" loading="lazy"><span>How it looks in 2021</span></p>
+<p class="fl clr cmt ct"><img src="imdb-img.2020-b.gif" alt="IMBd mediaviewer" width="400" height="224" loading="lazy"><span>With the userstyle/userscript applied</span></p>
 <p class="clr">
 </div>
 
@@ -1483,15 +1483,15 @@ The userstyle is available on <a href="https://userstyles.world/style/852/imdb-f
 Look at my other IMDb's fixes: <!--"<a href="#imdb_fixTitle">fix title page / title page old layout</a>" ,<!--> "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
 <br>
 <i><b>(Actual screen size is 40% bigger than in images)</b></i>
-<p class="fl cmt ct clr"><img src="imdb-title-normal-m.gif" alt="IMBd title page - before"><span>Before</span></p>
-<p class="fl cmt ct clr"><img src="imdb-title-after-m.gif" alt="IMBd title page - after"><span>With the stylesheet</span></p>
+<p class="fl cmt ct clr"><img src="imdb-title-normal-m.gif" alt="IMBd title page - before" width="800" height="415" loading="lazy"><span>Before</span></p>
+<p class="fl cmt ct clr"><img src="imdb-title-after-m.gif" alt="IMBd title page - after" width="800" height="415" loading="lazy"><span>With the stylesheet</span></p>
 <br class="clr"><br>
 Both images below are at the same scale (See IMDb’s menu&amp;search bar).<br>
 The second screenshot is taken with most of the optional styles enabled. The width of the content is set to the same size as the rest of the site (or as in the previous layout).<p>
-<img src="imdb-film-before.jpg" alt="IMDb title page - before"> <img src="imdb-film-after.jpg" alt="IMDb title page - after"><p>
+<img src="imdb-film-before.jpg" alt="IMDb title page - before" width="440" height="742" loading="lazy"> <img src="imdb-film-after.jpg" alt="IMDb title page - after" width="440" height="742" loading="lazy"><p>
 <br>
 <a name="imdb_fixTitle-stylusMNU"></a>Select the options you want to use.<p>
-<img src="imdb-title-stylus menu.gif" alt="IMDb title page - Stylus menu">
+<img src="imdb-title-stylus menu.gif" alt="IMDb title page - Stylus menu" width="325" height="489" loading="lazy">
 <br><br>
 </div>
 
@@ -1505,7 +1505,7 @@ On "new reddit" some notifications (those with "Reply back") in the notification
 It works in both light and dark modes.<br>
 Note that it won't work in incognito windows, and not for long if you clear your browsing history.<p>
 The stylesheet is available on <a href="https://userstyles.world/style/8916/reddit-fix-notifications-not-marked-as-visited-in-menu" target="_blank">userstyle.world</a><p>
-<img src="reddit - mark notifications read.jpg" alt="reddit - mark notifications read"><p>
+<img src="reddit - mark notifications read.jpg" alt="reddit - mark notifications read" width="531" height="545" loading="lazy"><p>
 </div>
 
 <h3 class="lnk"><a name="USO_fixnew" href="#css"></a>userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></h3>
@@ -1525,10 +1525,10 @@ List of modifications:
 </ul>
 <p>
 Available on <a href="https://userstyles.org/styles/259956/fix-new-userstyles-org-site-s-design" target="_blank">userstyles.org</a><p>
-<p class="fl mg2 num num4"><img src="uso new design fix - sc1.gif"><span>#1</span></p>
-<p class="fl mg2 num num4"><img src="uso new design fix - sc3.gif"><span>#3</span></p>
-<p class="fl mg2 num num4"><img src="uso new design fix - sc2.gif"><span>#2</span></p>
-<p class="fl mg2 num num4"><img src="uso new design fix - sc4.gif"><span>#4</span></p>
+<p class="fl mg2 num num4"><img src="uso new design fix - sc1.gif" width="440" height="213" loading="lazy"><span>#1</span></p>
+<p class="fl mg2 num num4"><img src="uso new design fix - sc3.gif" width="440" height="213" loading="lazy"><span>#3</span></p>
+<p class="fl mg2 num num4"><img src="uso new design fix - sc2.gif" width="440" height="213" loading="lazy"><span>#2</span></p>
+<p class="fl mg2 num num4"><img src="uso new design fix - sc4.gif" width="440" height="213" loading="lazy"><span>#4</span></p>
 <p class="clr">
 <br>
 </div>
@@ -1570,7 +1570,7 @@ Cette feuille de style toute simple corrige le problème en cachant définitivem
 
 Disponible sur <a href="https://userstyles.org/styles/182899/tuinadvies-matelma-fix-cpu-consumption" target="_blank">userstyles.org</a><p>
 </div>
-<img src="matelma-CPU.png" alt="chrome tab's CPU usage">
+<img src="matelma-CPU.png" alt="chrome tab's CPU usage" width="729" height="90" loading="lazy">
 
 </div>
 </div>
@@ -1636,9 +1636,9 @@ Disponible sur <a href="https://userstyles.org/styles/175709/tuinadvies-matelma-
 <p>
 </div>
 <br>
-<p class="fl num num4 mg2"><img src="tuinadvies1.gif" alt="without style"><span>#1</span></p>
-<p class="fl num num4 mg2"><img src="tuinadvies2.gif" alt="with style"><span>#2</span></p>
-<p class="fl num num4"><img src="tuinadvies3.gif" alt="small header"><span>#3</span></p>
+<p class="fl num num4 mg2"><img src="tuinadvies1.gif" alt="without style" width="295" height="211" loading="lazy"><span>#1</span></p>
+<p class="fl num num4 mg2"><img src="tuinadvies2.gif" alt="with style" width="295" height="211" loading="lazy"><span>#2</span></p>
+<p class="fl num num4"><img src="tuinadvies3.gif" alt="small header" width="295" height="211" loading="lazy"><span>#3</span></p>
 <p class="clr"></p>
 <br>
 </div>
