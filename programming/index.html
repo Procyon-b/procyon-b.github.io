@@ -198,8 +198,14 @@ img[width] {
   display: inline-block;
 }
 
+/* TEMP 20250813 */
 h1::before {
   margin: 2rem !important;
+}
+
+li:is(.newest, .upd, .new)::before,
+li:is(.newest, .upd, .new)::after {
+  display: none;
 }
 </style>
 </head>
