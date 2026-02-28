@@ -117,11 +117,12 @@ h3 a:target:focus {
   color: #4b70ac;
 }
 
-.mnu li, .new, .newest, .upd, .add {
+.mnu li, .new, .newest, .upd, .add, .broken {
   position: relative;
 }
 
-.new::before, .newest::before, .upd::before, .add::before, .new.upd::after, .newest.upd::after, .add.upd::after {
+.new::before, .newest::before, .upd::before, .add::before, .new.upd::after, .newest.upd::after, .add.upd::after,
+ .broken::before, .dep::before {
   content: "new";
   font-size: .665rem;
   font-weight: initial;
@@ -149,6 +150,16 @@ h3 a:target:focus {
   margin-left: -6.4em;
   background: orange;
 }
+.broken::before {
+  content: "broken";
+  margin-left: -5.9em;
+  background: darkmagenta;
+}
+.dep::before {
+  content: "deprecated";
+  margin-left: -7.7em;
+  background: teal;
+}
 .upd.newest::before, .add.upd::before {
   margin-left: -7.3em;
 }
@@ -163,6 +174,44 @@ h3.newest::before {
 	bottom: 0.2em;
 	top: initial;
 }
+
+.broken, .dep {
+  position: relative;
+  
+}
+:is(.broken,.dep)::after {
+  content: "a";
+  display: none;
+  opacity: 0;
+  font: normal 9pt sans-serif;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #444444;
+  position: absolute;
+  top: 1.5em;
+  z-index: 9999999;
+}
+:root {
+  --broken-txt: "Currently broken. Will be fixed in the near future.";
+  --dep-txt: "Deprecated. Can be revived one day.";
+}
+#fr_ToC:checked ~ * {
+  --broken-txt: 'Actuellement "cass\E9". Sera de nouveau fonctionnel dans le futur proche.';
+}
+:is(.broken,.dep):hover::after {
+  color: white;
+  background: darkmagenta;
+
+  content: var(--broken-txt);
+  display: block;
+  opacity: 1;
+  transition: opacity .5s;
+  transition-timing-function: step-end;
+}
+.dep:hover::after {
+  content: var(--dep-txt);
+  }
 
 img {
   border: 2px solid lightblue;
@@ -213,10 +262,10 @@ p.num4 > span {
   margin-top: 0;
   margin-right: 2em;
 }
-.fl.ct {
+:is(.fl,.fr).ct {
   text-align: center;
 }
-.fl.cmt > img ~ span {
+:is(.fl,.fr).cmt > img ~ span {
   border: 2px solid lightblue;
   border-top: 0;
   display: block;
