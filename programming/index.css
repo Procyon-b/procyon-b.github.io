@@ -92,7 +92,9 @@ h3 .LU {
 }
 
 h3 a:target::before {
-  content: "\21E8";
+  content: var(--current-content);
+  margin-top: var(--current);
+  white-space: pre;
   position: relative;
   right: 40px;
   width: 0px;
@@ -121,49 +123,79 @@ h3 a:target:focus {
   position: relative;
 }
 
+:root {
+  --tag-left: 0em;
+  --tag-top: 0;
+  --tag-bottom: initial;
+  --current-content: "\21E8";
+  --current: 0em;
+}
+h3:is(.new, .newest, .upd, .add, .broken, .dep) {
+  --tag-left: 2em;
+  --tag-top: initial;
+  --tag-bottom: 0.2em;
+  --NOcurrent-content: " \A\21E8";
+  --current: -.8em;
+}
+h3 a[name] {
+  position: relative;
+}
+/*scroll leaving a little space above*/
+h3 a[name]::after {
+  content: " ";
+  display: block;
+  width: 0px;
+  float: left;
+  position: relative;
+  top: -1em;
+}
+
 .new::before, .newest::before, .upd::before, .add::before, .new.upd::after, .newest.upd::after, .add.upd::after,
  .broken::before, .dep::before {
   content: "new";
   font-size: .665rem;
   font-weight: initial;
-  margin-left: -4.5em;
+  margin-left: calc( var(--tag-left) - 4.5em);
   margin-top: 0.3em;
   position: absolute;
   background: red;
   color: white;
   padding: 0 2px;
   transform: rotate(-10deg);
-  top: 0;
+    otop: 0;
+  top: var(--tag-top);
+  bottom: var(--tag-bottom);
   left: 0;
 }
 .newest::before, .newest.upd::after {
   content: "newest";
-  margin-left: -5.8em;
+  margin-left: calc( var(--tag-left) - 5.8em);
 }
 .add::before, .add.upd::after {
 	content: "added";
-	margin-left: -5.7em;
+	margin-left: calc( var(--tag-left) - 5.7em);
 	background: green;
 }
 .upd::before {
   content: "updated";
-  margin-left: -6.4em;
+  margin-left: calc( var(--tag-left) - 6.4em);
   background: orange;
 }
 .broken::before {
   content: "broken";
-  margin-left: -5.9em;
+  margin-left: calc( var(--tag-left) - 5.9em);
   background: darkmagenta;
 }
 .dep::before {
   content: "deprecated";
-  margin-left: -7.7em;
+  margin-left: calc( var(--tag-left) - 7.7em);
   background: teal;
 }
 .upd.newest::before, .add.upd::before {
-  margin-left: -7.3em;
+  margin-left: calc( var(--tag-left) - 7.3em);
 }
 
+/*
 h3.new::before {
 	margin-left: -2.8em;
 	bottom: 0.2em;
@@ -173,7 +205,7 @@ h3.newest::before {
 	margin-left: -4.1em;
 	bottom: 0.2em;
 	top: initial;
-}
+}/**/
 
 .broken, .dep {
   position: relative;
