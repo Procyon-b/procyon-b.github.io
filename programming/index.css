@@ -211,8 +211,8 @@ h3.newest::before {
   position: relative;
   
 }
-:is(.broken,.dep)::after {
-  content: "a";
+:is(.broken,.dep) a::after {
+  content: "";
   display: none;
   opacity: 0;
   font: normal 9pt sans-serif;
@@ -231,7 +231,7 @@ h3.newest::before {
 #fr_ToC:checked ~ * {
   --broken-txt: 'Actuellement "cass\E9". Sera de nouveau fonctionnel dans le futur proche.';
 }
-:is(.broken,.dep):hover::after {
+:is(.broken,.dep) a:hover::after {
   color: white;
   background: darkmagenta;
 
@@ -241,7 +241,7 @@ h3.newest::before {
   transition: opacity .5s;
   transition-timing-function: step-end;
 }
-.dep:hover::after {
+.dep a:hover::after {
   content: var(--dep-txt);
   }
 
