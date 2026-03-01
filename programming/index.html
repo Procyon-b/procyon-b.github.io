@@ -198,6 +198,16 @@ img[width] {
   display: inline-block;
 }
 
+.lookup {
+    odisplay: none;
+  visibility: hidden;
+  position: relative;
+}
+#look {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}
 /* TEMP 20250813 */
 h1::before {
   margin: 2rem !important;
@@ -219,7 +229,9 @@ li:is(.newest, .upd, .new)::after {
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
 I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-02-28</i><p>
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
-I'm planning now to update the page and add new elements in the near future.
+I'm planning now to update the page and add new elements in the near future.<p>
+
+<div class="lookup">Quick lookup: <input id="lookup" type="text"><input id="look" type="checkbox"></div>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -245,7 +257,7 @@ I'm planning now to update the page and add new elements in the near future.
 <h3>Javascript userscripts</h3>
 <ul class="mnu">
 <li class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
-<li><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
+<li class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></a></li>
@@ -267,7 +279,7 @@ I'm planning now to update the page and add new elements in the near future.
 <li><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
 <li class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
 <li><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
-<li class="multiT dep" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
+<li class="multiT broken" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
 <li><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
 <li class="broken"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
@@ -312,7 +324,7 @@ My participation is anecdotal. At the very least it proves that I care enough to
 <li><a href="#oth_acm">Awesome cookie manager (chrome extension)</a></li>
 <li><a href="#oth_dacse">Don't add custom search engines (chrome extension)</a></li>
 <li><a href="#oth_GIsizer">Google image sizer (extension | userscript)</a></li>
-<li><a href="#oth_mGISga">Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></a></li>
+<li class="broken"><a href="#oth_mGISga">Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></a></li>
 <li><a href="#oth_TF">TabFern (chrome extension)</a></li>
 </ul>
 
@@ -327,8 +339,6 @@ My participation is anecdotal. At the very least it proves that I care enough to
 <br>
 
 <h2>Chrome extensions</h2>
-Here is a list of my extensions for google chrome.
-
 <div class="lst">
 
 <div class="multiL showL">
@@ -510,7 +520,7 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-rece
 <p>
 </div>
 
-<h3 class="lnk"><a name="GH_flip" href="#js"></a>GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes</h3>
+<h3 class="lnk broken"><a name="GH_flip" href="#js"></a>GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes</h3>
 <div class="nfo">
 This userscript adds an icon to swap the sides of a comparison. It can be used when you need to sync your fork to the original repository.<p>
 
@@ -662,7 +672,7 @@ This userscript auto-agrees to the cookie warning dialog. The dialog should only
 
 The popup is not hidden, will flash while it is dismissed by the script and disappear for ever (until you clear your cookies). It's on purpose in case the script fails and leave you in a state where google constantly asks the same question.<p>
 
-If you are really fed up with cookie warnings on many sites, I suggest installing an extension that handles it automatically (including for google). I can suggest one that works well for chrome and firefox. On the add-on/extension store, search for: <code>I don't care about cookies</code><p>
+If you are really fed up with cookie warnings on many sites, I suggest installing an extension that handles it automatically (including for google). I can suggest one that works well for chrome and firefox. On the add-on/extension store, search for: <code translate="no">I don't care about cookies</code><p>
 
 <b>Note:</b> google regularly changes the style names. This could break the userscript. Please post a comment if this is the case for you.<p>
 
@@ -679,7 +689,7 @@ Ce script accepte automatiquement l'avertissement sur les cookies. Le dialogue n
 
 La popup n'est pas cachée, et apparaît un court moment le temps que ce script la confirme. Elle ne devrait plus réapparaître (jusqu'à ce que vous supprimiez les cookies). Ceci à dessein pour éviter une problème si le script échoue et que google continue à vous poser la même question.<p>
 
-Si vous en avez marre des avertissements de cookies présentés par de nombreux sites, je vous suggère d'installer une extension qui le gère automatiquement (y compris pour google). Je peux en suggérer une qui fonctionne bien bien sur chrome et sur firefox. Faites une recherche sur le texte: <code>I don't care about cookies</code><p>
+Si vous en avez marre des avertissements de cookies présentés par de nombreux sites, je vous suggère d'installer une extension qui le gère automatiquement (y compris pour google). Je peux en suggérer une qui fonctionne bien bien sur chrome et sur firefox. Faites une recherche sur le texte: <code translate="no">I don't care about cookies</code><p>
 
 <b>Note:</b> google change réglièrement le nom des styles. Cela peut casser le script. Si c'est votre cas, n'hésitez pas à poster un commentaire.<p>
 
@@ -757,10 +767,10 @@ With a tracking element, the same page can be linked with different urls, and yo
 Example:<p>
 <ul>
 <table class="stb">
-<tr><td><li>The link to a film from a search result:&nbsp;</li></td><td><code>www.imdb.com/title/tt0053221/?ref_=fn_al_tt_1</code><br>
-<code>www.imdb.com/title/tt0053221/?ref_=nv_sr_srsg_0</code></td></tr>
-<tr><td><li>The same film from an actor's page:</li></td><td> <code>www.imdb.com/title/tt0053221/?ref_=nm_flmg_act_38</code></td></tr>
-<tr><td><li>With this script, the link is always:</li></td><td> <code>www.imdb.com/title/tt0053221/</code></td></tr>
+<tr><td><li>The link to a film from a search result:&nbsp;</li></td><td><code translate="no">www.imdb.com/title/tt0053221/?ref_=fn_al_tt_1</code><br>
+<code translate="no">www.imdb.com/title/tt0053221/?ref_=nv_sr_srsg_0</code></td></tr>
+<tr><td><li>The same film from an actor's page:</li></td><td> <code translate="no">www.imdb.com/title/tt0053221/?ref_=nm_flmg_act_38</code></td></tr>
+<tr><td><li>With this script, the link is always:</li></td><td> <code translate="no">www.imdb.com/title/tt0053221/</code></td></tr>
 </table>
 
 </ul><br>
@@ -856,7 +866,7 @@ Get the script from <a href="https://greasyfork.org/scripts/431311-imdb-stop-scr
 
 Look at my other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" <!--, "<a href="#imdb_stopjs">Stop scripts</a>" <!-->, "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
 Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: <span class="LU">(last modified: 2022-03-22)</span>
-<pre class="code">
+<pre class="code" translate="no">
 ! << replace with the date at which you add this block in you filter list >>
 ! 5 filters used (but not needed) to help the userscript: https://greasyfork.org/scripts/431311-imdb-stop-scripts
 ! speed up imdb page load. Many scripts loaded from there. But still works without them.
@@ -924,18 +934,18 @@ This userscript allows Stylus' users to style shadow-DOM elements that are by de
 
 Currently recognized userstyles managers are: "<i>Stylus</i>", "<i>User JavaScript and CSS</i>", "<i>xStyle</i>", "<i>Stylish</i>".<p>
 
-Any style rule whose selectors includes <code>:host</code> or <code>:host-context</code> will be injected into the shadow-root node.<p>
+Any style rule whose selectors includes <code translate="no">:host</code> or <code translate="no">:host-context</code> will be injected into the shadow-root node.<p>
 
 <b>By default the userscript is not running on any website.</b> You'll have to edit the script settings (eg. in tampermonkey): open the userscript, go to the script's "<i>settings</i>" tab and add the mask of the website(s) you want to run it on (don't forget the trailing *).<p>
 
 To test:
 <ul>
-<li>(in this script's settings) add <code>https://web.archive.org/web/*</code> to "<i>user matches</i>"
-<li>go to <code>https://web.archive.org/web/2/</code> appended with the full url of a webpage.<br>
-eg. <code>https://web.archive.org/web/2/https://procyon-b.github.io/programming/</code>
+<li>(in this script's settings) add <code translate="no">https://web.archive.org/web/*</code> to "<i>user matches</i>"
+<li>go to <code translate="no">https://web.archive.org/web/2/</code> appended with the full url of a webpage.<br>
+eg. <code translate="no">https://web.archive.org/web/2/https://procyon-b.github.io/programming/</code>
 <li>open stylus, or one of the supported userstyles manager.<br>
-Edit a new stylesheet, matching <code>https://web.archive.org/web/*</code> and create this style: 
-<pre class="code">:host * { outline: 1px solid red !important; }
+Edit a new stylesheet, matching <code translate="no">https://web.archive.org/web/*</code> and create this style: 
+<pre class="code" translate="no">:host * { outline: 1px solid red !important; }
 * { outline: 1px solid green !important; }</pre>
 Without the userscript, only the normal elements are outlined (in green). With the userscript the elements in the header are outlined in red.
 <li>this will outline all the element in the wayback machine's header with a red line. This is not possible without the userscript (try ; disable this userscript and reload the page).
@@ -985,7 +995,7 @@ The userscript is using this script on all pages, which allows complete inline t
 <li>You can turn off translation on all sites. A trigger will be added to the webpages to start the translation process, but no connection to the service is made if you don't click it.
 <li>You can turn off globally while allowing for the current site. You can still allow/disallow individual sites with the first 2 commands
 <li>You can revert translation on for all site
-<li>The last item at the bottom <code>&iquest;?</code> , is in if the language used in the toolbar is incorrect. When clicked it selects the language used in your browser's interface and displays a list of country codes to choose from. You'll have to reload the page to take effect.<br>
+<li>The last item at the bottom <code translate="no">&iquest;?</code> , is in if the language used in the toolbar is incorrect. When clicked it selects the language used in your browser's interface and displays a list of country codes to choose from. You'll have to reload the page to take effect.<br>
 Selecting the first item (empty) sets it back to autodetection.
 </ul>
 </p>
@@ -1008,18 +1018,18 @@ In this configuration, all the websites will be subjected to translation. You ca
 <p class="clr"></p>
 <br>
 <b>Switching between the 2 configurations</b> (<i>Tampermonkey only</i>)<br>
-<p>In Tampermonkey, open the userscript, click the "<i>Settings</i>" tab. In the 2nd section, "<i>General</i>" "<i>Run at</i>", change between <code>Default</code> (or <code>context-menu</code>) and <code>document-idle</code>. When <code>document-idle</code> is set the context menu entry disappears.</p><br>
+<p>In Tampermonkey, open the userscript, click the "<i>Settings</i>" tab. In the 2nd section, "<i>General</i>" "<i>Run at</i>", change between <code translate="no">Default</code> (or <code translate="no">context-menu</code>) and <code translate="no">document-idle</code>. When <code translate="no">document-idle</code> is set the context menu entry disappears.</p><br>
 
 <b>As a bookmarklet</b><br>
 <ul>
 <li>Create a new bookmark that you place for easy access in the bookmarks toolbar or in a submenu of the bookmarks toolbar.
 <li>Open the bookmarks manager and edit that bookmark.
-<li>Visit the page with the <a href="https://greasyfork.org/scripts/470861-translate-webpage/code" target="_blank">userscript source code</a>. Select everything below <code>==/UserScript==</code>, starting with <code>javascript:</code> up until the end.
+<li>Visit the page with the <a href="https://greasyfork.org/scripts/470861-translate-webpage/code" target="_blank">userscript source code</a>. Select everything below <code translate="no">==/UserScript==</code>, starting with <code translate="no">javascript:</code> up until the end.
 <li>Go to the bookmark manager and paste in the url field of the bookmark. If you want to set a default target language, save the bookmark without closing the manager.
 <li>Edit the bookmark. Go to the url field. Hit the "home" key to go to the beginning of the code
-<li>Type your language code (country code, <code>en</code> for english, <code>fr</code> for french, etc.) between the "" after <code>var defLang=</code><br>If you don't know the country code, type a <code>?</code> . The userscript will try to use the language of the browser.
+<li>Type your language code (country code, <code translate="no">en</code> for english, <code translate="no">fr</code> for french, etc.) between the "" after <code translate="no">var defLang=</code><br>If you don't know the country code, type a <code translate="no">?</code> . The userscript will try to use the language of the browser.
 <br><br>
-<li>If the language used to display the toolbar isn't what you want, you can do the same thing but between the "" after <code>toolbarLang=</code>
+<li>If the language used to display the toolbar isn't what you want, you can do the same thing but between the "" after <code translate="no">toolbarLang=</code>
 
 </ul>
 
@@ -1048,7 +1058,7 @@ Get the script from <a href="https://greasyfork.org/scripts/470861-translate-web
 
 <h3 class="lnk"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></h3>
 <div class="nfo">
-Adds a button on <code>userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
+Adds a button on <code translate="no">userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
 Get the script from <a href="https://greasyfork.org/scripts/443153-uso-add-usoa-button-on-userstyle-page" target="_blank">greasyfork.org</a><p>
 <img src="usoa-button-old2.gif" alt="button in the classic site" width="700" height="233" loading="lazy"><p>
 <img src="usoa-button-new2.gif" alt="button in the new site" width="800" height="210" loading="lazy"><p>
@@ -1117,7 +1127,7 @@ Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-sou
 <input id="_all_YT_si" name="YT_si" class="lang _ALL" type="radio" value="*">
 <input id="en_YT_si" name="YT_si" class="lang EN" type="radio" value="en" checked>
 <input id="fr_YT_si" name="YT_si" class="lang FR" type="radio" value="fr">
-<h3 class="lnk dep"><a name="YT_si" href="#js"></a><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></h3>
+<h3 class="lnk broken"><a name="YT_si" href="#js"></a><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_YT_si" class="_ALL">&#x2731;</label></li>
 <li><label for="en_YT_si" class="EN">en</label></li>
 <li><label for="fr_YT_si" class="FR">fr</label></li>
@@ -1301,8 +1311,8 @@ The stylesheet is available on <a href="https://userstyles.world/style/26703/duc
 This userstyle lets you specify the url of an image to use as a background to DuckDuckGo pages.<br>
 The screenshot shows the userstyle applied to the dark theme, but it also works on the default theme and any of the other themes available in DuckDuckGo options. <p>
 There is no background image set by default in the userstyle, so, once installed the display won't change. Go to Stylus popup menu, click the gear icon next to the stylename and paste the following url as an example, with the option "Background size" set to "cover".<br>
-<code>"https://images5.alphacoders.com/104/thumb-1920-1043977.jpg"</code> (source: <code>https://wall.alphacoders.com/big.php?i=1043977</code>)<p>
-You must keep the <code>""</code> around the url. And you must ensure that you add a couple around the url you'll be using afterward. (there is a reminder in the label of the option)<p>
+<code translate="no">"https://images5.alphacoders.com/104/thumb-1920-1043977.jpg"</code> (source: <code translate="no">https://wall.alphacoders.com/big.php?i=1043977</code>)<p>
+You must keep the <code translate="no">""</code> around the url. And you must ensure that you add a couple around the url you'll be using afterward. (there is a reminder in the label of the option)<p>
 The stylesheet is available on <a href="https://userstyles.world/style/1174/duckduckgo-background-image" target="_blank">userstyle.world</a><p>
 <img src="ddg-bg-img.jpg" alt="DDG with background image" width="850" height="446" loading="lazy"><p>
 </div>
@@ -1382,7 +1392,7 @@ Suggested values to achieve a layout closer to the pre-2020 look:
 <li>"Text's line height": 1.4</li>
 <li>"Bottom margin": 10px</li>
 <li>other options are already set to recommended values. Click the "x" (reset) to restore default.</li>
-<li>FYI: if google plays again with fonts, the font family name used to be: <code>arial,sans-serif</code></li>
+<li>FYI: if google plays again with fonts, the font family name used to be: <code translate="no">arial,sans-serif</code></li>
 </ul><br>
 </div>
 
@@ -1413,7 +1423,7 @@ Valeurs suggérées pour retrouver une apparence proche de celle qui existait av
 <li>"Text's line height": 1.4</li>
 <li>"Bottom margin": 10px</li>
 <li>les autres options ont déjà la valeur recommandée. Cliquer "x" (reset) pour restaurer la valeur par défaut de cette feuille de style.</li>
-<li>pour info: si google change la police, le nom de celle habituellement utilisée est: <code>arial,sans-serif</code></li>
+<li>pour info: si google change la police, le nom de celle habituellement utilisée est: <code translate="no">arial,sans-serif</code></li>
 </ul><br>
 </div>
 <img src="google-search-favicon.gif" alt="Google search" width="800" height="450" loading="lazy"><p>
@@ -1723,7 +1733,7 @@ If you want an updated list of adblock filters (eg. "uBlock Origin"), you can fi
 <p>
 First, you should probably install "uBlock Origin", the ad-blocking extension.
 Then, in the "My filters" tab, add these filters.
-<pre>
+<pre translate="no">
 amazon.com/1/batch/*$domain=imdb.com
 ! 20191124: speed up imdb page load. Many scripts loaded from there. But still works without them.
 ! 20191128  while entering a search query, the suggestion list will be missing.
@@ -1747,14 +1757,14 @@ If you have another extension handling filtering, see if it supports this syntax
 <div class="nfo">
 Quand des pages du site "Le Figaro" sont archivées sur le site "Wayback Machine" d'"Internet Archive", celles-ci semblent être vides. Vous trouverez çi-dessous une technique pour pouvoir lire correctement ces pages.<p>
 
-Le problème vient d'un des scripts propres à la page du Figaro. Celui-ci efface le contenu de l'article quand le domaine de la page n'est pas <b><samp>lefigaro.fr</samp></b>. Dans le cas présent le domaine est <b><samp>web.archive.org</code></b> puisque c'est une page archivée.<p>
+Le problème vient d'un des scripts propres à la page du Figaro. Celui-ci efface le contenu de l'article quand le domaine de la page n'est pas <b><samp>lefigaro.fr</samp></b>. Dans le cas présent le domaine est <b><samp>web.archive.org</samp></b> puisque c'est une page archivée.<p>
 <br>
 La première solution est de désactiver javascript. Votre navigateur permet de le faire domaine par domaine, mais cela signifie que toutes les pages archivées pour d'autres domaines seront aussi sans javascript. Ce qui cassera beaucoup d'entre-elles.<br>
 Un autre inconvénient est que les images d'un article du Figaro sont chargées par script. Avec javascript désactivé, pas d'images en dehors de la première.<p>
 <br>
 Une autre solution est d'utiliser une extension anti-pub pour bloquer les scripts des pages du Figaro archivées.<br>
 Dans uBlockOrigin, ajouter le filtre suivant:
-<pre>||web.archive.org/web/*://www.lefigaro.fr/*chunks*$script</pre>
+<pre translate="no">||web.archive.org/web/*://www.lefigaro.fr/*chunks*$script</pre>
 Une fois ce filtre ajouté, les pages archivées du Figaro devraient être lisibles. Si elles ne le sont pas, vous avez loupé quelque chose.<p>
 La seconde partie de cette solution est de charger les images de la page avec un userscript. Ce userscript est chargé à l'aide d'une extension (greasemonkey, tampermonkey, violentmonkey). Vous trouverez le script sur <a href="https://github.com/Procyon-b/userCSS-userScript/blob/master/Wayback-fix%20figaro.user.js" target="_blank">GitHub</a> (cliquer sur le bouton "Raw" pour le charger dans l'extension).
 
@@ -1767,21 +1777,21 @@ La seconde partie de cette solution est de charger les images de la page avec un
 <div class="lst">
 
 <h3 class="lnk"><a name="oth_acm" href="#oth"></a>Awesome cookie manager (chrome extension)</h3>
-<div class="lst">Displays a list of all Google Chrome cookies. Allows searching, viewing, editing, saving, restoring, and deleting cookies.<p>
+<div class="nfo">Displays a list of all Google Chrome cookies. Allows searching, viewing, editing, saving, restoring, and deleting cookies.<p>
 On the <a target="_blank" href="https://chrome.google.com/webstore/detail/awesome-cookie-manager/hcpidejphgpcgfnpiehkcckkkemgneif">chrome web store</a>.<br>
 Its <a target="_blank" href="https://github.com/Phatsuo/awesome-cookie-manager">GitHub page</a>.<br>
 <br>
 </div>
 
 <h3 class="lnk"><a name="oth_dacse" href="#oth"></a>Don't add custom search engines (chrome extension)</h3>
-<div class="lst">Google Chrome extension that stops sites from adding custom search engines.<p>
+<div class="nfo">Google Chrome extension that stops sites from adding custom search engines.<p>
 On the <a target="_blank" href="https://chrome.google.com/webstore/detail/dont-add-custom-search-en/dnodlcololidkjgbpeoleabmkocdhacc">chrome web store</a>.<br>
 Its <a target="_blank" href="https://github.com/gregsadetsky/chrome-dont-add-custom-search-engines">GitHub page</a>.<br>
 <br>
 </div>
 
 <h3 class="lnk"><a name="oth_GIsizer" href="#oth"></a>Google image sizer (extension | userscript)</h3>
-<div class="lst">Simple extension to re-implement Google Images size filter (e.g. Larger than 2MP)<p>
+<div class="nfo">Simple extension to re-implement Google Images size filter (e.g. Larger than 2MP)<p>
 
 On the <a target="_blank" href="https://chrome.google.com/webstore/detail/image-search-sizer/pkfdieeblkapoopkmlpnnlepnblgbphk">chrome web store</a>.<br>
 The <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/google-image-sizer/">Firefox add-ons</a> version.<br>
@@ -1789,15 +1799,15 @@ Its <a target="_blank" href="https://github.com/danieljbingham/google-image-size
 <br>
 </div>
 
-<h3 class="lnk"><a name="oth_mGISga" href="#oth"></a>Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></h3>
-<div class="lst">This web extension adds back the "View Image" button to Google Image Search results.<p>
+<h3 class="lnk broken"><a name="oth_mGISga" href="#oth"></a>Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></h3>
+<div class="nfo">This web extension adds back the "View Image" button to Google Image Search results.<p>
 The extension is outdated and won't work properly (as of May 2020). You can find it on the <a target="_blank" href="https://chrome.google.com/webstore/detail/google-search-view-image/hgngncnljacgakaiifjcgdnknaglfipo">chrome web store</a>.<br>
 Its <a target="_blank" href="https://github.com/devunt/make-gis-great-again">GitHub page</a> has a link to an updated version of the script. Search for the issue <a target="_blank" href="https://github.com/devunt/make-gis-great-again/issues?q=+is%3Aissue+is%3Aopen+sort%3Aupdated-desc">here</a> titled "Lastest version", and read the instructions to install.<br>
 <br>
 </div>
 
 <h3 class="lnk"><a name="oth_TF" href="#oth"></a>TabFern (chrome extension)</h3>
-<div class="lst">TabFern is Google Chrome extension for saving and restoring sets of tabs, and for switching between windows and tabs from a vertical, grouped list.<p>
+<div class="nfo">TabFern is Google Chrome extension for saving and restoring sets of tabs, and for switching between windows and tabs from a vertical, grouped list.<p>
 <ul>
 <li>Gives you a vertical list of all your open tabs
 <li>Groups your tabs by window
@@ -1813,6 +1823,7 @@ Its <a target="_blank" href="https://github.com/cxw42/TabFern">GitHub page</a>.<
 </div>
 
 <script>
+(function(){
 function setLang(a) {
   for (let L of navigator.languages) {
     L=L.split('-')[0];
@@ -1832,8 +1843,68 @@ for (let i=0; i < ml.length; i++) {
     }
   setLang(l);
   }
-
+})()
 </script>
+<script>
+(function(){
 
+function popSearch() {
+  var T=document.querySelectorAll('.toc li, .lst:not(.toc) h3');
+  //console.info({T});
+
+  for (let e of T) {
+    //e.setAttribute('search', e.innerText.replace(/ *\([\d\- \)\(]+\) *$/,'')  );
+    if (e.clientWidth) e.setAttribute('search', e.innerText.replace(/ *\([\d\-]+\).*$/,'')  );
+    }
+  }
+
+var css;
+css=document.documentElement.appendChild(document.createElement('style'));
+css.id='cssfilter';
+
+function SetFilter() {
+  var c='', t=this.value;
+  look.checked=true;
+
+  if (t) c=`
+.lookup:has(#look:checked) ~ .toc {
+  position: relative;
+}
+.lookup:has(#look:checked) ~ .toc a[name] {
+  position: absolute;
+  top: -3em;
+}
+
+.lookup:has(#look:checked) ~ .toc > :is(h3, div, h5, p),
+.lookup:has(#look:checked) ~ .toc li:not([search*="${t}"i]),
+.inToc:has(.lookup > #look:checked) ~ .lst > .multiL:not(:has( > h3[search*="${t}"i])):not(:has(h3 a:target)),
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]),
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]) + div.nfo,
+.inToc:has(.lookup > #look:checked) ~ h2:not(:has(+ .lst h3[search*="${t}"i])) {
+  display: none;
+  opacity: .4;
+}
+`;
+
+  c+='.lookup {display: block; visibility: visible;}';
+
+  if (c != css.textContent) css.textContent=c;
+  }
+
+
+var L=document.querySelector('#lookup'), look=document.querySelector('#look');
+if (L)  {
+  L.onfocus=popSearch;
+  L.oninput=SetFilter;
+  L.onkeydown=SetFilter;
+  //L.onkeypress=SetFilter;
+  SetFilter();
+  document.body.addEventListener('change',function(ev){
+    console.info({ev});
+    });
+  }
+
+})()
+</script>
 </body>
 </html>
