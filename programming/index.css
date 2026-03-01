@@ -150,6 +150,12 @@ h3 a[name]::after {
   top: -1em;
 }
 
+.toc li {
+  pointer-events: none;
+}
+.toc li a {
+  pointer-events: initial;
+}
 .new::before, .newest::before, .upd::before, .add::before, .new.upd::after, .newest.upd::after, .add.upd::after,
  .broken::before, .dep::before {
   content: "new";
@@ -162,7 +168,6 @@ h3 a[name]::after {
   color: white;
   padding: 0 2px;
   transform: rotate(-10deg);
-    otop: 0;
   top: var(--tag-top);
   bottom: var(--tag-bottom);
   left: 0;
@@ -211,7 +216,7 @@ h3.newest::before {
   position: relative;
   
 }
-:is(.broken,.dep) a::after {
+:is(.broken,.dep)::after {
   content: "";
   display: none;
   opacity: 0;
@@ -231,7 +236,7 @@ h3.newest::before {
 #fr_ToC:checked ~ * {
   --broken-txt: 'Actuellement "cass\E9". Sera de nouveau fonctionnel dans le futur proche.';
 }
-:is(.broken,.dep) a:hover::after {
+:is(.broken,.dep):hover::after {
   color: white;
   background: darkmagenta;
 
@@ -241,7 +246,7 @@ h3.newest::before {
   transition: opacity .5s;
   transition-timing-function: step-end;
 }
-.dep a:hover::after {
+.dep:hover::after {
   content: var(--dep-txt);
   }
 
