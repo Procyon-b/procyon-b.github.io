@@ -227,7 +227,7 @@ li:is(.newest, .upd, .new)::after {
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-02-28</i><p>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-03-03</i><p>
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
 I'm planning now to update the page and add new elements in the near future.<p>
 
@@ -256,6 +256,9 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <a name="js"> </a>
 <h3>Javascript userscripts</h3>
 <ul class="mnu">
+
+<li class="newest"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
+
 <li class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
 <li class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></a></li>
@@ -500,6 +503,31 @@ The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.
 
 <h2>Javascript userscripts</h2>
 <div class="lst">
+
+
+<h3 class="lnk newest"><a name="ddg_blocklist" href="#js"></a>DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></h3>
+<div class="nfo">
+Remove the maximum limit of 5 sites blocked on DuckduckGo search results page.<p>
+
+Note that the DDG site isn't optimized to handle a large list of blocked domains. Performance may vary depending on your computer/browser.<p>
+
+If you use a userscript manager like tampermonkey, after the userscript has been run once, a local storage value can be changed to sort the websites. With 5 sites, unsorted is fine, but with tens more...<p>
+
+The possible values are:<br>
+
+<ul>
+<li>0 : don't sort
+<li>1 : sort
+<li>-1 : sort except the last added host. Which will be last in the list in DDG's settings
+<li>-2 : sort except the last 2 added hosts
+<li>-3 : ...
+</ul><p>
+
+Get the script from <a href="https://greasyfork.org/scripts/563691" target="_blank">greasyfork.org</a>
+
+</div>
+
+
 
 <h3 class="lnk dep"><a name="GH_sort" href="#js"></a>GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></h3>
 <div class="nfo">
@@ -1848,13 +1876,31 @@ for (let i=0; i < ml.length; i++) {
 <script>
 (function(){
 
+var aliases={
+  'ddg_blocklist': ['ddg'],
+  'ddg_assist': ['ddg'],
+  'ddg_gbimg': ['ddg'],
+  'YT_si': ['yt'],
+  };
+
+
+
 function popSearch() {
   var T=document.querySelectorAll('.toc li, .lst:not(.toc) h3');
   //console.info({T});
 
   for (let e of T) {
-    //e.setAttribute('search', e.innerText.replace(/ *\([\d\- \)\(]+\) *$/,'')  );
-    if (e.clientWidth) e.setAttribute('search', e.innerText.replace(/ *\([\d\-]+\).*$/,'')  );
+    var alias='';
+    for (let k in aliases) {
+      //console.info(k);
+      if ( e.querySelector(':scope a[href="#'+k+'"]') || 
+           e.querySelector(':scope a[name="'+k+'"]') ) {
+        alias+=' '+aliases[k].join(' ');
+        }
+      
+      }
+    
+    if (e.clientWidth) e.setAttribute('search', e.innerText.replace(/ *\([\d\-]+\).*$/,'')+alias );
     }
   }
 
