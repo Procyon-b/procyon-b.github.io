@@ -208,6 +208,12 @@ img[width] {
   top: 0px;
   bottom: 0px;
 }
+.lookup .clear {
+  position: relative;
+  margin-left: -1.5em;
+  vertical-align: middle;
+}
+
 /* TEMP 20250813 */
 h1::before {
   margin: 2rem !important;
@@ -231,7 +237,12 @@ I'm still adding new links. Visit in the coming weeks to see updates. <i class="
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
 I'm planning now to update the page and add new elements in the near future.<p>
 
-<div class="lookup">Quick lookup: <input id="lookup" type="text"><input id="look" type="checkbox"></div>
+<div class="lookup">Quick lookup: <input id="lookup" type="text"><input id="look" type="checkbox">
+<svg class="clear" rpl="" fill="currentColor" height="16" icon-name="clear" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 1a9 9 0 10.001 18.001A9 9 0 0010 1zm0 16.2c-3.97 0-7.2-3.23-7.2-7.2S6.03 2.8 10 2.8s7.2 3.23 7.2 7.2-3.23 7.2-7.2 7.2z"></path>
+<path d="M12.66 6.06L10 8.73 7.34 6.06 6.06 7.34 8.73 10l-2.67 2.66 1.28 1.28L10 11.27l2.66 2.67 1.28-1.28L11.27 10l2.67-2.66-1.28-1.28z"></path>
+</svg>
+</div>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
 <label for="en_ToC" class="EN">en</label>
@@ -296,7 +307,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li class="newest"><a href="#ddg_assist">DuckDuckGo - assist <span class="LU">(2026-02-19)</span></a></li>
 
 
-<li class=""><a href="#ddg_gbimg">DuckDuckGo - background image <span class="LU">(2021-09-20) (2023-06-05)</span></a></li>
+<li class="upd"><a href="#ddg_gbimg">DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-06-20)</span></a></li>
 <li class="upd"><a href="#GH_sqa">GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></a></li>
 <li class="broken"><a href="#gmx_toolbar">Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></a></li>
 <li class="dep"><a href="#google_fixMenu">Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></a></li>
@@ -307,14 +318,14 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
 <li><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></a></li>
 <li class="dep"><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
-<li class="multiT" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
-<li class="multiT" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
+<li class="multiT dep" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
+<li class="multiT broken" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
 <li class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
 </ul>
 <a name="fix"> </a>
 <h3 class="multiT" langs="en fr"><span lang="en">Fixing sites</span><span lang="fr">Réparer des sites</span></h3>
 <ul class="mnu">
-<li><a href="#imdbFix"><strike>IMDb - reduce bloatware</strike> <span class="LU">(2019-11-24) (2021-08-29)</span></a></li>
+<li class="dep"><a href="#imdbFix"><strike>IMDb - reduce bloatware</strike> <span class="LU">(2019-11-24) (2021-08-29)</span></a></li>
 <li><a href="#LeM_WB">"Le Figaro" archivé sur "Wayback Machine" <span class="LU">(2020-04-04) (2020-05-30)</span></a></li>
 </ul>
 
@@ -1311,7 +1322,7 @@ Get the script from <a href="https://greasyfork.org/scripts/469261" target="_bla
 <h2>CSS userstyle (Non-programming)</h2>
 <div class="lst">
 
-<h3 class="lnk"><a name="ddg_assist" href="#css"></a>DuckDuckGo - assist <span class="LU">(2026-02-19)</span></h3>
+<h3 class="lnk newest"><a name="ddg_assist" href="#css"></a>DuckDuckGo - assist <span class="LU">(2026-02-19)</span></h3>
 <div class="nfo">
 <p class="fr mg cmt ct"><img src="DDG-assist colors-mini.jpg" alt="DDG assist" width="548" height="281" loading="lazy"><span>normal Assist restyled</span></p>
 
@@ -1334,7 +1345,7 @@ The stylesheet is available on <a href="https://userstyles.world/style/26703/duc
 
 
 
-<h3 class="lnk"><a name="ddg_gbimg" href="#css"></a>DuckDuckGo - background image <span class="LU">(2021-09-20) (2023-06-05)</span></h3>
+<h3 class="lnk upd"><a name="ddg_gbimg" href="#css"></a>DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-02-20)</span></h3>
 <div class="nfo">
 This userstyle lets you specify the url of an image to use as a background to DuckDuckGo pages.<br>
 The screenshot shows the userstyle applied to the dark theme, but it also works on the default theme and any of the other themes available in DuckDuckGo options. <p>
@@ -1642,7 +1653,7 @@ Available on <a href="https://userstyles.org/styles/259956/fix-new-userstyles-or
 <input id="en_tuinFix" name="tuinFix" class="lang EN" type="radio" value="en" checked>
 <input id="fr_tuinFix" name="tuinFix" class="lang FR" type="radio" value="fr">
 <input id="NoL_tuinFix" name="NoL_tuinFix" class="lang _NoL" type="checkbox" value="_NoL">
-<h3 class="lnk"><a name="tuinFix" href="#css"></a><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></h3>
+<h3 class="lnk dep"><a name="tuinFix" href="#css"></a><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_tuinFix" class="_ALL">&#x2731;</label></li>
 <li><label for="en_tuinFix" class="EN">en</label></li>
 <li><label for="fr_tuinFix" class="FR">fr</label></li>
@@ -1683,7 +1694,7 @@ Disponible sur <a href="https://userstyles.org/styles/182899/tuinadvies-matelma-
 <input id="en_tuin" name="tuin" class="lang EN" type="radio" value="en" checked>
 <input id="fr_tuin" name="tuin" class="lang FR" type="radio" value="fr">
 <input id="NoL_tuin" name="NoL_tuin" class="lang _NoL" type="checkbox" value="_NoL">
-<h3 class="lnk"><a name="tuin" href="#css"></a><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></h3>
+<h3 class="lnk broken"><a name="tuin" href="#css"></a><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_tuin" class="_ALL">&#x2731;</label></li>
 <li><label for="en_tuin" class="EN">en</label></li>
 <li><label for="fr_tuin" class="FR">fr</label></li>
@@ -1752,7 +1763,7 @@ Disponible sur <a href="https://userstyles.org/styles/175709/tuinadvies-matelma-
 <h2>Fixing sites</h2>
 <div class="lst">
 
-<h3 class="lnk"><a name="imdbFix" href="#fix"></a>IMDb - reduce bloatware <span class="LU">(2019-11-24) (2021-08-29)</span></h3>
+<h3 class="lnk dep"><a name="imdbFix" href="#fix"></a>IMDb - reduce bloatware <span class="LU">(2019-11-24) (2021-08-29)</span></h3>
 <div class="nfo">
 From now on, the solution is to install a userscript : <a href="#imdb_stopjs">IMDb - stop scripts</a> (here on this page).<br>
 If you want an updated list of adblock filters (eg. "uBlock Origin"), you can find them there too.<p>
@@ -1945,9 +1956,12 @@ if (L)  {
   L.onkeydown=SetFilter;
   //L.onkeypress=SetFilter;
   SetFilter();
-  document.body.addEventListener('change',function(ev){
+  /*document.body.addEventListener('change',function(ev){
     console.info({ev});
-    });
+    });/**/
+  document.querySelector('.lookup .clear').onclick=function(){
+    L.value='';
+    };
   }
 
 })()
