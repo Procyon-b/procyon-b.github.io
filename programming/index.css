@@ -150,10 +150,10 @@ h3 a[name]::after {
   top: -1em;
 }
 
-.toc li {
+.toc li, .lst h3 {
   pointer-events: none;
 }
-.toc li a {
+.toc li a, .lst h3 > * {
   pointer-events: initial;
 }
 .new::before, .newest::before, .upd::before, .add::before, .new.upd::after, .newest.upd::after, .add.upd::after,
@@ -248,6 +248,7 @@ h3.newest::before {
 }
 .dep:hover::after {
   content: var(--dep-txt);
+  background: teal;
   }
 
 img {
@@ -331,3 +332,29 @@ body>div[style="position:relative;"], body>div.cacheContent {
   display: inline;
 }
 #m span { display: none; }
+
+.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.CExt + ul { --sec: "extension"; }
+.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.JSbkm + ul { --sec: "bookmarklet"; }
+.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.userjs + ul { --sec: "userJS"; }
+.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.css + ul { --sec: "css"; }
+.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.fixes + ul { --sec: "fixes"; }
+
+li a > span.LU::before,
+li a:not(:has( > span.LU))::after {
+  content: var(--sec);
+  background: yellow;
+  color: black;
+  display: inline-block;
+  line-height: 1em;
+  font-size: .665rem;
+  font-weight: initial;
+  margin-right: .5em;
+  margin-top: 0.3em;
+  padding: 0 2px;
+  transform: rotate(-10deg);
+  top: var(--tag-top);
+  bottom: var(--tag-bottom);
+}
+li a:not(:has( > span.LU))::after {
+  margin-left: .5em;
+}

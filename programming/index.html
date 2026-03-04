@@ -223,21 +223,26 @@ h1::before {
 li:is(.newest, .upd, .new)::after {
   display: none;
 }/**/
+a[href="#NO"] {
+  outline: 2px solid lightgray;
+}
 </style>
 </head>
 <body>
 <a href="https://www.youtube.com/watch?v=2_Dtmpe9qaQ" target="_blank"><img src="clippy.png" style="position: absolute; height: 100px; top: 5px; left: 5px; z-index: 9; border: none;" title="Why clippy ?"></a>
 
 <h1>Achernar's programming page</h1>
+<div>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-03-04</i><p>
+Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
+I'm planning now to update the page and add new elements in the near future.<p>
+
+</div>
 <div class="multiL inToc">
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-03-03</i><p>
-Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
-I'm planning now to update the page and add new elements in the near future.<p>
-
-<div class="lookup">Quick lookup: <input id="lookup" type="text"><input id="look" type="checkbox">
+<div class="lookup">Quick lookup: <input id="lookup" type="text" placeholder=" "><input id="look" type="checkbox">
 <svg class="clear" rpl="" fill="currentColor" height="16" icon-name="clear" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
 <path d="M10 1a9 9 0 10.001 18.001A9 9 0 0010 1zm0 16.2c-3.97 0-7.2-3.23-7.2-7.2S6.03 2.8 10 2.8s7.2 3.23 7.2 7.2-3.23 7.2-7.2 7.2z"></path>
 <path d="M12.66 6.06L10 8.73 7.34 6.06 6.06 7.34 8.73 10l-2.67 2.66 1.28 1.28L10 11.27l2.66 2.67 1.28-1.28L11.27 10l2.67-2.66-1.28-1.28z"></path>
@@ -251,34 +256,30 @@ I'm planning now to update the page and add new elements in the near future.<p>
 </h2>
 <div class="lst toc">
 <a name="ext"> </a>
-<h3 class="multiT" langs="en fr"><span lang="en">Chrome extensions</span><span lang="fr">Extensions pour Chrome</span></h3>
+<h3 class="multiT CExt" langs="en fr"><span lang="en">Chrome extensions</span><span lang="fr">Extensions pour Chrome</span></h3>
 <ul class="mnu">
 <li><a href="#AliasB">Alias bookmarks <span class="LU">(2018-08-29) (2020-05-05) (beta 2020-04)</span></a></li>
 <li><a href="#ExtLog">Extension log <span class="LU">(2019-06-03) (beta 2020-01)</span></a></li>
 <li><a href="#TinyPrx">Tiny Proxy <span class="LU">(2020-03-03)</span></a></li>
 </ul>
 <a name="bkjs"> </a>
-<h3>Javascript bookmarklets</h3>
+<h3 class="JSbkm">Javascript bookmarklets</h3>
 <ul class="mnu">
 <li><a href="#VI">View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></a></li>
 <li><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
 <li><a href="#tr">Translate webpage (follow "How-to" to use as a bookmarklet) <span class="LU">(2023-07-14)</span></a></li>
 </ul>
 <a name="js"> </a>
-<h3>Javascript userscripts</h3>
+<h3 class="userjs">Javascript userscripts</h3>
 <ul class="mnu">
-
 <li class="newest"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
-
 <li class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
 <li class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></a></li>
 <li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
-
 <li class="newest"><a href="#googleImage_size_fetch">Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26)</span></a></li>
-
 <li><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
 <li class=""><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2023-05-15)</span></a></li>
 <li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
@@ -293,20 +294,23 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
 <li class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
 <li><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
+
+<!--li class="newest"><a href="#NO">Youtube - add channel link <span class="LU">(2026-03-03)</span></a></li><!-->
+
 <li class="multiT broken" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
+<li class="add"><a href="#YT_redfavico">Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></a></li>
+
+<!--li class="newest"><a href="#NO">Youtube - tag title <span class="LU">(2026-03-03)</span></a></li><!-->
+
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
 <li><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
 <li class="broken"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
 <li class=""><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
 </ul>
 <a name="css"> </a>
-<h3>CSS userstyle (Non-programming)</h3>
+<h3 class="css">CSS userstyle (Non-programming)</h3>
 <ul class="mnu">
-
-
 <li class="newest"><a href="#ddg_assist">DuckDuckGo - assist <span class="LU">(2026-02-19)</span></a></li>
-
-
 <li class="upd"><a href="#ddg_gbimg">DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-06-20)</span></a></li>
 <li class="upd"><a href="#GH_sqa">GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></a></li>
 <li class="broken"><a href="#gmx_toolbar">Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></a></li>
@@ -321,9 +325,13 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li class="multiT dep" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT broken" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
 <li class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
+
+<!--li class="newest"><a href="#NO">Youtube - style "theater" mode as fullscreen <span class="LU">(2026-03-03)</span></a></li><!-->
+<li class="add"><a href="#YT_visited">Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></a></li>
+
 </ul>
 <a name="fix"> </a>
-<h3 class="multiT" langs="en fr"><span lang="en">Fixing sites</span><span lang="fr">Réparer des sites</span></h3>
+<h3 class="multiT fixes" langs="en fr"><span lang="en">Fixing sites</span><span lang="fr">Réparer des sites</span></h3>
 <ul class="mnu">
 <li class="dep"><a href="#imdbFix"><strike>IMDb - reduce bloatware</strike> <span class="LU">(2019-11-24) (2021-08-29)</span></a></li>
 <li><a href="#LeM_WB">"Le Figaro" archivé sur "Wayback Machine" <span class="LU">(2020-04-04) (2020-05-30)</span></a></li>
@@ -1209,6 +1217,21 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/412178-yout
 </div>
 </div>
 
+
+<h3 class="lnk add"><a name="YT_redfavico" href="#js"></a>Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></h3>
+<div class="nfo">
+<b>Forcing youtube browser tabs/windows to use the "old" red favicon.</b><p>
+
+This small userscript replaces the pink favicons by changing the path of 5 links to point back to versions of the red favicons.<p>
+
+So instead of removing the links to force a fallback to the default favicon, it allows you to keep access to the whole range of resolutions: normal, 32x32, 48x48, 96x96 and 144x144<p>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/513768" target="_blank">greasyfork.org</a><br>
+<p>
+</div>
+
+
+
 <div class="multiL">
 <input id="_all_WB_tt" name="WB_tt" class="lang _ALL" type="radio" value="*">
 <input id="en_WB_tt" name="WB_tt" class="lang EN" type="radio" value="en" checked>
@@ -1336,7 +1359,7 @@ Style and behaviour modifications for Duckduckgo's "search assist".<p>
 <li>change Assist's background color when moved up
 <li>and other options
 </ul><p>
-The stylesheet is available on <a href="https://userstyles.world/style/26703/duckduckgo-assist" target="_blank">userstyle.world</a><p>
+The stylesheet is available on <a href="https://userstyles.world/style/26703/duckduckgo-assist" target="_blank">userstyle.world</a><p class="clr">
 
 <p class="fl mg"><img src="DDG-assist ucss options.png" alt="DDG assist options" width="294" height="537" loading="lazy"></p>
 <p class="fl mg cmt ct"><img src="DDG-assist moved up-mini-2.jpg" alt="DDG assist moved up" width="548" height="330" loading="lazy"><span>Assist moved up</span></p>
@@ -1648,6 +1671,30 @@ Available on <a href="https://userstyles.org/styles/259956/fix-new-userstyles-or
 </div>
 
 
+<h3 class="lnk add"><a name="YT_visited" href="#css"></a>Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></h3>
+<div class="nfo">
+<p class="fr mg"><img src="stylus-YT visited-ucss.png" width="289" height="356" loading="lazy"></p>
+Sets color for visited links (normal and dark modes)
+If some elements are not colored, please let me know.<p>
+
+Color the visited links (text links, thumbnails with text, ...) differently that default color.<br>
+A color can be set for light mode and one for dark mode.<p>
+
+Currently marked as read:<br>
+<ul>
+<li>links/thumbnails (in profiles/channels/...) to videos
+<li>video suggestions on the right
+<li>thumbnails in the video wall displayed once the video playback has ended (and autoplay is disabled)
+<li><s>"next video" button next to the play/pause button (if visited the button's color is changed)</s> (previous player interface)
+</ul>
+
+<br>
+Available on <a href="https://userstyles.world/style/16940/" target="_blank">userstyles.org</a><p>
+<p class="clr">
+<br>
+</div>
+
+
 <div class="multiL">
 <input id="_all_tuinFix" name="tuinFix" class="lang _ALL" type="radio" value="*">
 <input id="en_tuinFix" name="tuinFix" class="lang EN" type="radio" value="en" checked>
@@ -1892,6 +1939,8 @@ var aliases={
   'ddg_assist': ['ddg'],
   'ddg_gbimg': ['ddg'],
   'YT_si': ['yt'],
+  'YT_redfavico': ['yt'],
+  'YT_visited': ['yt'],
   };
 
 
@@ -1921,15 +1970,16 @@ css.id='cssfilter';
 
 function SetFilter() {
   var c='', t=this.value;
+  if (t) t=this.value=t.replace(/^\s+/, '');
   look.checked=true;
 
   if (t) c=`
-.lookup:has(#look:checked) ~ .toc {
+.lookup:has(#look:checked) ~ .inToc {
   position: relative;
 }
 .lookup:has(#look:checked) ~ .toc a[name] {
   position: absolute;
-  top: -3em;
+  top: 0px;
 }
 
 .lookup:has(#look:checked) ~ .toc > :is(h3, div, h5, p),
