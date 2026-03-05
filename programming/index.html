@@ -59,14 +59,16 @@
   display: none;
 }
 
-.multiL input.lang {
+/*.multiL/**/ input.lang {
   display: none;
 }
-.multiL label {
+.multiL label/*:not(.keyword)/**/ {
   display: inline-block;
   cursor: pointer; 
 }
-
+label.keyword {
+  display: initial;
+}
 .multiL input._ALL:checked ~ .selL label._ALL,
 .multiL input.EN:checked ~ .selL label.EN,
 .multiL input.FR:checked ~ .selL label.FR,
@@ -198,10 +200,25 @@ img[width] {
   display: inline-block;
 }
 
+.lookup, #keywords, #keywords > div {
+  display: inline-block;
+}
 .lookup {
     odisplay: none;
   visibility: hidden;
+  max-width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
   position: relative;
+}
+body.vis .lookup {
+    odisplay: block;
+  visibility: visible;
+  max-width: unset;
+  margin-right: 2em;
+}
+body.vis a.useFilter {
+  display: initial;
 }
 #look {
     oposition: absolute;
@@ -214,9 +231,15 @@ img[width] {
   margin-left: -1.5em;
   vertical-align: middle;
 }
-.lookup .link {
+.link, .expand, .clear > svg {
   vertical-align: middle;
 }
+#keywords .clear {
+  line-height: 1.5rem;
+  vertical-align: top;
+  margin-left: .5rem;
+}
+
 
 /* TEMP 20250813 */
 h1::before {
@@ -244,6 +267,46 @@ a[href="#NO"] {
   display: none;
 }
 
+#keywords {
+  font-size: 0;
+  line-height: 1.5rem;
+  line-height: auto;
+  max-height: 1rem;
+  user-select: none;
+}
+.keyword {
+  background: yellow;
+  font-size: 13px;
+  padding: 3px 5px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#tools,
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.lookup, .lookup + div {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+#keywords {
+  flex: 1 1 auto;
+}
+
+.kw,
+#_keywords:checked ~ #tools label.h[for="_keywords"],
+#_keywords:not(:checked) ~ #tools #keywords {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -260,16 +323,52 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <input id="_all_ToC" name="ToC" class="lang _ALL" type="radio" value="*">
 <input id="en_ToC" name="ToC" class="lang EN" type="radio" value="en" checked>
 <input id="fr_ToC" name="ToC" class="lang FR" type="radio" value="fr">
+
+<input id="_keywords" class="kw" type="checkbox" name="keywords">
+
+<input id="KW_none" name="KW" class="kw" type="radio" value="">
+<input id="KW_9gag" name="KW" class="kw" type="radio" value="9gag">
+<input id="KW_DuckduckGo" name="KW" class="kw" type="radio" value="DuckduckGo">
+<input id="KW_GitHub" name="KW" class="kw" type="radio" value="GitHub">
+<input id="KW_GMX" name="KW" class="kw" type="radio" value="GMX">
+<input id="KW_google" name="KW" class="kw" type="radio" value="google">
+<input id="KW_IMDb" name="KW" class="kw" type="radio" value="IMDb">
+<input id="KW_instagram" name="KW" class="kw" type="radio" value="instagram">
+<input id="KW_reddit" name="KW" class="kw" type="radio" value="reddit">
+<input id="KW_USO" name="KW" class="kw" type="radio" value="userstyles.org">
+<input id="KW_youtube" name="KW" class="kw" type="radio" value="youtube">
+
+<div id="tools">
 <div class="lookup">Quick lookup: <input id="lookup" type="text" placeholder=" ">
-<svg class="clear" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 1a9 9 0 10.001 18.001A9 9 0 0010 1zm0 16.2c-3.97 0-7.2-3.23-7.2-7.2S6.03 2.8 10 2.8s7.2 3.23 7.2 7.2-3.23 7.2-7.2 7.2z"></path>
-<path d="M12.66 6.06L10 8.73 7.34 6.06 6.06 7.34 8.73 10l-2.67 2.66 1.28 1.28L10 11.27l2.66 2.67 1.28-1.28L11.27 10l2.67-2.66-1.28-1.28z"></path>
+<svg class="clear" height="16" width="16">
+<use href="#clear"></use>
 </svg>
 <input id="look" type="checkbox">
 <span title="copy link to this filter">
-<svg class="link" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="3 3 17 17">
-<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path>
+<svg class="link" width="16" height="16">
+<use href="#link"></use>
 </svg></span>
+</div>
+
+<div>Keywords:
+<label for="_keywords" class="h"><svg class="expand" width="16px" height="16px">
+<use href="#expand"></use>
+</svg></label>
+</div>
+<div id="keywords">
+<label for="KW_none" class="clear"><svg height="16" width="16">
+<use href="#clear"></use></label>
+</svg><label for="KW_9gag" class="keyword">9gag</label>
+<label for="KW_DuckduckGo" class="keyword">DuckduckGo</label>
+<label for="KW_GitHub" class="keyword">GitHub</label>
+<label for="KW_GMX" class="keyword">GMX</label>
+<label for="KW_google" class="keyword">google</label>
+<label for="KW_IMDb" class="keyword">IMDb</label>
+<label for="KW_instagram" class="keyword">instagram</label>
+<label for="KW_reddit" class="keyword">reddit</label>
+<label for="KW_USO" class="keyword">userstyles.org</label>
+<label for="KW_youtube" class="keyword">youtube</label>
+</div>
 </div>
 
 <h2 class="selL"><span class="multiT" langs="en fr"><span lang="en">Table of contents</span><span lang="fr">Table des matières</span></span> <span class="selL notranslate">
@@ -291,74 +390,74 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <h3 class="JSbkm">Javascript bookmarklets</h3>
 <ul class="mnu">
 <li><a href="#VI">View list of images used by the current page <span class="LU">(2018) (2021-01-19)</span></a></li>
-<li><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
+<li search="imdb"><a href="#iBg">IMDb - enlarge images in cast listing (x2)</a></li>
 <li><a href="#tr">Translate webpage (follow "How-to" to use as a bookmarklet) <span class="LU">(2023-07-14)</span></a></li>
 </ul>
 <a name="js"> </a>
 <h3 class="userjs">Javascript userscripts</h3>
 <ul class="mnu">
-<li class="newest"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
-<li class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
-<li class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
-<li class="multiT dep" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></a></li>
-<li class="multiT dep" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
-<li class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></a></li>
-<li class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
-<li class="newest"><a href="#googleImage_size_fetch">Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26)</span></a></li>
-<li><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
-<li class=""><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2023-05-15)</span></a></li>
-<li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
-<li><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
-<li><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></a></li>
-<li class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
-<li><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
+<li search="DDG" class="newest" search="ddg"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
+<li search="GitHub" class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
+<li search="GitHub" class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
+<li search="GMX" class="multiT dep" langs="en fr"><a href="#gmx_Pop"><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></a></li>
+<li search="GMX" class="multiT dep" langs="en fr"><a href="#gmx_new"><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></a></li>
+<li search="google" class="multiT" langs="en fr"><a href="#Gcookie"><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></a></li>
+<li search="google" class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
+<li search="google" class="newest"><a href="#googleImage_size_fetch">Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26)</span></a></li>
+<li search="imdb"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
+<li search="imdb" class=""><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2023-05-15)</span></a></li>
+<li search="imdb"><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
+<li search="imdb"><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
+<li search="imdb"><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></a></li>
+<li search="instagram" class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
+<li search="google"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
 <li><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
 <li class=""><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
-<li class=""><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
-<li class=""><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
-<li><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
-<li class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
-<li><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
+<li search="USO" class=""><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
+<li search="USO" class=""><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
+<li search="USO"><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
+<li search="USO" class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
+<li search="USOa"><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
 
 <!--li class="newest"><a href="#NO">Youtube - add channel link <span class="LU">(2026-03-03)</span></a></li><!-->
 
-<li class="multiT broken" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
-<li class="add"><a href="#YT_redfavico">Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></a></li>
+<li search="youtube" class="multiT broken" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
+<li search="youtube" class="add"><a href="#YT_redfavico">Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></a></li>
 
 <!--li class="newest"><a href="#NO">Youtube - tag title <span class="LU">(2026-03-03)</span></a></li><!-->
 
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
-<li><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
-<li class="broken"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
-<li class=""><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
+<li search="9gag"><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
+<li search="9gag" class="broken"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></a></li>
+<li search="9gag" class=""><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
 </ul>
 <a name="css"> </a>
 <h3 class="css">CSS userstyle (Non-programming)</h3>
 <ul class="mnu">
-<li class="newest"><a href="#ddg_assist">DuckDuckGo - assist <span class="LU">(2026-02-19)</span></a></li>
-<li class="upd"><a href="#ddg_gbimg">DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-06-20)</span></a></li>
-<li class="upd"><a href="#GH_sqa">GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></a></li>
-<li class="broken"><a href="#gmx_toolbar">Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></a></li>
-<li class="dep"><a href="#google_fixMenu">Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></a></li>
-<li class="multiT broken" langs="en fr"><a href="#google_ico"><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2023-04-22)</span></a></li>
-<li class="upd"><a href="#googleImage_darkprev">Google images - Darkmode preview in lightmode page <span class="LU">(2023-06-10) (2026-02-20)</span></a></li>
-<li class="multiT upd" langs="en fr"><a href="#googleImage_size"><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2026-02-26)</span></a></li>
+<li search="DDG" class="newest"><a href="#ddg_assist">DuckDuckGo - assist <span class="LU">(2026-02-19)</span></a></li>
+<li search="DDG" class="upd"><a href="#ddg_gbimg">DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-06-20)</span></a></li>
+<li search="GitHub" class="upd"><a href="#GH_sqa">GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></a></li>
+<li search="GMX" class="broken"><a href="#gmx_toolbar">Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></a></li>
+<li search="google" class="dep"><a href="#google_fixMenu">Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></a></li>
+<li search="google" class="multiT broken" langs="en fr"><a href="#google_ico"><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2023-04-22)</span></a></li>
+<li search="google" class="upd"><a href="#googleImage_darkprev">Google images - Darkmode preview in lightmode page <span class="LU">(2023-06-10) (2026-02-20)</span></a></li>
+<li search="google" class="multiT upd" langs="en fr"><a href="#googleImage_size"><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2026-02-26)</span></a></li>
 <li class="multiT broken" langs="en fr"><a href="#hm"><span lang="en">Hotmail - reduce whitespace</span><span lang="fr">Hotmail - récupérer les espaces vides</span> <span class="LU">(2018-12-17) (2023-05-07)</span></a></li>
-<li><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
-<li><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></a></li>
-<li class="dep"><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
+<li search="imdb"><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
+<li search="imdb"><a href="#imdb_fixTitle">IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></a></li>
+<li search="reddit" class="dep"><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT broken" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2020-11-18)</span></a></li>
-<li class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
+<li search="USO" class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
 
 <!--li class="newest"><a href="#NO">Youtube - style "theater" mode as fullscreen <span class="LU">(2026-03-03)</span></a></li><!-->
-<li class="add"><a href="#YT_visited">Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></a></li>
+<li search="youtube" class="add"><a href="#YT_visited">Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></a></li>
 
 </ul>
 <a name="fix"> </a>
 <h3 class="multiT fixes" langs="en fr"><span lang="en">Fixing sites</span><span lang="fr">Réparer des sites</span></h3>
 <ul class="mnu">
-<li class="dep"><a href="#imdbFix"><strike>IMDb - reduce bloatware</strike> <span class="LU">(2019-11-24) (2021-08-29)</span></a></li>
+<li search="imdb" class="dep"><a href="#imdbFix"><strike>IMDb - reduce bloatware</strike> <span class="LU">(2019-11-24) (2021-08-29)</span></a></li>
 <li><a href="#LeM_WB">"Le Figaro" archivé sur "Wayback Machine" <span class="LU">(2020-04-04) (2020-05-30)</span></a></li>
 </ul>
 
@@ -370,8 +469,8 @@ My participation is anecdotal. At the very least it proves that I care enough to
 <ul class="mnu">
 <li><a href="#oth_acm">Awesome cookie manager (chrome extension)</a></li>
 <li><a href="#oth_dacse">Don't add custom search engines (chrome extension)</a></li>
-<li><a href="#oth_GIsizer">Google image sizer (extension | userscript)</a></li>
-<li class="broken"><a href="#oth_mGISga">Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></a></li>
+<li search="google"><a href="#oth_GIsizer">Google image sizer (extension | userscript)</a></li>
+<li search="google" class="broken"><a href="#oth_mGISga">Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></a></li>
 <li><a href="#oth_TF">TabFern (chrome extension)</a></li>
 </ul>
 
@@ -532,7 +631,7 @@ Click on the link to display the list of images used in this page.<p>
 <p>
 </div>
 
-<h3 class="lnk"><a name="iBg" href="#bkjs"></a>IMDb - enlarge images in cast listing (x2)</h3>
+<h3 class="lnk" search="imdb"><a name="iBg" href="#bkjs"></a>IMDb - enlarge images in cast listing (x2)</h3>
 <div class="nfo">
 This bookmarklet increases the size of all images in the cast list on IMDb. It doubles the width/height and replaces the current image with an image of the appropriate dimensions. Can be applied multiple times if x2 is not enough.<p>
 
@@ -550,7 +649,7 @@ The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.
 <div class="lst">
 
 
-<h3 class="lnk newest"><a name="ddg_blocklist" href="#js"></a>DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></h3>
+<h3 class="lnk newest" search="DDG"><a name="ddg_blocklist" href="#js"></a>DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></h3>
 <div class="nfo">
 Remove the maximum limit of 5 sites blocked on DuckduckGo search results page.<p>
 
@@ -575,7 +674,7 @@ Get the script from <a href="https://greasyfork.org/scripts/563691" target="_bla
 
 
 
-<h3 class="lnk dep"><a name="GH_sort" href="#js"></a>GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></h3>
+<h3 class="lnk dep" search="GitHub"><a name="GH_sort" href="#js"></a>GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></h3>
 <div class="nfo">
 A link "(r)" is added in the two tabs "Issues" and "PR'. It is used as a single click shortcut to the corresponding listing sorted by "Recently updated".<p>
 
@@ -594,7 +693,7 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-rece
 <p>
 </div>
 
-<h3 class="lnk broken"><a name="GH_flip" href="#js"></a>GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes</h3>
+<h3 class="lnk broken" search="GitHub"><a name="GH_flip" href="#js"></a>GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes</h3>
 <div class="nfo">
 This userscript adds an icon to swap the sides of a comparison. It can be used when you need to sync your fork to the original repository.<p>
 
@@ -609,7 +708,7 @@ The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare
 <input id="en_gmx_pop" name="gmx_pop" class="lang EN" type="radio" value="en" checked>
 <input id="fr_gmx_pop" name="gmx_pop" class="lang FR" type="radio" value="fr">
 <input id="NoL_gmx_pop" name="gmx_pop" class="lang _NoL" type="checkbox" value="_NoL">
-<h3 class="lnk dep"><a name="gmx_Pop" href="#js"></a><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></h3>
+<h3 class="lnk dep" search="GMX"><a name="gmx_Pop" href="#js"></a><span lang="en">Gmx / web.de - re-enable email "standalone" view (separate window)</span><span lang="fr">Gmx / web.de - réactiver l'ouverture des emails dans une fenêtre popup</span> <span class="LU">(2020-01-17) (2023-03-28)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_gmx_pop" class="_ALL">&#x2731;</label></li>
 <li><label for="en_gmx_pop" class="EN">en</label></li>
 <li><label for="fr_gmx_pop" class="FR">fr</label></li>
@@ -673,7 +772,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/395358-gmx-
 <input id="en_gmx_new" name="gmx_new" class="lang EN" type="radio" value="en" checked>
 <input id="fr_gmx_new" name="gmx_new" class="lang FR" type="radio" value="fr">
 <input id="NoL_gmx_new" name="gmx_new" class="lang _NoL" type="checkbox" value="_NoL">
-<h3 class="lnk dep"><a name="gmx_new" href="#js"></a><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></h3>
+<h3 class="lnk dep" search="GMX"><a name="gmx_new" href="#js"></a><span lang="en">Gmx / web.de - show new unread folders</span><span lang="fr">Gmx / web.de - marquer nouveaux dossiers non-lus</span> <span class="LU">(2020-03-23) (2021-03-21)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_gmx_new" class="_ALL">&#x2731;</label></li>
 <li><label for="en_gmx_new" class="EN">en</label></li>
 <li><label for="fr_gmx_new" class="FR">fr</label></li>
@@ -735,7 +834,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/398539-gmx-
 <input id="_all_Gcookie" name="Gcookie" class="lang _ALL" type="radio" value="*">
 <input id="en_Gcookie" name="Gcookie" class="lang EN" type="radio" value="en" checked>
 <input id="fr_Gcookie" name="Gcookie" class="lang FR" type="radio" value="fr">
-<h3 class="lnk"><a name="Gcookie" href="#js"></a><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></h3>
+<h3 class="lnk" search="google"><a name="Gcookie" href="#js"></a><span lang="en">Google - dismiss cookies warning</span><span lang="fr">Google - supprime l'avertissement de cookies</span> <span class="LU">(2020-10-02) (2022-07-13)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_Gcookie" class="_ALL">&#x2731;</label></li>
 <li><label for="en_Gcookie" class="EN">en</label></li>
 <li><label for="fr_Gcookie" class="FR">fr</label></li>
@@ -784,7 +883,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/412348-goog
 <input id="_all_GfixTLD" name="GfixTLD" class="lang _ALL" type="radio" value="*">
 <input id="en_GfixTLD" name="GfixTLD" class="lang EN" type="radio" value="en" checked>
 <input id="fr_GfixTLD" name="GfixTLD" class="lang FR" type="radio" value="fr">
-<h3 class="lnk"><a name="GfixTLD" href="#js"></a><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span></h3>
+<h3 class="lnk" search="google"><a name="GfixTLD" href="#js"></a><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_GfixTLD" class="_ALL">&#x2731;</label></li>
 <li><label for="en_GfixTLD" class="EN">en</label></li>
 <li><label for="fr_GfixTLD" class="FR">fr</label></li>
@@ -822,7 +921,7 @@ Le script est disponible sur <a href="https://github.com/Procyon-b/Google-fix-TL
 </div>
 
 
-<h3 class="lnk"><a name="googleImage_size_fetch" href="#js"></a>Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26)</span></h3>
+<h3 class="lnk newest" search="google"><a name="googleImage_size_fetch" href="#js"></a>Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26)</span></h3>
 <div class="nfo">
 This script is to use with the userstyle <a href="#googleImage_size">"Google images - Show size"</a><p>
 
@@ -833,7 +932,7 @@ Get the script from <a href="https://greasyfork.org/scripts/566917" target="_bla
 </div>
 
 
-<h3 class="lnk"><a name="imdb_lnk" href="#js"></a>IMDb - fix links <span class="LU">(2021-04-23) (2021-09-12)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb_lnk" href="#js"></a>IMDb - fix links <span class="LU">(2021-04-23) (2021-09-12)</span></h3>
 <div class="nfo">
 This script removes the tracking elements from all links on imdb pages.<br>
 It keeps other parameters intact: search query, hash element.<p>
@@ -859,7 +958,7 @@ Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title
 <a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
 </div>
 
-<h3 class="lnk"><a name="imdb_fix_rating" href="#js"></a>IMDb - fix rating <span class="LU">(2021-04-23) (2023-05-15)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb_fix_rating" href="#js"></a>IMDb - fix rating <span class="LU">(2021-04-23) (2023-05-15)</span></h3>
 <div class="nfo">
 <img src="imdb-rating-v0.5.gif" class="fr" width="306" height="399" loading="lazy">
 This userscript uses IMDb's raw vote values to re-compute the rating (and the total of votes) of the film, without the bias included by their algorithm. It replaces the displayed value with the result and tells you if there is a difference.<br>
@@ -898,7 +997,7 @@ Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title
 <p class="clr">
 </div>
 
-<h3 class="lnk"><a name="imdb_sort" href="#js"></a>IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb_sort" href="#js"></a>IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></h3>
 <div class="nfo">
 This small userscript allows you to set the default sorting option for the "User reviews" page when opening it from a link on the title page (and from its "reference" version)<p>
 
@@ -918,7 +1017,7 @@ Get the script from <a href="https://greasyfork.org/scripts/433573-imdb-set-defa
 <a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
 </div>
 
-<h3 class="lnk"><a name="imdb_stopjs" href="#js"></a>IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb_stopjs" href="#js"></a>IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></h3>
 <div class="nfo">
 <small>The userscript has been tested on chrome and firefox. <b style="color:red;">If you encounter a problem, please post a message.</b> I'm might have something to fix to make it work for you.</small><p>
 Every IMDb page loads more than 30 scripts (almost 50 on the new "title" page). The execution of these script takes a toll on the loading time of the page (from 2s to 10s, depending on the page). But it depends on how powerful your computer is.<br>
@@ -973,7 +1072,7 @@ Adding these filters alone (without the script) achieves the same result. Except
 <input id="_all_insta_noLog" name="insta_noLog" class="lang _ALL" type="radio" value="*">
 <input id="en_insta_noLog" name="insta_noLog" class="lang EN" type="radio" value="en" checked>
 <input id="fr_insta_noLog" name="insta_noLog" class="lang FR" type="radio" value="fr">
-<h3 class="lnk"><a name="insta_noLog" href="#js"></a><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></h3>
+<h3 class="lnk" search="instagram"><a name="insta_noLog" href="#js"></a><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_insta_noLog" class="_ALL">&#x2731;</label></li>
 <li><label for="en_insta_noLog" class="EN">en</label></li>
 <li><label for="fr_insta_noLog" class="FR">fr</label></li>
@@ -998,7 +1097,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/403031-inst
 </div>
 </div>
 
-<h3 class="lnk"><a name="GDoodle" href="#js"></a>No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></h3>
+<h3 class="lnk" search="google"><a name="GDoodle" href="#js"></a>No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></h3>
 <div class="nfo">
 This script is my attempt to get rid of google doodles on Google search homepage.<br>
 <s>It will leave the doodle unchanged on the result pages, since it's not intrusive or animated.</s><br>
@@ -1139,7 +1238,7 @@ Get the script from <a href="https://greasyfork.org/scripts/470861-translate-web
 <br>
 </div>
 
-<h3 class="lnk"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></h3>
+<h3 class="lnk" search="USO"><a name="USO_linkUSOa" href="#js"></a>userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></h3>
 <div class="nfo">
 Adds a button on <code translate="no">userstyles.org</code> style's pages, that links to the "USO archive" version of the userstyle.<p>
 Get the script from <a href="https://greasyfork.org/scripts/443153-uso-add-usoa-button-on-userstyle-page" target="_blank">greasyfork.org</a><p>
@@ -1148,7 +1247,7 @@ Get the script from <a href="https://greasyfork.org/scripts/443153-uso-add-usoa-
 <img src="usoa-button-new2.gif" alt="button in the new site" width="800" height="210" loading="lazy"><p>
 </div>
 
-<h3 class="lnk"><a name="USO_moredata" href="#js"></a>userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></h3>
+<h3 class="lnk" search="USO"><a name="USO_moredata" href="#js"></a>userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></h3>
 <div class="nfo">
 This userscript adds more info to the displayed userstyles. It also fixes some global style to make the site more practical to use. And it fixes some issues with the site's navigation, mainly when you click the back button.<p>
 
@@ -1167,7 +1266,7 @@ Get the script from <a href="https://greasyfork.org/scripts/462221-uso-display-a
 <br>
 </div>
 
-<h3 class="lnk"><a name="USO_edit" href="#js"></a>userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></h3>
+<h3 class="lnk" search="USO"><a name="USO_edit" href="#js"></a>userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></h3>
 <div class="nfo">
 I know this site is a pain, and is most of the time really slow to respond, but I'm still targeting people using Stylish instead of Stylus. So I have to use their interface to handle modifications.<p>
 
@@ -1180,7 +1279,7 @@ Get the script from <a href="https://greasyfork.org/scripts/431548-uso-fix-edito
 <br>
 </div>
 
-<h3 class="lnk dep"><a name="USO_forceclassic" href="#js"></a>userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></h3>
+<h3 class="lnk dep" search="USO"><a name="USO_forceclassic" href="#js"></a>userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></h3>
 <div class="nfo">
 "<i>userstyles.org</i>" has currently 2 versions for its website.<p>
 
@@ -1198,7 +1297,7 @@ Get the script from <a href="https://greasyfork.org/scripts/460633-uso-force-sit
 <br>
 </div>
 
-<h3 class="lnk"><a name="USOa_src" href="#js"></a>USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></h3>
+<h3 class="lnk" search="USOa"><a name="USOa_src" href="#js"></a>USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></h3>
 <div class="nfo">
 This userscript displays the userstyle's source code on the "UserStyles.org Archive" pages. It uses the data already available on the page itself without making any request to USOa server.<p>
 
@@ -1214,7 +1313,7 @@ Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-sou
 <input id="_all_YT_si" name="YT_si" class="lang _ALL" type="radio" value="*">
 <input id="en_YT_si" name="YT_si" class="lang EN" type="radio" value="en" checked>
 <input id="fr_YT_si" name="YT_si" class="lang FR" type="radio" value="fr">
-<h3 class="lnk broken"><a name="YT_si" href="#js"></a><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></h3>
+<h3 class="lnk broken" search="youtube"><a name="YT_si" href="#js"></a><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_YT_si" class="_ALL">&#x2731;</label></li>
 <li><label for="en_YT_si" class="EN">en</label></li>
 <li><label for="fr_YT_si" class="FR">fr</label></li>
@@ -1260,7 +1359,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/412178-yout
 </div>
 
 
-<h3 class="lnk add"><a name="YT_redfavico" href="#js"></a>Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></h3>
+<h3 class="lnk add" search="youtube"><a name="YT_redfavico" href="#js"></a>Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></h3>
 <div class="nfo">
 <b>Forcing youtube browser tabs/windows to use the "old" red favicon.</b><p>
 
@@ -1332,7 +1431,7 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/401753-wayb
 </div>
 
 
-<h3 class="lnk"><a name="9gag_dislikes" href="#js"></a>9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></h3>
+<h3 class="lnk" search="9gag"><a name="9gag_dislikes" href="#js"></a>9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></h3>
 <div class="nfo">
 Display the like and dislike counts next to the arrow buttons.<p>
 
@@ -1350,7 +1449,7 @@ Get the script from <a href="https://greasyfork.org/scripts/466543" target="_bla
 </div>
 
 
-<h3 class="lnk broken"><a name="9gag_scrl" href="#js"></a>9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></h3>
+<h3 class="lnk broken" search="9gag"><a name="9gag_scrl" href="#js"></a>9gag - Scroll down to current position <span class="LU">(2022-09-19) (2023-07-15)</span></h3>
 <div class="nfo">
 This userscript is an attempt to allow a 9gag user to easily scroll back to the position on the page focused when he clicked the "scroll to top" icon. Or if the user scrolled up to read a comment again, and wants to resume where he was.<br><br>
 <p class="fl mg3">
@@ -1375,7 +1474,7 @@ Get the script from <a href="https://greasyfork.org//scripts/451648" target="_bl
 </div>
 
 
-<h3 class="lnk"><a name="9gag_nsfw" href="#js"></a>9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></h3>
+<h3 class="lnk" search="9gag"><a name="9gag_nsfw" href="#js"></a>9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></h3>
 <div class="nfo">
 When you are not logged in, this userscript forces 9gag to display all nsfw images & videos in posts and comments.<p><br>
 Get the script from <a href="https://greasyfork.org/scripts/469261" target="_blank">greasyfork.org</a><p>
@@ -1394,7 +1493,7 @@ Get the script from <a href="https://greasyfork.org/scripts/469261" target="_bla
 <h2>CSS userstyle (Non-programming)</h2>
 <div class="lst">
 
-<h3 class="lnk newest"><a name="ddg_assist" href="#css"></a>DuckDuckGo - assist <span class="LU">(2026-02-19)</span></h3>
+<h3 class="lnk newest" search="DDG"><a name="ddg_assist" href="#css"></a>DuckDuckGo - assist <span class="LU">(2026-02-19)</span></h3>
 <div class="nfo">
 <p class="fr mg cmt ct"><img src="DDG-assist colors-mini.jpg" alt="DDG assist" width="548" height="281" loading="lazy"><span>normal Assist restyled</span></p>
 
@@ -1418,7 +1517,7 @@ The stylesheet is available on <a href="https://userstyles.world/style/26703/duc
 
 
 
-<h3 class="lnk upd"><a name="ddg_gbimg" href="#css"></a>DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-02-20)</span></h3>
+<h3 class="lnk upd" search="DDG"><a name="ddg_gbimg" href="#css"></a>DuckDuckGo - background image <span class="LU">(2021-09-20) (2026-02-20)</span></h3>
 <div class="nfo">
 This userstyle lets you specify the url of an image to use as a background to DuckDuckGo pages.<br>
 The screenshot shows the userstyle applied to the dark theme, but it also works on the default theme and any of the other themes available in DuckDuckGo options. <p>
@@ -1431,7 +1530,7 @@ The stylesheet is available on <a href="https://userstyles.world/style/1174/duck
 </div>
 
 
-<h3 class="lnk"><a name="GH_sqa" href="#css"></a>GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></h3>
+<h3 class="lnk upd" search="GitHub"><a name="GH_sqa" href="#css"></a>GitHub - Square avatars <span class="LU">(2021-10-08) (2026-01-09)</span></h3>
 <div class="nfo">
 In 2020, GitHub modified the style of its pages, and all avatars appearance changed from square to circular.<br>
 While it’s not ugly, it can prevent from seeing the whole pattern of some avatars.<p>
@@ -1440,7 +1539,7 @@ After a year keeping it for myself, here it is.<p>
 The stylesheet is available on <a href="https://userstyles.world/style/1413/github-square-avatars" target="_blank">userstyle.world</a><p>
 </div>
 
-<h3 class="lnk broken"><a name="gmx_toolbar" href="#css"></a>Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></h3>
+<h3 class="lnk broken" search="GMX"><a name="gmx_toolbar" href="#css"></a>Gmx - webmails - restore blue buttons bar <span class="LU">(2020-09-24) (2021-01-13)</span></h3>
 <div class="nfo">
 In july 2020 Gmx changed the color scheme of the buttons bar from blue to gray (like web.de). This modification was applied to all gmx webmails domains ( .net, .com, .fr, .es, ... ).<p>
 This stylesheet restores the original layout. It is the exact style, and was recovered from a backup I've made earlier this year.<br>
@@ -1454,7 +1553,7 @@ and on <a href="https://greasyfork.org/scripts/411899-gmx-webmails-restore-blue-
 <img src="gmx-buttons bar.gif" alt="gmx buttons bar" width="979" height="93" loading="lazy">
 </div>
 
-<h3 class="lnk dep"><a name="google_fixMenu" href="#css"></a>Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></h3>
+<h3 class="lnk dep" search="google"><a name="google_fixMenu" href="#css"></a>Google - Fix menu accessibility <span class="LU">(2020-04-22) (2020-05-18)</span></h3>
 <div class="nfo">
 Early April, google changed some parameters in its stylesheet. Since then, when accessing the "Settings" menu on google search homepage, some of the items can be unclickable depending on the size of the window.<br>
 It's due to the fact that in html the form is taking the whole width of the page and is displayed over the menu.<p>
@@ -1474,7 +1573,7 @@ Apparently fixed... for the time being... <span class="LU">(2020-09)</span>
 <input id="_all_google_ico" name="google_ico" class="lang _ALL" type="radio" value="*">
 <input id="en_google_ico" name="google_ico" class="lang EN" type="radio" value="en" checked>
 <input id="fr_google_ico" name="google_ico" class="lang FR" type="radio" value="fr">
-<h3 class="lnk broken"><a name="google_ico" href="#css"></a><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2023-04-22)</span></h3>
+<h3 class="lnk broken" search="google"><a name="google_ico" href="#css"></a><span lang="en">Google search - restore "classic" style (pre-favicon)</span><span lang="fr">Google recherche - restaurer le style "classique" (pré-favicon)</span> <span class="LU">(2020-01-17) (2023-04-22)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_google_ico" class="_ALL">&#x2731;</label></li>
 <li><label for="en_google_ico" class="EN">en</label></li>
 <li><label for="fr_google_ico" class="FR">fr</label></li>
@@ -1548,7 +1647,7 @@ Valeurs suggérées pour retrouver une apparence proche de celle qui existait av
 </div>
 </div>
 
-<h3 class="lnk"><a name="googleImage_darkprev" href="#css"></a>Google images - Darkmode preview in lightmode page <span class="LU">(2023-06-10) (2026-02-20)</span></h3>
+<h3 class="lnk" search="google"><a name="googleImage_darkprev" href="#css"></a>Google images - Darkmode preview in lightmode page <span class="LU">(2023-06-10) (2026-02-20)</span></h3>
 <div class="nfo">
 Display the image preview panel in darkmode while the page is in the lightmode theme.<p>
 The stylesheet is available on <a href="https://userstyles.world/style/10273/google-images-darkmode-preview-in-lightmode-page" target="_blank">userstyle.world</a><p>
@@ -1560,7 +1659,7 @@ The stylesheet is available on <a href="https://userstyles.world/style/10273/goo
 <input id="_all_googleImage_size" name="googleImage_size" class="lang _ALL" type="radio" value="*">
 <input id="en_googleImage_size" name="googleImage_size" class="lang EN" type="radio" value="en" checked>
 <input id="fr_googleImage_size" name="googleImage_size" class="lang FR" type="radio" value="fr">
-<h3 class="lnk"><a name="googleImage_size" href="#css"></a><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2026-02-26)</span></h3>
+<h3 class="lnk" search="google"><a name="googleImage_size" href="#css"></a><span lang="en">Google Images - Show size</span><span lang="fr">Google Images - Afficher la taille</span> <span class="LU">(2020-04-22) (2026-02-26)</span></h3>
 <ul class="selL notranslate"><li class="__ALL"><label for="_all_googleImage_size" class="_ALL">&#x2731;</label></li>
 <li><label for="en_googleImage_size" class="EN">en</label></li>
 <li><label for="fr_googleImage_size" class="FR">fr</label></li>
@@ -1633,7 +1732,7 @@ La feuille de styles est disponibles sur <a href="https://userstyles.org/styles/
 </div>
 </div>
 
-<h3 class="lnk"><a name="imdb" href="#css"></a>IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb" href="#css"></a>IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></h3>
 <div class="nfo">
 This stylesheet removes dead space around the image.<p>
 Note that even if your adblocker hides the space used by the ads (the "dead" space at the top of the screen in the screenshot), it doesn't make the image use the whole space. This stylesheet does.<p>
@@ -1656,7 +1755,7 @@ With the new 2020 design:<p>
 <p class="clr">
 </div>
 
-<h3 class="lnk"><a name="imdb_fixTitle" href="#css"></a>IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></h3>
+<h3 class="lnk" search="imdb"><a name="imdb_fixTitle" href="#css"></a>IMDb - fix title page <span class="LU">(2021-08-24) (2022-08-10)</span></h3>
 <div class="nfo">
 This userstyle tries to fix the new "title" page (films/episodes) on IMDb to make it look more like the previous version (pre-May 2021).
 <p>
@@ -1689,7 +1788,7 @@ The second screenshot is taken with most of the optional styles enabled. The wid
 <br><br>
 </div>
 
-<h3 class="lnk dep"><a name="reddit_fixnotif" href="#css"></a>Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></h3>
+<h3 class="lnk dep" search="reddit"><a name="reddit_fixnotif" href="#css"></a>Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></h3>
 <div class="nfo">
 <b style="color: red;">2023/04</b>: Reddit seems to have fixed the issue. At least for me. Unless some users still have the issue, <b style="color: red;">the style is now useless</b>.<p>
 
@@ -1702,7 +1801,7 @@ The stylesheet is available on <a href="https://userstyles.world/style/8916/redd
 <img src="reddit - mark notifications read.jpg" alt="reddit - mark notifications read" width="531" height="545" loading="lazy"><p>
 </div>
 
-<h3 class="lnk"><a name="USO_fixnew" href="#css"></a>userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></h3>
+<h3 class="lnk" search="USO"><a name="USO_fixnew" href="#css"></a>userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></h3>
 <div class="nfo">
 This userstyle modifies the new layout to make some sections of a userstyle page more readable.<p>
 
@@ -1730,7 +1829,7 @@ Available on <a href="https://userstyles.org/styles/259956/fix-new-userstyles-or
 </div>
 
 
-<h3 class="lnk add"><a name="YT_visited" href="#css"></a>Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></h3>
+<h3 class="lnk add" search="youtube"><a name="YT_visited" href="#css"></a>Youtube - visited <span class="LU">(2024-06-24) (2025-09-09)</span></h3>
 <div class="nfo">
 <p class="fr mg"><img src="stylus-YT visited-ucss.png" width="289" height="356" loading="lazy"></p>
 Sets color for visited links (normal and dark modes)
@@ -1870,7 +1969,7 @@ Disponible sur <a href="https://userstyles.org/styles/175709/tuinadvies-matelma-
 <h2>Fixing sites</h2>
 <div class="lst">
 
-<h3 class="lnk dep"><a name="imdbFix" href="#fix"></a>IMDb - reduce bloatware <span class="LU">(2019-11-24) (2021-08-29)</span></h3>
+<h3 class="lnk dep" search="imdb"><a name="imdbFix" href="#fix"></a>IMDb - reduce bloatware <span class="LU">(2019-11-24) (2021-08-29)</span></h3>
 <div class="nfo">
 From now on, the solution is to install a userscript : <a href="#imdb_stopjs">IMDb - stop scripts</a> (here on this page).<br>
 If you want an updated list of adblock filters (eg. "uBlock Origin"), you can find them there too.<p>
@@ -1938,7 +2037,7 @@ Its <a target="_blank" href="https://github.com/gregsadetsky/chrome-dont-add-cus
 <br>
 </div>
 
-<h3 class="lnk"><a name="oth_GIsizer" href="#oth"></a>Google image sizer (extension | userscript)</h3>
+<h3 class="lnk" search="google"><a name="oth_GIsizer" href="#oth"></a>Google image sizer (extension | userscript)</h3>
 <div class="nfo">Simple extension to re-implement Google Images size filter (e.g. Larger than 2MP)<p>
 
 On the <a target="_blank" href="https://chrome.google.com/webstore/detail/image-search-sizer/pkfdieeblkapoopkmlpnnlepnblgbphk">chrome web store</a>.<br>
@@ -1948,7 +2047,7 @@ Its <a target="_blank" href="https://github.com/danieljbingham/google-image-size
 <a href="#toc" class="useFilter" data-filter="google"><b>List all google fixes</b></a><p>
 </div>
 
-<h3 class="lnk broken"><a name="oth_mGISga" href="#oth"></a>Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></h3>
+<h3 class="lnk broken" search="google"><a name="oth_mGISga" href="#oth"></a>Make Google Images great again (userscript | chrome extension) <span class="LU">(2018-12-26) (2021-07-30)</span></h3>
 <div class="nfo">This web extension adds back the "View Image" button to Google Image Search results.<p>
 The extension is outdated and won't work properly (as of May 2020). You can find it on the <a target="_blank" href="https://chrome.google.com/webstore/detail/google-search-view-image/hgngncnljacgakaiifjcgdnknaglfipo">chrome web store</a>.<br>
 Its <a target="_blank" href="https://github.com/devunt/make-gis-great-again">GitHub page</a> has a link to an updated version of the script. Search for the issue <a target="_blank" href="https://github.com/devunt/make-gis-great-again/issues?q=+is%3Aissue+is%3Aopen+sort%3Aupdated-desc">here</a> titled "Lastest version", and read the instructions to install.<br>
@@ -2038,17 +2137,13 @@ function SetFilter() {
   look.checked=true;
 
   if (t) c=`
-.lookup:has(#look:checked) ~ .inToc {
-  position: relative;
-}
-.inToc:has(.lookup #look:checked) a[name],
-no.lookup:has(#look:checked) ~ .toc a[name] {
+.inToc:has(.lookup #look:checked) a[name] {
   position: absolute;
   top: 0px;
 }
 
-.lookup:has(#look:checked) ~ .toc > :is(h3, div, h5, p),
-.lookup:has(#look:checked) ~ .toc li:not([search*="${t}"i]),
+#tools:has(.lookup #look:checked) ~ .toc > :is(h3, div, h5, p),
+#tools:has(.lookup #look:checked) ~ .toc li:not([search*="${t}"i]),
 .inToc:has(.lookup > #look:checked) ~ .lst > .multiL:not(:has( > h3[search*="${t}"i])):not(:has(h3 a:target)),
 .inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]),
 .inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]) + div.nfo,
@@ -2058,11 +2153,12 @@ no.lookup:has(#look:checked) ~ .toc a[name] {
 }
 `;
 
-  c+='.lookup {display: block; visibility: visible;} a.useFilter {display: initial;}';
+  //c+='';
 
   if (c != css.textContent) css.textContent=c;
   }
 
+document.body.classList.add('vis');
 
 var L=document.querySelector('#lookup'), look=document.querySelector('#look');
 if (L)  {
@@ -2104,7 +2200,8 @@ if (LNK) {
   }
 
 function useFilter() {
-  L.value=this.dataset.filter;
+  if (this.dataset.filter) L.value=this.dataset.filter;
+  else L.value=this.innerText;
   popSearch();
   SetFilter();
   }
@@ -2112,9 +2209,35 @@ function useFilter() {
 document.querySelectorAll('.useFilter').forEach(function(e){
   e.onclick=useFilter;
   });
-
+document.querySelectorAll('.keyword').forEach(function(e){
+  e.onclick=useFilter;
+  });
+document.querySelector('#keywords .clear').onclick=function(){
+  if (L.value == '') document.querySelector('input#_keywords').checked=false;
+  L.value='';
+  SetFilter();
+  };
+  
 
 })()
-</script>
+</script><!-->
+
+<div class="hide">
+<svg id="clear" height="16" viewBox="0 0 20 20" width="16">
+<path d="M10 1a9 9 0 10.001 18.001A9 9 0 0010 1zm0 16.2c-3.97 0-7.2-3.23-7.2-7.2S6.03 2.8 10 2.8s7.2 3.23 7.2 7.2-3.23 7.2-7.2 7.2z"></path>
+<path d="M12.66 6.06L10 8.73 7.34 6.06 6.06 7.34 8.73 10l-2.67 2.66 1.28 1.28L10 11.27l2.66 2.67 1.28-1.28L11.27 10l2.67-2.66-1.28-1.28z"></path>
+</svg>
+<svg id="link" width="16" height="16" fill="none" viewBox="3 3 17 17">
+<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path>
+</svg>
+<svg id="expand" width="16px" height="16px" viewBox="4 4 17 17">
+<path d="M4.75 9.233C4.75 9.64721 5.08579 9.983 5.5 9.983C5.91421 9.983 6.25 9.64721 6.25 9.233H4.75ZM6.25 5.5C6.25 5.08579 5.91421 4.75 5.5 4.75C5.08579 4.75 4.75 5.08579 4.75 5.5H6.25ZM5.5 4.75C5.08579 4.75 4.75 5.08579 4.75 5.5C4.75 5.91421 5.08579 6.25 5.5 6.25V4.75ZM9.233 6.25C9.64721 6.25 9.983 5.91421 9.983 5.5C9.983 5.08579 9.64721 4.75 9.233 4.75V6.25ZM6.03033 4.96967C5.73744 4.67678 5.26256 4.67678 4.96967 4.96967C4.67678 5.26256 4.67678 5.73744 4.96967 6.03033L6.03033 4.96967ZM9.96967 11.0303C10.2626 11.3232 10.7374 11.3232 11.0303 11.0303C11.3232 10.7374 11.3232 10.2626 11.0303 9.96967L9.96967 11.0303ZM15.767 18.75C15.3528 18.75 15.017 19.0858 15.017 19.5C15.017 19.9142 15.3528 20.25 15.767 20.25V18.75ZM19.5 20.25C19.9142 20.25 20.25 19.9142 20.25 19.5C20.25 19.0858 19.9142 18.75 19.5 18.75V20.25ZM18.75 19.5C18.75 19.9142 19.0858 20.25 19.5 20.25C19.9142 20.25 20.25 19.9142 20.25 19.5H18.75ZM20.25 15.767C20.25 15.3528 19.9142 15.017 19.5 15.017C19.0858 15.017 18.75 15.3528 18.75 15.767H20.25ZM18.9697 20.0303C19.2626 20.3232 19.7374 20.3232 20.0303 20.0303C20.3232 19.7374 20.3232 19.2626 20.0303 18.9697L18.9697 20.0303ZM15.0303 13.9697C14.7374 13.6768 14.2626 13.6768 13.9697 13.9697C13.6768 14.2626 13.6768 14.7374 13.9697 15.0303L15.0303 13.9697ZM6.25 15.767C6.25 15.3528 5.91421 15.017 5.5 15.017C5.08579 15.017 4.75 15.3528 4.75 15.767H6.25ZM4.75 19.5C4.75 19.9142 5.08579 20.25 5.5 20.25C5.91421 20.25 6.25 19.9142 6.25 19.5H4.75ZM5.5 18.75C5.08579 18.75 4.75 19.0858 4.75 19.5C4.75 19.9142 5.08579 20.25 5.5 20.25V18.75ZM9.233 20.25C9.64721 20.25 9.983 19.9142 9.983 19.5C9.983 19.0858 9.64721 18.75 9.233 18.75V20.25ZM4.96967 18.9697C4.67678 19.2626 4.67678 19.7374 4.96967 20.0303C5.26256 20.3232 5.73744 20.3232 6.03033 20.0303L4.96967 18.9697ZM11.0303 15.0303C11.3232 14.7374 11.3232 14.2626 11.0303 13.9697C10.7374 13.6768 10.2626 13.6768 9.96967 13.9697L11.0303 15.0303ZM15.767 4.75C15.3528 4.75 15.017 5.08579 15.017 5.5C15.017 5.91421 15.3528 6.25 15.767 6.25V4.75ZM19.5 6.25C19.9142 6.25 20.25 5.91421 20.25 5.5C20.25 5.08579 19.9142 4.75 19.5 4.75V6.25ZM20.25 5.5C20.25 5.08579 19.9142 4.75 19.5 4.75C19.0858 4.75 18.75 5.08579 18.75 5.5H20.25ZM18.75 9.233C18.75 9.64721 19.0858 9.983 19.5 9.983C19.9142 9.983 20.25 9.64721 20.25 9.233H18.75ZM20.0303 6.03033C20.3232 5.73744 20.3232 5.26256 20.0303 4.96967C19.7374 4.67678 19.2626 4.67678 18.9697 4.96967L20.0303 6.03033ZM13.9697 9.96967C13.6768 10.2626 13.6768 10.7374 13.9697 11.0303C14.2626 11.3232 14.7374 11.3232 15.0303 11.0303L13.9697 9.96967ZM6.25 9.233V5.5H4.75V9.233H6.25ZM5.5 6.25H9.233V4.75H5.5V6.25ZM4.96967 6.03033L9.96967 11.0303L11.0303 9.96967L6.03033 4.96967L4.96967 6.03033ZM15.767 20.25H19.5V18.75H15.767V20.25ZM20.25 19.5V15.767H18.75V19.5H20.25ZM20.0303 18.9697L15.0303 13.9697L13.9697 15.0303L18.9697 20.0303L20.0303 18.9697ZM4.75 15.767V19.5H6.25V15.767H4.75ZM5.5 20.25H9.233V18.75H5.5V20.25ZM6.03033 20.0303L11.0303 15.0303L9.96967 13.9697L4.96967 18.9697L6.03033 20.0303ZM15.767 6.25H19.5V4.75H15.767V6.25ZM18.75 5.5V9.233H20.25V5.5H18.75ZM18.9697 4.96967L13.9697 9.96967L15.0303 11.0303L20.0303 6.03033L18.9697 4.96967Z" fill="#000000"> </path>
+</svg>
+</div>
+
+<noscript>
+<link href="lookup.css" rel="stylesheet" type="text/css">
+</noscript>
+
 </body>
 </html>

@@ -1,0 +1,210 @@
+
+/*9gag*/
+.inToc:has( > input#KW_9gag:checked) label[for="KW_9gag"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_9gag:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_9gag:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_9gag:checked) .toc li:not([search*="9gag"i]),
+.inToc:has( > input#KW_9gag:checked) ~ .lst > .multiL:not(:has( > h3[search*="9gag"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_9gag:checked) ~ .lst > h3:not([search*="9gag"i]),
+.inToc:has( > input#KW_9gag:checked) ~ .lst > h3:not([search*="9gag"i]) + div.nfo,
+.inToc:has( > input#KW_9gag:checked) ~ h2:not(:has(+ .lst h3[search*="9gag"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*duckduckgo*/
+.inToc:has( > input#KW_DuckduckGo:checked) label[for="KW_DuckduckGo"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_DuckduckGo:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_DuckduckGo:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_DuckduckGo:checked) .toc li:not([search*="ddg"i]),
+.inToc:has( > input#KW_DuckduckGo:checked) ~ .lst > .multiL:not(:has( > h3[search*="ddg"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_DuckduckGo:checked) ~ .lst > h3:not([search*="ddg"i]),
+.inToc:has( > input#KW_DuckduckGo:checked) ~ .lst > h3:not([search*="ddg"i]) + div.nfo,
+.inToc:has( > input#KW_DuckduckGo:checked) ~ h2:not(:has(+ .lst h3[search*="ddg"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*GitHub*/
+.inToc:has( > input#KW_GitHub:checked) label[for="KW_GitHub"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_GitHub:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_GitHub:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_GitHub:checked) .toc li:not([search*="GitHub"i]),
+.inToc:has( > input#KW_GitHub:checked) ~ .lst > .multiL:not(:has( > h3[search*="GitHub"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_GitHub:checked) ~ .lst > h3:not([search*="GitHub"i]),
+.inToc:has( > input#KW_GitHub:checked) ~ .lst > h3:not([search*="GitHub"i]) + div.nfo,
+.inToc:has( > input#KW_GitHub:checked) ~ h2:not(:has(+ .lst h3[search*="GitHub"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*GMX*/
+.inToc:has( > input#KW_GMX:checked) label[for="KW_GMX"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_GMX:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_GMX:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_GMX:checked) .toc li:not([search*="GMX"i]),
+.inToc:has( > input#KW_GMX:checked) ~ .lst > .multiL:not(:has( > h3[search*="GMX"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_GMX:checked) ~ .lst > h3:not([search*="GMX"i]),
+.inToc:has( > input#KW_GMX:checked) ~ .lst > h3:not([search*="GMX"i]) + div.nfo,
+.inToc:has( > input#KW_GMX:checked) ~ h2:not(:has(+ .lst h3[search*="GMX"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*google*/
+.inToc:has( > input#KW_google:checked) label[for="KW_google"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_google:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_google:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_google:checked) .toc li:not([search*="google"i]),
+.inToc:has( > input#KW_google:checked) ~ .lst > .multiL:not(:has( > h3[search*="google"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_google:checked) ~ .lst > h3:not([search*="google"i]),
+.inToc:has( > input#KW_google:checked) ~ .lst > h3:not([search*="google"i]) + div.nfo,
+.inToc:has( > input#KW_google:checked) ~ h2:not(:has(+ .lst h3[search*="google"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*imdb*/
+.inToc:has( > input#KW_IMDb:checked) label[for="KW_IMDb"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_IMDb:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_IMDb:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_IMDb:checked) .toc li:not([search*="IMDb"i]),
+.inToc:has( > input#KW_IMDb:checked) ~ .lst > .multiL:not(:has( > h3[search*="IMDb"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_IMDb:checked) ~ .lst > h3:not([search*="IMDb"i]),
+.inToc:has( > input#KW_IMDb:checked) ~ .lst > h3:not([search*="IMDb"i]) + div.nfo,
+.inToc:has( > input#KW_IMDb:checked) ~ h2:not(:has(+ .lst h3[search*="IMDb"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*instagram*/
+.inToc:has( > input#KW_instagram:checked) label[for="KW_instagram"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_instagram:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_instagram:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_instagram:checked) .toc li:not([search*="instagram"i]),
+.inToc:has( > input#KW_instagram:checked) ~ .lst > .multiL:not(:has( > h3[search*="instagram"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_instagram:checked) ~ .lst > h3:not([search*="instagram"i]),
+.inToc:has( > input#KW_instagram:checked) ~ .lst > h3:not([search*="instagram"i]) + div.nfo,
+.inToc:has( > input#KW_instagram:checked) ~ h2:not(:has(+ .lst h3[search*="instagram"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*reddit*/
+.inToc:has( > input#KW_reddit:checked) label[for="KW_reddit"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_reddit:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_reddit:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_reddit:checked) .toc li:not([search*="reddit"i]),
+.inToc:has( > input#KW_reddit:checked) ~ .lst > .multiL:not(:has( > h3[search*="reddit"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_reddit:checked) ~ .lst > h3:not([search*="reddit"i]),
+.inToc:has( > input#KW_reddit:checked) ~ .lst > h3:not([search*="reddit"i]) + div.nfo,
+.inToc:has( > input#KW_reddit:checked) ~ h2:not(:has(+ .lst h3[search*="reddit"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*uso*/
+.inToc:has( > input#KW_USO:checked) label[for="KW_USO"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_USO:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_USO:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_USO:checked) .toc li:not([search="USO"i]),
+.inToc:has( > input#KW_USO:checked) ~ .lst > .multiL:not(:has( > h3[search="USO"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([search="USO"i]),
+.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([search="USO"i]) + div.nfo,
+.inToc:has( > input#KW_USO:checked) ~ h2:not(:has(+ .lst h3[search="USO"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
+/*youtube*/
+.inToc:has( > input#KW_youtube:checked) label[for="KW_youtube"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_youtube:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_youtube:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_youtube:checked) .toc li:not([search*="youtube"i]),
+.inToc:has( > input#KW_youtube:checked) ~ .lst > .multiL:not(:has( > h3[search*="youtube"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_youtube:checked) ~ .lst > h3:not([search*="youtube"i]),
+.inToc:has( > input#KW_youtube:checked) ~ .lst > h3:not([search*="youtube"i]) + div.nfo,
+.inToc:has( > input#KW_youtube:checked) ~ h2:not(:has(+ .lst h3[search*="youtube"i])) {
+  display: none;
+  opacity: .4;
+}
+
