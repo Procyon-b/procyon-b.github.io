@@ -339,6 +339,12 @@ body>div[style="position:relative;"], body>div.cacheContent {
 .inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.css + ul { --sec: "css"; }
 .inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.fixes + ul { --sec: "fixes"; }
 
+.inToc:has( > input#KW_none:not(:checked)) .toc h3.CExt + ul { --sec: "extension"; }
+.inToc:has( > input#KW_none:not(:checked)) .toc h3.JSbkm + ul { --sec: "bookmarklet"; }
+.inToc:has( > input#KW_none:not(:checked)) .toc h3.userjs + ul { --sec: "userJS"; }
+.inToc:has( > input#KW_none:not(:checked)) .toc h3.css + ul { --sec: "css"; }
+.inToc:has( > input#KW_none:not(:checked)) .toc h3.fixes + ul { --sec: "fixes"; }
+
 li a > span.LU::before,
 li a:not(:has( > span.LU))::after {
   content: var(--sec);

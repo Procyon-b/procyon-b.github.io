@@ -326,7 +326,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 
 <input id="_keywords" class="kw" type="checkbox" name="keywords">
 
-<input id="KW_none" name="KW" class="kw" type="radio" value="">
+<input id="KW_none" name="KW" class="kw" type="radio" value="" checked>
 <input id="KW_9gag" name="KW" class="kw" type="radio" value="9gag">
 <input id="KW_DuckduckGo" name="KW" class="kw" type="radio" value="DuckduckGo">
 <input id="KW_GitHub" name="KW" class="kw" type="radio" value="GitHub">
@@ -2199,7 +2199,7 @@ if (LNK) {
     };
   }
 
-function useFilter() {
+function useFilter(ev) {
   if (this.dataset.filter) L.value=this.dataset.filter;
   else L.value=this.innerText;
   popSearch();
@@ -2217,6 +2217,9 @@ document.querySelector('#keywords .clear').onclick=function(){
   L.value='';
   SetFilter();
   };
+document.querySelectorAll('input[name="KW"]').forEach(function(e){
+  e.remove();
+  });
   
 
 })()
