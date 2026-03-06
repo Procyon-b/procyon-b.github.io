@@ -333,11 +333,11 @@ body>div[style="position:relative;"], body>div.cacheContent {
 }
 #m span { display: none; }
 
-.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.CExt + ul { --sec: "extension"; }
-.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.JSbkm + ul { --sec: "bookmarklet"; }
-.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.userjs + ul { --sec: "userJS"; }
-.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.css + ul { --sec: "css"; }
-.inToc > .lookup:has(> #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.fixes + ul { --sec: "fixes"; }
+.inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.CExt + ul { --sec: "extension"; }
+.inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.JSbkm + ul { --sec: "bookmarklet"; }
+.inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.userjs + ul { --sec: "userJS"; }
+.inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.css + ul { --sec: "css"; }
+.inToc > #tools:has(> .lookup > #lookup:not(:placeholder-shown) ~ #look:checked) ~ .toc h3.fixes + ul { --sec: "fixes"; }
 
 li a > span.LU::before,
 li a:not(:has( > span.LU))::after {
