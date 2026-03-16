@@ -360,7 +360,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="youtube yt" class="add bef_5 new newA"><a href="#YT_redfavico">Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></a></li>
 
 
-<li keyword="youtube yt" class="newest newA add bef1_5"><a href="#NO">Youtube - tag title <span class="LU">(2026-03-03)</span></a></li><!-->
+<li keyword="youtube yt" class="newest newA add bef1_5"><a href="#YT-tag">Youtube - tag title <span class="LU">(2026-03-03)</span></a></li><!-->
 
 
 <li class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
@@ -1336,6 +1336,48 @@ So instead of removing the links to force a fallback to the default favicon, it 
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/513768" target="_blank">greasyfork.org</a><p>
 <a href="#toc" class="useFilter" data-filter="youtube"><b>List all Youtube fixes</b></a><p>
+<br>
+</div>
+
+
+<h3 class="lnk" keyword="youtube yt"><a name="YT-tag" href="#js"></a>Youtube - tag title <span class="LU">(2026-03-03)</span></h3>
+<div class="nfo">
+Tag tab's title by adding more informations: duration, channel, date, age, ...<p>
+Available infos are:
+<ul>
+<li>duration in hours:minutes - <code>1:25</code> (1h 25min) , <code>:03</code> (3min) , <code>:01</code> (below 1 min 30)
+<li>separator: <code>✦</code> (configurable)
+<li>title
+<li>channel name
+<li>date of publication - with time elapsed until now (at the time the tag is generated)
+<li>date of last update - with time elapsed until now (at the time the tag is generated)<br>
+<b>The elapsed time format is</b>: <code>2y11m20d</code> or <code>15:27</code>. Minutes are dropped when the first day is reached, and hours after a few days. The value for months is a rought approximation. Whichever the real lenght of the month, old is old.
+</ul>
+<br>
+As you can see in the screenshot, the default format is: <b>duration</b> sep <b>title</b> sep <b>channel</b> sep <b>date0</b>sep(<b>elapsed</b>)<br>
+After the userscript has been run at least once, the format is written in the userscript storage. Look in your userscript manager (tampermonkey or another "monkey" supporting the feature)<p>
+
+The syntax is as follow:
+<ul>
+<li><code>%d</code> : duration
+<li><code>%T</code> : title
+<li><code>%s</code> : separator
+<li><code>&nbsp;</code> : literal space
+<li><code>%c</code> : channel name
+<li><code>%t0</code> : date published
+<li><code>%t</code> : date last updated<br>
+<code>%t0</code> and <code>%t</code> support <code>(s)</code> to use the separator between date and time.
+</ul><p>
+
+You can go to the configuration of the userscript in the script manager to edit the format as well as change symbol used as separator.<br>
+The default value is: <code>"%d %s %T %s %c %s %t0(s)"</code>
+
+<p>
+<br>
+<a href="#toc" class="useFilter" data-filter="youtube"><b>List all Youtube fixes</b></a><p>
+<p class="fl cmt ct clr"><img src="YT-tag titles-tabs.png" width="901" height="230" loading="lazy"><span>Youtube tabs titles tagged with the default infos</span><p><br>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/569844" target="_blank">greasyfork.org</a><p>
 <br>
 </div>
 
