@@ -181,6 +181,12 @@ h3 a[name]::after {
 .bef1_5::before {
   left: -1.5em;
 }
+.bef2::before {
+  left: -2em;
+}
+.bef2_5::before {
+  left: -2.5em;
+}
 .newest::before, .newest.upd::after, .newest.newA::after {
   content: "newest";
   margin-left: calc( var(--tag-left) - 5.8em);
