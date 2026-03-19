@@ -245,7 +245,7 @@ li:has(a[href="#NO"]) {
 
 <h1>Achernar's programming page</h1>
 <div>
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-03-17</i><p>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-03-19</i><p>
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
 I'm planning now to update the page and add new elements in the near future.<p>
 
@@ -327,6 +327,11 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <a name="js"> </a>
 <h3 class="userjs">Javascript userscripts</h3>
 <ul class="mnu">
+
+
+<li keyword="DDD DDG" class="newest"><a href="#DaxDuckDex">DaxDuckDex - enhance search function <span class="LU">(2026-03-19)</span></a></li>
+
+
 <li keyword="DDG" class="new"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
 <li keyword="GitHub" class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
 <li keyword="GitHub" class="broken"><a href="#GH_flip">GitHub - flip comparison between forks/branches - add an icon to swap sides when comparing changes <span class="LU">(2019-09-30)</span></a></li>
@@ -349,7 +354,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="USO"><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
 <li keyword="USO" class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
 <li keyword="USOa"><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
-<li keyword="youtube yt" class="upd bef2_5"><a class="newest newA add bef1_5" href="#YT_ch_lnk">Youtube - add channel link <span class="LU">(2024) (2026-03-16)</span></a></li><!-->
+<li keyword="youtube yt" class="upd bef2_5"><a class="newest newA add bef1_5" href="#YT_ch_lnk">Youtube - add channel link <span class="LU">(2024) (2026-03-19)</span></a></li><!-->
 <li keyword="youtube yt" class="multiT broken" langs="en fr"><a href="#YT_si"><span lang="en">Youtube - dismiss "sign-in" dialog</span><span lang="fr">Youtube - cacher le dialogue "connectez-vous"</span> <span class="LU">(2020-09-28) (2022-05-24)</span></a></li>
 <li keyword="youtube yt" class="add bef_5 new newA"><a href="#YT_redfavico">Youtube - Restore red favicon <span class="LU">(2024-10-24) (2025-09-02)</span></a></li>
 <li keyword="youtube yt" class="newest newA add bef1_5"><a href="#YT-tag">Youtube - tag title <span class="LU">(2026-03-03)</span></a></li><!-->
@@ -583,6 +588,21 @@ The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.
 
 <h2>Javascript userscripts</h2>
 <div class="lst">
+
+
+<h3 class="lnk" keyword="DDD DDG"><a name="DaxDuckDex" href="#js"></a>DaxDuckDex - enhance search function <span class="LU">(2026-03-19)</span></h3>
+<div class="nfo">
+When searching, match also accented letter.<p>
+
+On the <a href="https://makdulac.com/daxduckdex.html" target="_blank">DaxDuckDex</a> website searching an element won't match a non-accented letter with an accented letter.<br>
+Example: <code>dali</code> won't match <code>Dalí</code> (notice the <code> í </code>)<p>
+
+This userscript modifies the search function to match these variation. If I missed accented letter, feel free to notify me.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/570295" target="_blank">greasyfork.org</a><p>
+<br>
+</div>
+
 
 
 <h3 class="lnk" keyword="DDG"><a name="ddg_blocklist" href="#js"></a>DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></h3>
@@ -1253,7 +1273,7 @@ Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-sou
 </div>
 
 
-<h3 class="lnk" keyword="youtube yt"><a name="YT_ch_lnk" href="#js"></a>Youtube - add channel link <span class="LU">(2024) (2026-03-16)</span></h3>
+<h3 class="lnk" keyword="youtube yt"><a name="YT_ch_lnk" href="#js"></a>Youtube - add channel link <span class="LU">(2024) (2026-03-19)</span></h3>
 <div class="nfo">
 Adds a link to channel names in the suggestion right-side panel, and in the player endscreen.<br>
 The color in the screenshot is set by the <a href="#YT_visited">"Youtube - visited"</a> userstyle.<p>
