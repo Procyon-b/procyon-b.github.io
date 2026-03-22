@@ -329,7 +329,12 @@ p.num4 > span {
 .clr {
   clear: both;
 }
-
+.clean {
+  margin-block-start: unset !important;
+  margin-block-end: unset !important;
+  margin-inline-start: unset !important;
+  margin-inline-end: unset !important;
+}
 #em {
   color: black;
 }
