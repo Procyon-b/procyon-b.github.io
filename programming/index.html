@@ -1280,13 +1280,23 @@ Get the script from <a href="https://greasyfork.org/scripts/460334-usoa-show-sou
 <h3 class="lnk" keyword="youtube yt"><a name="YT_ch_lnk" href="#js"></a>Youtube - add channel link <span class="LU">(2024) (2026-03-26)</span></h3>
 <div class="nfo">
 Adds a link to channel names in the suggestion right-side panel, and in the player endscreen.<br>
-The color in the screenshot is set by the <a href="#YT_visited">"Youtube - visited"</a> userstyle.<p>
+The color in the screenshot is set by the "<a href="#YT_visited">Youtube - visited</a>"" userstyle.<p>
 
-<a href="#toc" class="useFilter" data-filter="youtube"><b>List all Youtube fixes</b></a><p>
+By default, when not adding a userstyle, the link color of the new link in the recommendations changes on mouse over:
+<ul>
+<li>from gray to black in light mode
+<li>from gray to lighter gray in darkmode
+</ul>
+<p>
+Then when visited you can color it with my userstyle (in the screenshot), or you can target the classname css selector <code>._chan_lnk</code><p>
+
+There are still possible cases where no link will be added. When there are more than 2 channels collaborating (a fix is in the pipeline) and if there was a problem finding the correct channel id for that video.<p><br>
+
 <img src="YT-chan-link.png" width="228" height="200" loading="lazy"><br>
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/569841" target="_blank">greasyfork.org</a><br>
 <p>
+<a href="#toc" class="useFilter" data-filter="youtube"><b>List all Youtube fixes</b></a><p>
 </div>
 
 
