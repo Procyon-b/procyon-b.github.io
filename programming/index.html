@@ -237,6 +237,12 @@ li:has(a[href="#NO"]) {
 .hide, body:not(.vis) #trsExpand {
   display: none !important;
 }
+a[name="toc"] {
+  margin-top: -.5em;
+}
+label.cur {
+  outline: 2px solid red;
+}
 
 </style>
 </head>
@@ -580,7 +586,7 @@ This bookmarklet increases the size of all images in the cast list on IMDb. It d
 The source is in this <a href="javascript:(function(){function getImg(u){if(/^(.*?_V1\.*(?:\._CR.*?)?_U.)(\d+_CR\d+.*)$/.test(u))return RegExp.$1+RegExp.$2.replace(/\d+/g,function(a){return a << 1});return u;}var e=document.querySelectorAll('.primary_photo img'),j0=0;function fi(){var i,s=Date.now();for(var j=j0;i=e[j];j++){i.width=i.width << 1;i.height=i.height << 1;i.src=getImg(i.src);if(i.attributes.loadlate)i.setAttribute('loadlate',getImg(i.attributes.loadlate.value));if(Date.now()-s > 200){j0=j+1;setTimeout(fi,0);return 1}}}fi();})()">link</a><span class="note">(*)</span>. Current version: 20181025<p>
 
 (*) drag & drop on your bookmark bar to add the link to your bookmarks.<p>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 <img src="imdb-img-sz.gif" alt="IMDb cast listing" width="584" height="421" loading="lazy">
 <p>
 </div>
@@ -629,7 +635,7 @@ The possible values are:<br>
 </ul><p>
 
 Get the script from <a href="https://greasyfork.org/scripts/563691" target="_blank">greasyfork.org</a><p>
-<a href="#toc" class="useFilter" data-filter="ddg"><b>List all DDG fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
 
 </div>
 
@@ -651,7 +657,7 @@ Clicking this button will display all the issues/pr in which you made a comment.
 <br>
 Get the script from <a href="https://greasyfork.org/scripts/403857-github-sort-by-recently-updated" target="_blank">greasyfork.org</a><br>
 The script has its own <a href="https://github.com/Procyon-b/GitHub-sort-by-recently" target="_blank">GitHub page</a>.<p>
-<a href="#toc" class="useFilter" data-filter="github"><b>List all GitHub fixes</b></a>
+<a href="#toc" class="useFilter" data-filter="GitHub"><b>List all GitHub fixes</b></a>
 <p><br>
 </div>
 
@@ -664,7 +670,7 @@ This userscript adds an icon to swap the sides of a comparison. It can be used w
 
 The script has its own <a href="https://github.com/Procyon-b/GitHub-flip-compare" target="_blank">GitHub page</a>.<p>
 <p>
-<a href="#toc" class="useFilter" data-filter="github"><b>List all GitHub fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="GitHub"><b>List all GitHub fixes</b></a><p>
 <br>
 </div>
 
@@ -921,7 +927,7 @@ Note (2021-08-17) : the new layout for the "title" page (film/episode) doesn't c
 <p>
 Get the script from <a href="https://greasyfork.org/scripts/425447-imdb-fix-links" target="_blank">greasyfork.org</a><p>
 Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" <!--, "<a href="#imdb_lnk">Fix links</a>" <!-->, "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 </div>
 
 <h3 class="lnk" keyword="imdb"><a name="imdb_fix_rating" href="#js"></a>IMDb - fix rating <span class="LU">(2021-04-23) (2023-05-15)</span></h3>
@@ -959,7 +965,7 @@ For pages with multiple items, when it needs to fetch the values from the server
 <p>
 Get the script from <a href="https://greasyfork.org/scripts/441478-imdb-fix-rating" target="_blank">greasyfork.org</a><p>
 Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" <!--, "<a href="#imdb_fix_rating">fix rating</a>" <!-->, "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 <p class="clr">
 </div>
 
@@ -980,7 +986,7 @@ Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title
 <p>
 Get the script from <a href="https://greasyfork.org/scripts/433573-imdb-set-default-user-reviews-sorting" target="_blank">greasyfork.org</a>
 <p>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 </div>
 
 <h3 class="lnk" keyword="imdb"><a name="imdb_stopjs" href="#js"></a>IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></h3>
@@ -1010,7 +1016,7 @@ The userscript has been tested on chrome and firefox. If you encounter a problem
 Get the script from <a href="https://greasyfork.org/scripts/431311-imdb-stop-scripts" target="_blank">greasyfork.org</a><p>
 
 Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" <!--, "<a href="#imdb_stopjs">Stop scripts</a>" <!-->, "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 <br>
 Filter list to use with uBlock Origin. Copy and paste in your "My filters" tab: <span class="LU">(last modified: 2022-03-22)</span>
 <pre class="code" translate="no">
@@ -1554,7 +1560,7 @@ Style and behaviour modifications for Duckduckgo's "search assist".<p>
 <li>and other options
 </ul><p>
 The stylesheet is available on <a href="https://userstyles.world/style/26703/duckduckgo-assist" target="_blank">userstyle.world</a><p>
-<a href="#toc" class="useFilter" data-filter="ddg"><b>List all DDG fixes</b></a><p class="clr">
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p class="clr">
 
 <p class="fl mg"><img src="DDG-assist ucss options.png" alt="DDG assist options" width="294" height="537" loading="lazy"></p>
 <p class="fl mg cmt ct"><img src="DDG-assist moved up-mini-2.jpg" alt="DDG assist moved up" width="548" height="330" loading="lazy"><span>Assist moved up</span></p>
@@ -1571,7 +1577,7 @@ There is no background image set by default in the userstyle, so, once installed
 <code translate="no">"https://images5.alphacoders.com/104/thumb-1920-1043977.jpg"</code> (source: <code translate="no">https://wall.alphacoders.com/big.php?i=1043977</code>)<p>
 You must keep the <code translate="no">""</code> around the url. And you must ensure that you add a couple around the url you'll be using afterward. (there is a reminder in the label of the option)<p>
 The stylesheet is available on <a href="https://userstyles.world/style/1174/duckduckgo-background-image" target="_blank">userstyle.world</a><p>
-<a href="#toc" class="useFilter" data-filter="ddg"><b>List all DDG fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
 <img src="ddg-bg-img.jpg" alt="DDG with background image" width="850" height="446" loading="lazy"><p>
 </div>
 
@@ -1582,7 +1588,7 @@ Display text with the full datetime next to the default "vague" text.<br>
 The date format could be either in the full text string format, or as an ISO string.<p>
 
 The stylesheet is available on <a href="https://userstyles.world/style/27366/" target="_blank">userstyle.world</a><p>
-<a href="#toc" class="useFilter" data-filter="github"><b>List all GitHub fixes</b></a>
+<a href="#toc" class="useFilter" data-filter="GitHub"><b>List all GitHub fixes</b></a>
 <br>
 <p><img src="GH-date-time 3.jpg" width="589" height="229" loading="lazy"></p>
 <p><img src="GH-date-time 2.jpg" width="367" height="258" loading="lazy"></p>
@@ -1598,7 +1604,7 @@ While it’s not ugly, it can prevent from seeing the whole pattern of some avat
 
 After a year keeping it for myself, here it is.<p>
 The stylesheet is available on <a href="https://userstyles.world/style/1413/github-square-avatars" target="_blank">userstyle.world</a><p>
-<a href="#toc" class="useFilter" data-filter="github"><b>List all GitHub fixes</b></a>
+<a href="#toc" class="useFilter" data-filter="GitHub"><b>List all GitHub fixes</b></a>
 <br>
 <p class="fl mg2"><img src="GH-square issue.png" width="86" height="338" loading="lazy"></p>
 <p><img src="GH-square1.png" width="232" height="45" loading="lazy"></p>
@@ -1814,7 +1820,7 @@ In the new design, the top bar will be visible all the time. If you want to be a
 The userscript is available on <a href="https://greasyfork.org/scripts/406544-imdb-fullscreen-imageviewer" target="_blank">greasyfork.org</a> (preferred version).<br>
 The userstyle is available on <a href="https://userstyles.org/styles/177588/imdb-fullscreen-imageviewer" target="_blank">userstyles.org</a>.<p>
 Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" <!--, "<a href="#imdb">Fullscreen imageviewer</a>" <!-->, "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 <br>
 <img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer" width="750" height="375" loading="lazy"><p><br>
 With the new 2020 design:<p>
@@ -1842,7 +1848,7 @@ I’m still adding new style modifications. To see them, click Stylus icon. In t
 
 The userstyle is available on <a href="https://userstyles.world/style/852/imdb-fix-title-page" target="_blank">userstyle.world</a>.<p>
 Look at the other IMDb's fixes: <!--"<a href="#imdb_fixTitle">fix title page / title page old layout</a>" ,<!--> "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" , "<a href="#imdb">Fullscreen imageviewer</a>" , "<a href="#imdb_sort">Set default user reviews sorting</a>"<p>
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 <br>
 <i><b>(Actual screen size is 40% bigger than in images)</b></i>
 <p class="fl cmt ct clr"><img src="imdb-title-normal-m.gif" alt="IMBd title page - before" width="800" height="415" loading="lazy"><span>Before</span></p>
@@ -2154,7 +2160,7 @@ Available on <a href="https://userstyles.world/style/16940/" target="_blank">use
 From now on, the solution is to install a userscript : <a href="#imdb_stopjs">IMDb - stop scripts</a> (here on this page).<br>
 If you want an updated list of adblock filters (eg. "uBlock Origin"), you can find them there too.<p>
 
-<a href="#toc" class="useFilter" data-filter="imdb"><b>List all IMDb fixes</b></a><p>
+<a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
 
 <s>Each update to the IMDb site slows it down. I have discovered that simply adding the following user rules to your filters revives the site.
 <p>
@@ -2291,7 +2297,7 @@ var aliases={
 
 
 
-function popSearch() {
+function popuSearch() {
   var T=document.querySelectorAll('.toc li, .lst:not(.toc) h3');
   //console.info({T});
 
@@ -2313,6 +2319,8 @@ function popSearch() {
 var css;
 css=document.documentElement.appendChild(document.createElement('style'));
 css.id='cssfilter';
+
+var KW_labels, KW0;
 
 function SetFilter() {
   var c='', t=L.value;
@@ -2337,6 +2345,20 @@ function SetFilter() {
 `;
 
   //c+='';
+  if (!KW_labels) KW_labels=document.querySelectorAll('label[for^="KW_"]');
+  var KW;
+  for (let e,i=0; e=KW_labels[i]; i++) {
+    if (!L.value) break;
+    if ( L.value.toLowerCase() == e.innerText.toLowerCase() ) {
+      KW=e;
+      break;
+      }
+    }
+  if (KW0 !== KW) {
+    if (KW0) KW0.classList.remove('cur');
+    if (KW) KW.classList.add('cur');
+    KW0=KW;
+    }
 
   if (c != css.textContent) css.textContent=c;
   }
@@ -2345,7 +2367,7 @@ document.body.classList.add('vis');
 
 var L=document.querySelector('#lookup'), look=document.querySelector('#look');
 if (L)  {
-  L.onfocus=popSearch;
+  L.onfocus=popuSearch;
   L.oninput=SetFilter;
   L.onkeydown=SetFilter;
   //L.onkeypress=SetFilter;
@@ -2369,11 +2391,11 @@ location.search?.split('?')[1]?.split('&').forEach(function(x){
 //console.info(console.search, {LS});
 if (L && LS && LS.L) {
   L.value=LS.L;
-  //popSearch();
+  //popuSearch();
   //SetFilter();
   }
 if (L && L.value) {
-  popSearch();
+  popuSearch();
   SetFilter();
   }
 
@@ -2389,7 +2411,7 @@ if (LNK) {
 function useFilter(ev) {
   if (this.dataset.filter) L.value=this.dataset.filter;
   else L.value=this.innerText;
-  popSearch();
+  popuSearch();
   SetFilter();
   }
 
