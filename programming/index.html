@@ -1300,9 +1300,11 @@ By default, when not adding a userstyle, the link color of the new link in the r
 <li>from gray to lighter gray in darkmode
 </ul>
 <p>
+In the suggestion panel, the userscript should handle multi-channels correctly. With 2 channels, each name is a link ; with more, the first name is linked and the "missing" channels are each added as [1] [2] ... When the full text pertaining to the channel(s) can't fit in a single line, it expands when the mouse is moved over it.
+<p>
 Then when visited you can color it with my userstyle (in the screenshot), or you can target the classname css selector <code>._chan_lnk</code><p>
 
-There are still possible cases where no link will be added. When there are more than 2 channels collaborating (a fix is in the pipeline) and if there was a problem finding the correct channel id for that video.<p><br>
+There are still possible cases where no link will be added. If there was a problem finding the correct channel id for that video.<p><br>
 
 <img src="YT-chan-link.png" width="228" height="200" loading="lazy"><br>
 <br>
