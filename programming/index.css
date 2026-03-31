@@ -205,11 +205,13 @@ h3 a[name]::after {
   content: "broken";
   margin-left: calc( var(--tag-left) - 5.9em);
   background: darkmagenta;
+  opacity: .4;
 }
 .dep::before {
   content: "deprecated";
   margin-left: calc( var(--tag-left) - 7.7em);
   background: teal;
+  opacity: .4;
 }
 .upd.newest::before, .add.upd::before {
   margin-left: calc( var(--tag-left) - 7.3em);
