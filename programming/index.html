@@ -353,6 +353,9 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="imdb"><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></a></li>
 <li keyword="instagram" class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
 <li keyword="google"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
+
+<li keyword="reddit" class="add bef1_5"><a class="newest" href="#redditSort">Reddit - Subs - default sort <span class="LU">(2025-01-20) (2025-02-10)</span></a></li>
+
 <li><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
 <li class=""><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
 <li keyword="USO" class=""><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
@@ -1081,6 +1084,46 @@ Get the script from <a href="https://greasyfork.org/scripts/425053-no-google-doo
 <p>
 <a href="#toc" class="useFilter" data-filter="google"><b>List all google fixes</b></a><p>
 </div>
+
+
+
+<h3 class="lnk"><a name="redditSort" href="#js"></a>Reddit - Subs - default sort <span class="LU">(2025-01-20) (2025-02-10)</span></h3>
+<div class="nfo">
+Apply default sort to subs listing (feature missing in SHreddit)<p>
+
+With this userscript you can set a default sort order for posts in sub-reddits and on the homepage. It does that by rewriting all internal links on the reddit page.<p>
+
+You can set (or not) a global sort order for all subs. They will open in that order in place of SHreddit current default ("<i>Hot</i>").<br>
+Once you change the sort order of a sub-reddit (using SHreddit dropdown menu), the script uses it as the new default for that sub. Other subs will still use the global default.<br>
+The homepage order can also be stored (with the dropdown menu). The difference is that is doesn't use the global sort order. By default it is SHreddit's default ("<i>Best</i>").<p>
+
+The script also has an option to automatically redirect the sub to its order when a tab is opened with a link to an unsorted sub-reddit.<p>
+
+You can access the option by <b>double-clicking</b> the 15x15 pixels area at the top-left corner of the site (here displayed in yellow).<p>
+<img src="reddit-sort-dblclkArea.png" width="417" height="71" loading="lazy"><p>
+<br>
+It will display a first prompt for default sort.<p>
+<img src="reddit-sort-sort-prompt.png" width="445" height="195" loading="lazy"><p>
+<br>
+Hitting "<i>Esc</i>" or clicking "<i>Cancel</i>" ignores any modification.<br>
+Inputting an invalid value will result in the same prompt to be displayed again.<p>
+<br>
+Once that prompt has been filled or bypassed, a second one will ask you if you want to redirect <b>the landing page</b> to the stored sort order (if applicable).<p>
+<img src="reddit-sort-redirect-prompt.png" width="444" height="194" loading="lazy"><p>
+<br>
+<ul>
+<li>An empty field means no redirect
+<li>"True" or any undefined value means redirect if no order is specified in the url
+<li>"Force" means redirect to the stored sort order even in an order is in the url
+<li>"Ask" if you want the script to ask you if you want the page to be redirected. Works if the tab is in focus. Pages opened in the background are not redirected.
+</ul>
+<p>
+<br>
+Get the script from <a href="https://greasyfork.org/scripts/524564" target="_blank">greasyfork.org</a><p>
+<br>
+</div>
+
+
 
 <h3 class="lnk"><a name="styleShadow" href="#js"></a>Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></h3>
 <div class="nfo">
