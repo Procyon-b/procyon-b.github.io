@@ -2375,7 +2375,8 @@ function SetFilter() {
   if (t) c=`
 .inToc:has(.lookup #look:checked) a[name] {
   position: absolute;
-  top: 0px;
+  /*top: 0px;/**/
+  top: -.5em;
 }
 
 #tools:has(.lookup #look:checked) ~ .toc > :is(h3, div, h5, p),
