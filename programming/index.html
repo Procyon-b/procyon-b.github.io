@@ -251,7 +251,7 @@ label.cur {
 
 <h1>Achernar's programming page</h1>
 <div>
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-04-15</i><p>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-04-16</i><p>
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
 I'm planning now to update the page and add new elements in the near future.<p>
 
@@ -393,7 +393,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="USO" class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
 <li keyword="youtube yt" class="new newA add bef_5"><a href="#YT_endscreen">Youtube - endscreen config <span class="LU">(2026-03-03)</span></a></li>
 <li keyword="youtube yt" class="new newA add bef_5"><a href="#YT_fullscreen_scroll">Youtube - fullscreen scroll <span class="LU">(2025-08-27)</span></a></li>
-<li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_noPink">Youtube - no pink <span class="LU">(2026-03-03) (2026-04-15)</span></a></li>
+<li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_noPink">Youtube - no pink <span class="LU">(2026-03-03) (2026-04-16)</span></a></li>
 <li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_no_bg_effect">Youtube - remove background effect <span class="LU">(2026-03-03) (2026-04-07)</span></a></li>
 
 
@@ -2124,7 +2124,7 @@ Available on <a href="https://userstyles.world/style/27145/" target="_blank">use
 </div>
 
 
-<h3 class="lnk" keyword="youtube yt"><a name="YT_noPink" href="#css"></a>Youtube - no pink <span class="LU">(2026-03-03) (2026-04-15)</span></h3>
+<h3 class="lnk" keyword="youtube yt"><a name="YT_noPink" href="#css"></a>Youtube - no pink <span class="LU">(2026-03-03) (2026-04-16)</span></h3>
 <div class="nfo">
 Reset the pink shades in logos, progress bars back to the original red.<p>
 
@@ -2363,7 +2363,7 @@ var aliases={
   'YT_visited': ['yt'],/**/
   };
 
-
+var labels=['new', 'newest', 'upd', 'dep', 'broken', 'add'];
 
 function popuSearch() {
   var T=document.querySelectorAll('.toc li, .lst:not(.toc) h3');
@@ -2371,17 +2371,38 @@ function popuSearch() {
 
   for (let e of T) {
     let alias='';
-    for (let k in aliases) {
+    /*for (let k in aliases) {
       //console.info(k);
       if ( e.querySelector(':scope a[href="#'+k+'"]') || 
            e.querySelector(':scope a[name="'+k+'"]') ) {
         alias+=' '+aliases[k].join(' ');
         }
-      
-      }
+      }/**/
     let kw=(e.attributes.keyword?.value || '').replace(/ /g,' ');
     if (e.clientWidth) e.setAttribute('search', e.innerText.replace(/ *\([\d\-]+\).*$/,'')+alias+' '+kw );
     }
+  }
+
+function addKw(e, k) {
+  let kw=(e.attributes.keyword?.value || '').split(' ');
+  if (kw.includes(k)) return;
+  kw.push(k);
+  e.setAttribute('keyword', kw.join(' ') )
+  }
+// search by label - add label to keywords
+for (let L of labels) {
+  // update menu items
+  let E=document.querySelectorAll('.mnu .'+L);
+  E.forEach(function(x){
+    let e=x.closest('LI');
+    if (!e) return;
+    addKw(e, '_'+L);
+    // add to description too
+    let t=e.querySelector(':scope a[href^="#"]');
+    if (!t) return;
+    t=document.querySelector('h3:has(a[name="'+t.hash.split('#')[1]+'"])');
+    if (t) addKw(t, '_'+L);
+    });
   }
 
 var css;
