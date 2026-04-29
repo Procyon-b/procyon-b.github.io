@@ -178,11 +178,11 @@
 }
 
 .inToc:has( > input#KW_USO:checked) .toc > :is(h3, div, h5, p),
-.inToc:has( > input#KW_USO:checked) .toc li:not([keyword=="USO"i]),
-.inToc:has( > input#KW_USO:checked) ~ .lst > .multiL:not(:has( > h3[keyword=="USO"i])):not(:has(h3 a:target)),
-.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([keyword=="USO"i]),
-.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([keyword=="USO"i]) + div.nfo,
-.inToc:has( > input#KW_USO:checked) ~ h2:not(:has(+ .lst h3[keyword=="USO"i])) {
+.inToc:has( > input#KW_USO:checked) .toc li:not([keyword*="USO"i]),
+.inToc:has( > input#KW_USO:checked) ~ .lst > .multiL:not(:has( > h3[keyword*="USO"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([keyword*="USO"i]),
+.inToc:has( > input#KW_USO:checked) ~ .lst > h3:not([keyword*="USO"i]) + div.nfo,
+.inToc:has( > input#KW_USO:checked) ~ h2:not(:has(+ .lst h3[keyword*="USO"i])) {
   display: none;
   opacity: .4;
 }
