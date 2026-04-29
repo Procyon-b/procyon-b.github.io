@@ -209,15 +209,19 @@ h1::before {
 li:is(.newest, .upd, .new)::after {
   display: none;
 }/**/
-a[href="#NO"] {
+a:is([href^="#NO"],:not([name]).NO) {
   outline: 2px solid lightgray;
 }
-li:has(a[href="#NO"])::marker {
+li:has(a:is([href^="#NO"],.NO))::marker {
   color: red;
   color: yellow;
 }
-li:has(a[href="#NO"]) {
+li:has(a:is([href^="#NO"],.NO)) {
   display: none !important;
+}
+h3.lnk:has(a:is([href^="#NO"],.NO)),
+h3.lnk:has(a:is([href^="#NO"],.NO)) + div {
+  display: none;
 }
 .inToc > .empty {
   position: absolute;
@@ -251,7 +255,7 @@ label.cur {
 
 <h1>Achernar's programming page</h1>
 <div>
-I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-04-24</i><p>
+I'm still adding new links. Visit in the coming weeks to see updates. <i class="LU">Last update: 2026-04-29</i><p>
 Due to health issues, I was off for a long time and didn't bother yet to come back here since then. <i class="LU">Last update: 2025-08-13</i><br>
 I'm planning now to update the page and add new elements in the near future.<p>
 
@@ -333,10 +337,11 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <a name="js"> </a>
 <h3 class="userjs">Javascript userscripts</h3>
 <ul class="mnu">
-
-
 <li keyword="DDD DDG duckduckgo" class="new"><a href="#DaxDuckDex">DaxDuckDex - enhance search function <span class="LU">(2026-03-19)</span></a></li>
 
+<li keyword="DDG" class="newest"><a href="#ddg_BL_export">DuckDuckGo - Blocklist export/import<span class="LU">(2026-04-29)</span></a></li>
+<li keyword="DDG" class="newest"><a href="#ddg_enforce_darkmode">DuckDuckGo - Homepage in darkmode without flashing<span class="LU">(2026-04-29)</span></a></li>
+<li keyword="DDG" class="newest"><a href="#ddg_keep_BL">DuckDuckGo - Keep blocked sites<span class="LU">(2026-04-29)</span></a></li>
 
 <li keyword="DDG" class="new"><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></a></li>
 <li keyword="GitHub" class="dep"><a href="#GH_sort">GitHub - add links to sort by most recently updated <span class="LU">(2018-12-27) (2023-04-08)</span></a></li>
@@ -397,7 +402,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_no_bg_effect">Youtube - remove background effect <span class="LU">(2026-03-03) (2026-04-07)</span></a></li>
 
 
-<li keyword="youtube yt" class="newest newA add bef1_5"><a href="#NO">Youtube - right-side panel size (suggestions) <span class="LU">(2026-03-03)</span></a></li>
+<li keyword="youtube yt" class="newest newA add bef1_5"><a class="NO" href="#NO">Youtube - right-side panel size (suggestions) <span class="LU">(2026-03-03)</span></a></li>
 
 
 <li keyword="youtube yt" class="upd bef2_5"><a class="newest newA add bef1_5" href="#YT-rightScroll">Youtube - scrollable right-side suggestions <span class="LU">(2026-03-03) (2026-04-23)</span></a></li>
@@ -620,6 +625,79 @@ Get the script from <a href="https://greasyfork.org/scripts/570295" target="_bla
 </div>
 
 
+<h3 class="lnk" keyword="DDG duckduckgo"><a name="ddg_BL_export" href="#js"></a>DuckDuckGo - Blocklist export/import <span class="LU">(2026-04-29)</span></h3>
+<div class="nfo">
+<div class="warning" ostyle="color: red; font-weight: bold;">This script is still in early beta. It isn't bug-free (maybe it is).<br>
+Report any problem on the greasyfork page. Your feedback will improve it.<br>
+Note that it only runs on the "<i>Settings</i>" page ; it doesn't/can't affect other pages.
+</div><br>
+
+Allows exporting and importing your DDG blocklist to/from a file on your computer. Very useful if you use "<i><a href="#ddg_blocklist">DuckDuckGo - Remove 5-sites blocklist limit</a></i>" to remove the 5 sites limit.<br>
+Importing merges the backed up list with the current list. You'll need to remove all sites if you only want its sites.
+So, backup the current list before importing.<p>
+
+2 buttons are added in DDG's "<i>Settings</i>" page, in the "<i>General</i>" tab, below the "<i>Blocked Sites</i>" list.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/575942" target="_blank">greasyfork.org</a><p>
+Use this script with these ones:
+<ul>
+<li>"<a href="#ddg_blocklist">Remove 5-sites blocklist limit</a>" removes the limit of 5 sites in DDG's blocklist.
+<li>"<a href="#ddg_keep_BL">Keep blocked sites</a>" to prevent the blocklist to be erased if you use DDG's "<i>Cloud Save</i>".
+</ul>
+<br>
+<img src="DDG-BL_export.jpg" alt="DDG added buttons" width="617" height="181" loading="lazy"><p>
+
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
+<p>
+
+<br>
+</div>
+
+
+
+<h3 class="lnk" keyword="DDG duckduckgo"><a name="ddg_enforce_darkmode" href="#js"></a>DuckDuckGo - Homepage in darkmode without flashing <span class="LU">(2026-04-29)</span></h3>
+<div class="nfo">
+If you see the DDG homepage in lightmode before it switches to darkmode, this userscript will enforce the darkmode as fast as possible (usually I don't see the flash at all).<p>
+
+While the background will respect the darkmode, the font color might be lighter or darker until the correct stylesheet is loaded by the site.<p>
+
+Get the script from <a href="https://greasyfork.org/scripts/575936" target="_blank">greasyfork.org</a><p>
+
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
+<p>
+
+<br>
+</div>
+
+
+
+
+<h3 class="lnk" keyword="DDG duckduckgo"><a name="ddg_keep_BL" href="#js"></a>DuckDuckGo - Keep blocked sites <span class="LU">(2026-04-29)</span></h3>
+<div class="nfo">
+<div class="warning" ostyle="color: red; font-weight: bold;">This script is still in early beta. It isn't bug-free (maybe it is).<br>
+Report any problem on the greasyfork page. Your feedback will improve it.<br>
+You can use "<i><a href="#ddg_BL_export">DuckDuckGo - Blocklist export/import</a></i>" to backup your list regularly. Better safe than sorry.<br>
+It is only useful if you are using DDG's "<i>Cloud Save</i>" feature. Don't install it if you are not.
+</div><br>
+
+If you use DDG's "<i>Cloud Save</i>" to save and load your DDG setting, the "<i>blocked sites</i>" list is flushed when settings are loaded.
+This userscript keeps a backup copy of the list and restores it when it notices that it has been erased.<p>
+ 
+Get the script from <a href="https://greasyfork.org/scripts/575943" target="_blank">greasyfork.org</a><p>
+Use this script with these ones:
+<ul>
+<li>"<a href="#ddg_blocklist">Remove 5-sites blocklist limit</a>" removes the limit of 5 sites in DDG's blocklist.
+<li>"<a href="#ddg_BL_export">Blocklist export/import</a>" to backup and restore a long list of blocked domains.
+</ul>
+<br>
+<a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
+<p>
+
+<br>
+</div>
+
+
+
 
 <h3 class="lnk" keyword="DDG"><a name="ddg_blocklist" href="#js"></a>DuckDuckGo - Remove 5-sites blocklist limit <span class="LU">(2026-01-23) (2026-03-02)</span></h3>
 <div class="nfo">
@@ -640,6 +718,15 @@ The possible values are:<br>
 </ul><p>
 
 Get the script from <a href="https://greasyfork.org/scripts/563691" target="_blank">greasyfork.org</a><p>
+Use this script with these ones:
+<ul>
+<li>"<a href="#ddg_BL_export">Blocklist export/import</a>" to backup and restore a long list of blocked domains.
+<li>"<a href="#ddg_keep_BL">Keep blocked sites</a>" to prevent the blocklist to be erased if you use DDG's "<i>Cloud Save</i>".
+</ul>
+<br>
+
+<img src="DDG-BL_more_5.jpg" alt="DDG blocklist. More than 5 sites" width="626" height="299" loading="lazy"><p>
+
 <a href="#toc" class="useFilter" data-filter="DuckduckGo"><b>List all DDG fixes</b></a><p>
 
 </div>
@@ -1868,7 +1955,7 @@ The userscript is available on <a href="https://greasyfork.org/scripts/406544-im
 The userstyle is available on <a href="https://userstyles.org/styles/177588/imdb-fullscreen-imageviewer" target="_blank">userstyles.org</a>.<p>
 Look at the other IMDb's fixes: "<a href="#imdb_fixTitle">fix title page / title page old layout</a>" , "<a href="#imdb_fix_rating">fix rating</a>" , "<a href="#imdb_lnk">Fix links</a>" , "<a href="#imdb_stopjs">Stop scripts</a>" <!--, "<a href="#imdb">Fullscreen imageviewer</a>" <!-->, "<a href="#imdb_sort">Set default user reviews sorting</a>"<br><br>
 <a href="#toc" class="useFilter" data-filter="IMDb"><b>List all IMDb fixes</b></a><p>
-<br>
+ÿ r>
 <img src="imdb-css-mediaviewer.gif" alt="IMBd mediaviewer" width="750" height="375" loading="lazy"><p><br>
 With the new 2020 design:<p>
 <p class="fl cmt ct"><img src="imdb-img.2020.gif" alt="IMBd mediaviewer" width="400" height="224" loading="lazy"><span>Early stages of the 2020 design</span></p>
@@ -2282,7 +2369,7 @@ La seconde partie de cette solution est de charger les images de la page avec un
 On the <a target="_blank" href="https://chrome.google.com/webstore/detail/awesome-cookie-manager/hcpidejphgpcgfnpiehkcckkkemgneif">chrome web store</a>.<br>
 Its <a target="_blank" href="https://github.com/Phatsuo/awesome-cookie-manager">GitHub page</a>.<br>
 <br>
-</div>
+ÿ di缅
 
 <h3 class="lnk"><a name="oth_dacse" href="#oth"></a>Don't add custom search engines (chrome extension)</h3>
 <div class="nfo">Google Chrome extension that stops sites from adding custom search engines.<p>
@@ -2426,10 +2513,10 @@ function SetFilter() {
 #tools:has(.lookup #look:checked) ~ .toc > :is(h3, div, h5, p),
 #tools:has(.lookup #look:checked) ~ .toc li:not([search*="${t}"i]),
 .inToc:has(.lookup > #look:checked) ~ .lst > .multiL:not(:has( > h3[search*="${t}"i])):not(:has(h3 a:target)),
-.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]),
-.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]) + div.nfo,
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]):not(:has(a:target)),
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]):not(:has(a:target)) + div.nfo,
 .inToc:has(.lookup > #look:checked) ~ h2:not(:has(+ .lst h3[search*="${t}"i])) {
-  display: none;
+  display: none !important;
   opacity: .4;
 }
 `;

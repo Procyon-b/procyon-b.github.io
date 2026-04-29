@@ -458,3 +458,13 @@ body.vis a.useFilter {
   font-family: courier new;
   font-weight: bold;
 }
+
+.warning {
+  background: #EEEEEE;
+  color: red;
+  font-weight: bold;
+  padding: .5em;
+}
+.warning * {
+  color: red;
+}
