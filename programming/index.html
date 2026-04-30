@@ -244,8 +244,11 @@ h3.lnk:has(a:is([href^="#NO"],.NO)) + div {
 a[name="toc"] {
   margin-top: -.5em;
 }
-label.cur {
+label.cur:not(:empty) {
   outline: 2px solid red;
+}
+label.cur:empty::before {
+   outline: 4px solid blue;
 }
 
 </style>
@@ -278,6 +281,10 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <input id="KW_reddit" name="KW" class="kw" type="radio" value="reddit">
 <input id="KW_USO" name="KW" class="kw" type="radio" value="userstyles.org">
 <input id="KW_youtube" name="KW" class="kw" type="radio" value="youtube">
+<input id="LB_new" name="KW" class="kw" type="radio" value="_new">
+<input id="LB_newest" name="KW" class="kw" type="radio" value="_newest">
+<input id="LB_added" name="KW" class="kw" type="radio" value="_add">
+<input id="LB_upd" name="KW" class="kw" type="radio" value="_upd">
 
 <div id="tools">
 <div class="lookup">Quick lookup: <input id="lookup" type="text" placeholder=" ">
@@ -309,6 +316,10 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <label for="KW_reddit" class="keyword">reddit</label>
 <label for="KW_USO" class="keyword">userstyles.org</label>
 <label for="KW_youtube" class="keyword">youtube</label>
+<label for="LB_new" class="keyword new" data-filter="_new"></label>
+<label for="LB_newest" class="keyword newest" data-filter="_newest"></label>
+<label for="LB_added" class="keyword add" data-filter="_add"></label>
+<label for="LB_upd" class="keyword upd" data-filter="_upd"></label>
 </div>
 </div>
 
@@ -352,7 +363,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="google" class="multiT" langs="en fr"><a href="#GfixTLD"><span lang="en">Google - fix TLD links</span><span lang="fr">Google - corriger l'extension TLD des liens</span> <span class="LU">(2019-10-24)</span></a></li>
 <li keyword="google" class="new upd bef1"><a href="#googleImage_size_fetch">Google images - fetch dimensions - "show size" companion <span class="LU">(2026-02-26) (2026-03-11)</span></a></li>
 <li keyword="imdb"><a href="#imdb_lnk">IMDb - fix links <span class="LU">(2021-04-23) (2021-09-06)</span></a></li>
-<li keyword="imdb" class=""><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2023-05-15)</span></a></li>
+<li keyword="imdb"><a href="#imdb_fix_rating">IMDb - fix rating <span class="LU">(2022-03-13) (2023-05-15)</span></a></li>
 <li keyword="imdb"><a href="#imdb">IMDb - fullscreen imageviewer <span class="LU">(2019-11-23) (2022-03-20)</span></a></li>
 <li keyword="imdb"><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
 <li keyword="imdb"><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></a></li>
@@ -362,9 +373,9 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="reddit" class="add bef_5"><a class="new" href="#redditSort">Reddit - Subs - set default sort <span class="LU">(2025-01-20) (2025-02-10)</span></a></li>
 
 <li><a href="#styleShadow">Style shadowDOM with userstyles <span class="LU">(2023-02-10) (2023-02-12)</span></a></li>
-<li class=""><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
-<li keyword="USO" class=""><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
-<li keyword="USO" class=""><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
+<li><a href="#tr">Translate webpage <span class="LU">(2023-07-14)</span></a></li>
+<li keyword="USO"><a href="#USO_linkUSOa">userstyles.org - add "USO archive" button on an userstyle page <span class="LU">(2022-04-11) (2023-04-07)</span></a></li>
+<li keyword="USO"><a href="#USO_moredata">userstyles.org - Display additional infos & fixes <span class="LU">(2023-03-21) (2023-06-13)</span></a></li>
 <li keyword="USO"><a href="#USO_edit">userstyles.org - fix style editor's page height <span class="LU">(2021-08-29) (2023-02-24)</span></a></li>
 <li keyword="USO" class="dep"><a href="#USO_forceclassic">userstyles.org - Force site's classic design <span class="LU">(2023-02-24) (2023-03-01)</span></a></li>
 <li keyword="USOa"><a href="#USOa_src">USO archive - Show style's source code <span class="LU">(2023-02-20) (2023-03-01)</span></a></li>
@@ -375,7 +386,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="archive" class="multiT" langs="en fr"><a href="#WB_tt"><span lang="en">Wayback Machine - toolbar toggler</span><span lang="fr">Wayback Machine - (dé)masquer la barre d'outils</span> <span class="LU">(2020-04-22) (2022-09-03)</span></a></li>
 <li keyword="9gag"><a href="#9gag_dislikes">9gag - Return dislike count <span class="LU">(2023-05-18) (2023-07-15)</span></a></li>
 <li keyword="9gag" class="upd"><a href="#9gag_scrl">9gag - Scroll down to current position <span class="LU">(2022-09-19) (2026-03-28)</span></a></li>
-<li keyword="9gag" class=""><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
+<li keyword="9gag"><a href="#9gag_nsfw">9gag - unblock NSFW - posts & comments <span class="LU">(2023-06-22) (2023-06-23)</span></a></li>
 </ul>
 <a name="css"> </a>
 <h3 class="css">CSS userstyle (Non-programming)</h3>
@@ -395,7 +406,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="reddit" class="dep"><a href="#reddit_fixnotif">Reddit - fix notifications not marked as visited in menu <span class="LU">(2023-03-12)</span></a></li>
 <li class="multiT dep" langs="en fr"><a href="#tuinFix"><span lang="en">Tuinadvies/Matelma - Fix CPU consumption</span><span lang="fr">Tuinadvies/Matelma - Corriger la surcharge du processeur</span> <span class="LU">(2020-04-27)</span></a></li>
 <li class="multiT upd" langs="en fr"><a href="#tuin"><span lang="en">Tuinadvies/Matelma smaller header</span><span lang="fr">Tuinadvies/Matelma petit bandeau</span> <span class="LU">(2019-09-26) (2026-03-30)</span></a></li>
-<li keyword="USO" class=""><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
+<li keyword="USO"><a href="#USO_fixnew">userstyles.org - Fix new site's design <span class="LU">(2023-02-24) (2023-06-13)</span></a></li>
 <li keyword="youtube yt" class="new newA add bef_5"><a href="#YT_endscreen">Youtube - endscreen config <span class="LU">(2026-03-03)</span></a></li>
 <li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_fullscreen_scroll">Youtube - fullscreen scroll <span class="LU">(2025-08-27) (2026-04-19)</span></a></li>
 <li keyword="youtube yt" class="upd bef1_5"><a class="new newA add bef_5" href="#YT_noPink">Youtube - no pink <span class="LU">(2026-03-03) (2026-04-21)</span></a></li>
@@ -2471,11 +2482,20 @@ function popuSearch() {
   }
 
 function addKw(e, k) {
+  var L=(e.attributes.labels?.value || '').split(' ');
+  if (!L.includes(k)) {
+    L.push(k);
+    e.setAttribute('labels', L.join(' ') );
+    }
+  return;
+  /*
   let kw=(e.attributes.keyword?.value || '').split(' ');
   if (kw.includes(k)) return;
   kw.push(k);
-  e.setAttribute('keyword', kw.join(' ') )
+  e.setAttribute('keyword', kw.join(' ') );
+  /**/
   }
+
 // search by label - add label to keywords
 for (let L of labels) {
   // update menu items
@@ -2499,9 +2519,11 @@ css.id='cssfilter';
 var KW_labels, KW0;
 
 function SetFilter() {
-  var c='', t=L.value;
+  var c='', t=L.value, prm='search';
   if (t) t=L.value=t.replace(/^\s+/, '');
   look.checked=true;
+  
+  if (t.startsWith('_')) prm='labels';
 
   if (t) c=`
 .inToc:has(.lookup #look:checked) a[name] {
@@ -2511,22 +2533,22 @@ function SetFilter() {
 }
 
 #tools:has(.lookup #look:checked) ~ .toc > :is(h3, div, h5, p),
-#tools:has(.lookup #look:checked) ~ .toc li:not([search*="${t}"i]),
-.inToc:has(.lookup > #look:checked) ~ .lst > .multiL:not(:has( > h3[search*="${t}"i])):not(:has(h3 a:target)),
-.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]):not(:has(a:target)),
-.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([search*="${t}"i]):not(:has(a:target)) + div.nfo,
-.inToc:has(.lookup > #look:checked) ~ h2:not(:has(+ .lst h3[search*="${t}"i])) {
+#tools:has(.lookup #look:checked) ~ .toc li:not([${prm}*="${t}"i]),
+.inToc:has(.lookup > #look:checked) ~ .lst > .multiL:not(:has( > h3[${prm}*="${t}"i])):not(:has(h3 a:target)),
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([${prm}*="${t}"i]):not(:has(a:target)),
+.inToc:has(.lookup > #look:checked) ~ .lst > h3:not([${prm}*="${t}"i]):not(:has(a:target)) + div.nfo,
+.inToc:has(.lookup > #look:checked) ~ h2:not(:has(+ .lst h3[${prm}*="${t}"i])) {
   display: none !important;
   opacity: .4;
 }
 `;
 
   //c+='';
-  if (!KW_labels) KW_labels=document.querySelectorAll('label[for^="KW_"]');
+  if (!KW_labels) KW_labels=document.querySelectorAll('label:is([for^="KW_"],[for^="LB_"])');
   var KW;
-  for (let e,i=0; e=KW_labels[i]; i++) {
-    if (!L.value) break;
-    if ( L.value.toLowerCase() == e.innerText.toLowerCase() ) {
+  if (L.value) for (let e,i=0; e=KW_labels[i]; i++) {
+    //if (!L.value) break;
+    if ( L.value.toLowerCase() == (e.innerText.toLowerCase() || e.dataset.filter) ) {
       KW=e;
       break;
       }

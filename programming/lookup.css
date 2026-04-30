@@ -208,3 +208,6 @@
   opacity: .4;
 }
 
+label[for^="LB_"] {
+  display: none;
+}

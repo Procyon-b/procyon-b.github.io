@@ -453,6 +453,16 @@ body.vis a.useFilter {
   cursor: pointer;
 }
 
+label:empty {
+  background: none;
+  padding: 0;
+}
+label:empty::before {
+  position: static !important;
+  margin-left: unset !important;
+  vertical-align: top;
+}
+
 #tgLC, #itfLC {
   width: 3em;
   font-family: courier new;
