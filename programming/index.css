@@ -288,6 +288,7 @@ p.num {
 p.num > span {
   vertical-align: top;
   background: lightblue;
+  color: black;
   border-radius: 0 0.6em 0.6em 0;
   padding-right: 0.4em;
 }
@@ -371,7 +372,7 @@ body>div[style="position:relative;"], body>div.cacheContent {
 li a > span.LU::before,
 li a:not(:has( > span.LU))::after {
   content: var(--sec);
-  background: yellow;
+  background: var(--yellowBG);
   color: black;
   display: inline-block;
   line-height: 1em;
@@ -425,7 +426,8 @@ body.vis a.useFilter {
   user-select: none;
 }
 .keyword {
-  background: yellow;
+  background: var(--yellowBG);
+  color: black;
   font-size: 13px;
   padding: 3px 5px;
   margin: 5px;
@@ -470,11 +472,17 @@ label:empty::before {
 }
 
 .warning {
-  background: #EEEEEE;
+  obackground: #EEEEEE;
+  background: var(--warnBG);
   color: red;
   font-weight: bold;
   padding: .5em;
 }
 .warning * {
-  color: red;
+  color: red !important;
+}
+
+:root {
+  --warnBG: #EEEEEE;
+  --yellowBG: yellow;
 }
