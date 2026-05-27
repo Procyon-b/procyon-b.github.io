@@ -288,6 +288,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <input id="KW_google" name="KW" class="kw" type="radio" value="google">
 <input id="KW_IMDb" name="KW" class="kw" type="radio" value="IMDb">
 <input id="KW_instagram" name="KW" class="kw" type="radio" value="instagram">
+<input id="KW_qwant" name="KW" class="kw" type="radio" value="qwant">
 <input id="KW_reddit" name="KW" class="kw" type="radio" value="reddit">
 <input id="KW_startpage" name="KW" class="kw" type="radio" value="startpage">
 <input id="KW_USO" name="KW" class="kw" type="radio" value="userstyles.org">
@@ -324,6 +325,7 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <label for="KW_google" class="keyword">google</label>
 <label for="KW_IMDb" class="keyword">IMDb</label>
 <label for="KW_instagram" class="keyword">instagram</label>
+<label for="KW_qwant" class="keyword">qwant</label>
 <label for="KW_reddit" class="keyword">reddit</label>
 <label for="KW_startpage" class="keyword">startpage</label>
 <label for="KW_USO" class="keyword">userstyles.org</label>
@@ -380,6 +382,12 @@ I'm planning now to update the page and add new elements in the near future.<p>
 <li keyword="imdb"><a href="#imdb_sort">IMDb - Set default user reviews sorting <span class="LU">(2021-10-08)</span></a></li>
 <li keyword="imdb"><a href="#imdb_stopjs">IMDb - stop scripts <span class="LU">(2021-08-24) (2022-04-10)</span></a></li>
 <li keyword="instagram" class="multiT" langs="en fr"><a href="#insta_noLog"><span lang="en">Instagram - browse not logged</span><span lang="fr">Instagram - naviguer non-identifié</span> <span class="LU">(2020-05-10) (2023-04-05)</span></a></li>
+
+
+<li keyword="qwant" class="newest"><a href="#qwfullURL">Qwant - add page url to thumbnails <span class="LU">(2026-05-27)</span></a></li>
+<li keyword="qwant" class="newest"><a href="#qwfullLinkURL">Qwant - add clickable page url to thumbnails <span class="LU">(2026-05-27)</span></a></li>
+
+
 <li keyword="google"><a href="#GDoodle">No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></a></li>
 
 <li keyword="reddit" class=""><a class="" href="#redditSort">Reddit - Subs - set default sort <span class="LU">(2025-01-20) (2025-02-10)</span></a></li>
@@ -1195,6 +1203,77 @@ Le script est disponible sur <a href="https://greasyfork.org/scripts/403031-inst
 
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="lnk" keyword="qwant"><a name="qwfullURL" href="#js"></a>Qwant - add page url to thumbnails <span class="LU">(20260527)</span></h3>
+<div class="nfo">
+Adds the full url of the page to the Qwant images results.<br>
+This information is unavailable by default and can't be used to filter results with an ad-blocker.<p>
+The information is added as an attribute to 2 elements, the thumbnail top html element, and the link element just below.<br> 
+<code>
+&lt;div ... data-page-url="https://any.web.site/with/a/path"&gt;<br>
+&lt;a data-testid="imageResult" ... data-page-url="https://any.web.site/with/a/path"&gt;
+</code>
+<p>
+<br>
+
+Get the script from <a href="https://greasyfork.org/scripts/580016" target="_blank">greasyfork.org</a><br>
+<p>
+<a href="#toc" class="useFilter" data-filter="qwant"><b>List all Qwant fixes</b></a><p>
+</div>
+
+
+
+<h3 class="lnk" keyword="qwant"><a name="qwfullLinkURL" href="#js"></a>Qwant - add clickable page url to thumbnails <span class="LU">(20260527)</span></h3>
+<div class="nfo">
+Script similar to "Qwant - add page url to thumbnails", but adds a link too.<p>
+Adds the full url of the page to the Qwant images results.<br>
+This information is unavailable by default and can't be used to filter results with an ad-blocker.<p>
+The information is added as an attribute to 2 elements, the thumbnail top html element, and the link element just below.<br> 
+<code>
+&lt;div ... data-page-url="https://any.web.site/with/a/path"&gt;<br>
+&lt;a data-testid="imageResult" ... data-page-url="https://any.web.site/with/a/path"&gt;
+</code>
+<p><br>
+<b>The added element</b> with this script is a link to the page which opens a new tab when you click the text below the thumbnail.
+Clicking the thumbnail still opens the info-card as usual.<p>
+<br>
+
+Get the script from <a href="https://greasyfork.org/scripts/580017" target="_blank">greasyfork.org</a><br>
+<p>
+<a href="#toc" class="useFilter" data-filter="qwant"><b>List all Qwant fixes</b></a><p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <h3 class="lnk" keyword="google"><a name="GDoodle" href="#js"></a>No Google doodle <span class="LU">(2021-04-14) (2023-02-14)</span></h3>
 <div class="nfo">
