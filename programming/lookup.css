@@ -167,6 +167,27 @@
 }
 
 
+/*startpage*/
+.inToc:has( > input#KW_startpage:checked) label[for="KW_startpage"] {
+  outline: 2px solid red;
+}
+
+.inToc:has( > input#KW_startpage:checked) a[name] {
+  position: absolute;
+  top: 0px;
+}
+
+.inToc:has( > input#KW_startpage:checked) .toc > :is(h3, div, h5, p),
+.inToc:has( > input#KW_startpage:checked) .toc li:not([keyword*="startpage"i]),
+.inToc:has( > input#KW_startpage:checked) ~ .lst > .multiL:not(:has( > h3[keyword*="startpage"i])):not(:has(h3 a:target)),
+.inToc:has( > input#KW_startpage:checked) ~ .lst > h3:not([keyword*="startpage"i]),
+.inToc:has( > input#KW_startpage:checked) ~ .lst > h3:not([keyword*="startpage"i]) + div.nfo,
+.inToc:has( > input#KW_startpage:checked) ~ h2:not(:has(+ .lst h3[keyword*="startpage"i])) {
+  display: none;
+  opacity: .4;
+}
+
+
 /*uso*/
 .inToc:has( > input#KW_USO:checked) label[for="KW_USO"] {
   outline: 2px solid red;
